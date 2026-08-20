@@ -117,6 +117,11 @@ const Book = () => {
   const handleFlip = (e) => {
     setActivePage(e.data);
     setIsClosing(false);
+    if (e.data === 0) {
+      setIsLanding(true);
+    } else {
+      setIsLanding(false);
+    }
   };
 
   const { width, height, portrait } = dims;
@@ -292,7 +297,7 @@ const Book = () => {
               transition: "transform 1s cubic-bezier(0.645, 0.045, 0.355, 1)"
             }}
           >
-            <div style={{ position: "relative", width: portrait ? width : width * 2, height: height, pointerEvents: isLanding ? 'none' : 'auto' }}>
+            <div style={{ position: "relative", width: portrait ? width : width * 2, height: height, pointerEvents: 'auto' }}>
               <div 
                 className="book-dynamic-shadow"
                 style={{
@@ -336,6 +341,12 @@ const Book = () => {
                       key={page.id}
                       className="book-cover open-cover"
                       data-density="hard"
+                      onClick={() => {
+                        if (bookRef.current && bookRef.current.pageFlip()) {
+                          bookRef.current.pageFlip().flip(1);
+                        }
+                      }}
+                      style={{ cursor: "pointer" }}
                     >
                       <img
                         src={coverImg}
