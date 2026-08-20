@@ -923,12 +923,15 @@
     background: url('../../assets/bgimg.jpeg') center / cover no-repeat fixed #0d1b2a;
   }
 
-  /* Landing Page Mobile Fixes */
+  /* Landing Page Mobile Fixes - Pure Flex Layout */
   .landing-overlay {
     position: relative;
-    padding: 2px 15px;
-    flex-direction: column;
-    justify-content: flex-start;
+    padding: 10px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     overflow-y: visible;
     height: auto;
   }
@@ -937,25 +940,31 @@
     height: 100vh;
     height: 100dvh;
     overflow-y: auto;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     padding: 6px 8px;
   }
 
   .landing-left {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    margin-top: 4px;
-    height: auto;
+    display: contents; /* Unwraps children to be direct children of .landing-overlay */
   }
 
   .landing-logo {
-    display: none; /* Hide left logo, we can keep it clean on mobile */
+    display: block !important;
+    position: static;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin: 0;
+    white-space: nowrap;
+    order: 1; /* Left side */
   }
 
   .landing-text-content {
-    margin-top: 0;
+    margin-top: 20px;
     align-items: center;
+    order: 3; /* Push below the header row */
+    flex-basis: 100%;
   }
 
   .landing-heading {
@@ -1009,19 +1018,40 @@
   .landing-copyright-wrapper {
     width: 100%;
     text-align: center;
-    margin-top: 4px;
+    margin-top: auto;
     margin-bottom: 8px;
     padding-top: 8px;
   }
 
   .landing-right-top {
     position: static;
-    order: -1;
-    width: 100%;
-    justify-content: center;
+    order: 2; /* Right side */
+    width: auto;
+    justify-content: flex-end;
     padding: 0;
-    margin-bottom: 4px;
-    margin-top: 4px;
+    margin: 0;
+    min-height: 24px;
+    gap: 8px;
+  }
+
+  .landing-contact {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .landing-divider {
+    height: 18px;
+    margin: 0 2px;
+  }
+
+  .landing-socials {
+    gap: 6px;
+  }
+
+  .landing-social-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
   }
 
   .book-stage-area.is-landing-pos {
