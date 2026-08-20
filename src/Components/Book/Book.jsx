@@ -43,14 +43,14 @@ const Book = () => {
     { id: 0, type: "cover", title: "Selected Works", author: "MRA Developer" },
     { id: 1, type: "component", componentName: "Home" },
     { id: 2, type: "component", componentName: "Home" },
-    { id: 3, type: "component", componentName: "Portfolio" },
-    { id: 4, type: "component", componentName: "Portfolio" },
-    { id: 5, type: "component", componentName: "Pricing" },
-    { id: 6, type: "component", componentName: "Pricing" },
+    { id: 3, type: "component", componentName: "About" },
+    { id: 4, type: "component", componentName: "About" },
+    { id: 5, type: "component", componentName: "Portfolio" },
+    { id: 6, type: "component", componentName: "Portfolio" },
     { id: 7, type: "component", componentName: "Clients" },
     { id: 8, type: "component", componentName: "Clients" },
-    { id: 9, type: "component", componentName: "About" },
-    { id: 10, type: "component", componentName: "About" },
+    { id: 9, type: "component", componentName: "Pricing" },
+    { id: 10, type: "component", componentName: "Pricing" },
     { id: 11, type: "component", componentName: "Contact" },
     { id: 12, type: "component", componentName: "Contact" },
     { id: 13, type: "backCover", title: "Selected Works", author: "MRA Developer" }
@@ -76,10 +76,10 @@ const Book = () => {
   // ── Navigation mapping ────────────────────────────────────────────────────
   const SECTION_PAGES = {
     home: 1,
-    portfolio: 3,
-    pricing: 5,
+    about: 3,
+    portfolio: 5,
     clients: 7,
-    about: 9,
+    pricing: 9,
     contact: 11,
   };
   
@@ -117,9 +117,7 @@ const Book = () => {
   const handleFlip = (e) => {
     setActivePage(e.data);
     setIsClosing(false);
-    if (e.data === 0) {
-      setIsLanding(true);
-    } else {
+    if (e.data > 0) {
       setIsLanding(false);
     }
   };
@@ -316,6 +314,17 @@ const Book = () => {
                   pointerEvents: "none"
                 }}
               />
+              {isLanding && (
+                <div
+                  onClick={() => setIsLanding(false)}
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    zIndex: 50,
+                    cursor: "pointer"
+                  }}
+                />
+              )}
               <HTMLFlipBook
                 key={`${portrait}-${width}-${height}`}
                 width={width}
@@ -325,6 +334,8 @@ const Book = () => {
                 showCover={true}
                 showPageCorners={false}
                 mobileScrollSupport={true}
+                clickEventForward={true}
+                useMouseEvents={true}
                 onFlip={handleFlip}
                 onChangeState={handleStateChange}
                 className="html-book"
@@ -341,9 +352,11 @@ const Book = () => {
                       key={page.id}
                       className="book-cover open-cover"
                       data-density="hard"
-                      onClick={() => {
-                        if (bookRef.current && bookRef.current.pageFlip()) {
-                          bookRef.current.pageFlip().flip(1);
+                      onClick={(e) => {
+                        if (isLanding) {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setIsLanding(false);
                         }
                       }}
                       style={{ cursor: "pointer" }}
