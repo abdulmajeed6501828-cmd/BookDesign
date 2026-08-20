@@ -26,13 +26,14 @@ function getBookDimensions() {
     const w = Math.min(340, Math.floor((vw - 100) / 2));
     const h = Math.min(460, vh - 160);
     return { width: w, height: h, portrait: false };
-  } else if (vw >= 640) {
-    const w = Math.floor((vw - 80) / 2);
-    const h = Math.min(Math.floor(w * 1.4), vh - 160);
+  } else if (vw >= 768) {
+    const w = Math.min(320, Math.floor((vw - 80) / 2));
+    const h = Math.min(460, vh - 140);
     return { width: w, height: h, portrait: false };
   } else {
-    const w = Math.floor(vw * 0.85);
-    const h = Math.min(Math.floor(w * 1.42), vh - 140);
+    // Keep cover properly fitted and consistent on smaller screens; only adapt when absolutely necessary
+    const w = Math.min(340, Math.floor(vw * 0.9));
+    const h = Math.min(460, vh - 120);
     return { width: w, height: h, portrait: true };
   }
 }
@@ -280,7 +281,9 @@ const Book = () => {
             onPointerDown={handlePointerDown}
             style={{
               transform: isLanding
-                ? (window.innerWidth < 1024 ? `translateX(0px)` : `translateX(14vw)`)
+                ? (window.innerWidth < 1024 
+                    ? (!portrait ? `translateX(-${width / 2}px)` : `translateX(0px)`) 
+                    : `translateX(14vw)`)
                 : (!portrait && activePage === 0 
                 ? `translateX(-${width / 2}px)`
                 : !portrait && activePage === pages.length - 1

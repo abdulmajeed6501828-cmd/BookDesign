@@ -876,7 +876,12 @@
   .landing-overlay {
     position: relative;
     padding: 20px 30px;
-    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: visible;
     height: auto;
   }
 
@@ -884,29 +889,65 @@
     height: 100vh;
     height: 100dvh;
     overflow-y: auto;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .landing-left {
-    width: 100%;
-    text-align: center;
-    align-items: center;
-    margin-top: 60px;
-    height: auto;
+    display: contents;
+  }
+
+  .landing-logo {
+    display: block !important;
+    position: static;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin: 0;
+    white-space: nowrap;
+    order: 1;
+  }
+
+  .landing-right-top {
+    position: static;
+    order: 2;
+    width: auto;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
   }
 
   .landing-text-content {
+    margin-top: 40px;
     align-items: center;
+    order: 3;
+    flex-basis: 100%;
   }
 
   .red-dot-desc {
     display: none;
   }
 
-  .landing-right-top {
-    position: absolute;
-    top: 20px;
-    right: 30px;
+  /* Force tablet to use mobile footer logic */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+
+  .site-header.hidden,
+  .site-footer.hidden {
+    display: none !important;
+  }
+
+  .landing-copyright-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding-top: 20px;
   }
 
   .book-stage-area.is-landing-pos {
