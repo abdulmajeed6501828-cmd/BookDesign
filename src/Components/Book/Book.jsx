@@ -931,7 +931,6 @@ const Book = () => {
                             alt="DA Monogram"
                             className="aafi-logo-symbol"
                           />
-                          <h2 className="aafi-brand-title">AAFI DESIGNS</h2>
                         </div>
                         <div className="aafi-subtitle-wrapper">
                           <p>HELPING AUTHORS</p>

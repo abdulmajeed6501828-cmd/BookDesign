@@ -80,12 +80,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: clamp(18px, 3.8vw, 34px);
+    margin-bottom: 0;
 }
 
 .aafi-logo-symbol {
-    width: clamp(70px, 11vw, 110px);
+    width: clamp(136px, 20vw, 220px);
     height: auto;
+    max-width: 80%;
     object-fit: contain;
     mix-blend-mode: screen;
     filter: brightness(1.15) contrast(1.1) drop-shadow(0 2px 8px rgba(200, 169, 81, 0.3));

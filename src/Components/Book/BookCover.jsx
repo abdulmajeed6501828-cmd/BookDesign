@@ -25,7 +25,6 @@ const BookCover = React.forwardRef(({ onClick, width, height }, ref) => {
                 {/* Gold DA Logo emblem & Brand Name */}
                 <div className="aafi-logo-wrapper">
                     <img src={logoImg} alt="DA Monogram" className="aafi-logo-symbol" />
-                    <h2 className="aafi-brand-title">AAFI DESIGNS</h2>
                 </div>
 
                 {/* Subtitle text */}
