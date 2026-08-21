@@ -22,7 +22,8 @@ body,
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
     background: url('./assets/bgimg.jpeg') center / cover no-repeat fixed #0d1b2a;
     overflow: hidden;
 }

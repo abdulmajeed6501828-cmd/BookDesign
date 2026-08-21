@@ -1,6 +1,6 @@
 import React from "react";
 import coverImg from "../../assets/cover.jpeg";
-import logoImg from "../../assets/logo2.png";
+import logoImg from "../../assets/AAFI-Logo.png";
 import "./BookCover.css";
 
 const BookCover = React.forwardRef(({ onClick, width, height }, ref) => {

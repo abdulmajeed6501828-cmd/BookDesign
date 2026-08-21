@@ -223,6 +223,10 @@ const PricingCard = ({ plan, isLeft }) => {
           {/* Button */}
           <button
             type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (e.nativeEvent) e.nativeEvent.stopImmediatePropagation();
+            }}
             className={`
               block
               shrink-0

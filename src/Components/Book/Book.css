@@ -612,7 +612,7 @@
   height: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 15px 45px;
+  padding: 15px 65px;
   z-index: 15;
   pointer-events: none;
   transition: opacity 0.8s ease, visibility 0.8s ease;
@@ -964,17 +964,20 @@
     background: url('../../assets/bgimg.jpeg') center / cover no-repeat fixed #0d1b2a;
   }
 
-  /* Landing Page Mobile Fixes - Pure Flex Layout */
+  /* Landing Page Mobile Fixes - Centered Triangle Layout */
   .landing-overlay {
     position: relative;
     padding: 10px 15px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     overflow-y: visible;
     height: auto;
+    gap: 0;
+    width: 100%;
+    max-width: 100%;
   }
 
   .book-wrapper.is-landing {
@@ -998,48 +1001,92 @@
     letter-spacing: 2px;
     margin: 0;
     white-space: nowrap;
-    order: 1; /* Left side */
+    order: 0;
+    text-align: center;
+    width: 100%;
+    padding: 4px 0;
+  }
+
+  .landing-right-top {
+    position: static;
+    order: 1;
+    width: auto;
+    justify-content: center;
+    padding: 4px 0;
+    margin: 0;
+    min-height: 24px;
+    gap: 8px;
+    align-self: center;
   }
 
   .landing-text-content {
-    margin-top: 20px;
+    margin-top: 8px;
     align-items: center;
-    order: 3; /* Push below the header row */
+    order: 2;
     flex-basis: 100%;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
   }
 
   .landing-heading {
-    font-size: 28px;
+    font-size: clamp(24px, 7vw, 32px);
     margin-bottom: 2px;
+    text-align: center;
+    width: 100%;
   }
 
   .landing-subheading {
-    font-size: 14px;
+    font-size: clamp(12px, 3.5vw, 16px);
     margin-bottom: 4px;
+    text-align: center;
+    width: 100%;
   }
 
   .landing-line {
-    margin-bottom: 6px;
+    margin: 6px auto;
+    align-self: center;
   }
 
   .landing-description {
-    font-size: 13px;
-    margin-bottom: 8px;
+    font-size: clamp(12px, 3.2vw, 15px);
+    margin-bottom: 10px;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .landing-description br {
+    display: none; /* Hide line breaks on mobile for cleaner look */
   }
 
   .red-dot-desc {
     display: none; /* Hide floating dot on mobile to prevent overflow */
   }
 
+  /* Mobile buttons - full width and aligned */
   .landing-buttons {
     flex-direction: column;
     width: 100%;
+    max-width: 100%;
     gap: 8px;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
   }
 
   .landing-btn {
     width: 100%;
-    padding: 10px;
+    padding: 12px 16px;
+    font-size: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    min-width: 0;
+    /* Ensure buttons don't overflow */
+    max-width: 100%;
+    display: inline-block;
   }
 
   .desktop-only {
@@ -1060,19 +1107,8 @@
     width: 100%;
     text-align: center;
     margin-top: auto;
-    margin-bottom: 8px;
-    padding-top: 8px;
-  }
-
-  .landing-right-top {
-    position: static;
-    order: 2; /* Right side */
-    width: auto;
-    justify-content: flex-end;
-    padding: 0;
-    margin: 0;
-    min-height: 24px;
-    gap: 8px;
+    margin-bottom: 6px;
+    padding-top: 6px;
   }
 
   .landing-contact {
@@ -1184,5 +1220,37 @@
   .page-header,
   .page-footer {
     font-size: 7.5px;
+  }
+
+  .landing-heading {
+    font-size: 22px;
+  }
+
+  .landing-subheading {
+    font-size: 11px;
+  }
+
+  .landing-description {
+    font-size: 11px;
+  }
+
+  .landing-btn {
+    padding: 10px 12px;
+    font-size: 9px;
+  }
+
+  .landing-logo {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .landing-social-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 8px;
+  }
+
+  .landing-contact {
+    font-size: 8px;
   }
 }

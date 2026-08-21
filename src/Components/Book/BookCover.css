@@ -56,7 +56,8 @@
     position: absolute;
     top: 20px;
     right: 18px;
-    font-family: 'Cinzel', monospace;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
     font-size: 11px;
     color: #3b4d6b;
     letter-spacing: 2px;
@@ -91,9 +92,9 @@
 }
 
 .aafi-brand-title {
-    font-family: 'Cinzel', serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: clamp(14px, 1.8vw, 19px);
-    font-weight: 600;
+    font-weight: 300;
     letter-spacing: 3.5px;
     color: #c8a951;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
@@ -108,12 +109,12 @@
 }
 
 .aafi-subtitle-wrapper p {
-    font-family: 'Cinzel', serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: clamp(9.5px, 1.2vw, 12.5px);
     letter-spacing: 2.2px;
     color: #e5e7eb;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 1.5;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
