@@ -1,0 +1,355 @@
+/* ================================================================
+   CONTACT PAGE — Override .page-content so it fills height properly
+   ================================================================ */
+.page-content:has(.cp-faq),
+.page-content:has(.cp-form-page) {
+  justify-content: flex-start !important;
+  overflow: hidden !important;
+  margin-bottom: 0 !important;
+}
+
+/* ================================================================
+   SHARED BASE
+   ================================================================ */
+.cp-faq,
+.cp-form-page {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #1c1916;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================================================
+   LEFT PAGE — FAQ
+   ================================================================ */
+
+.cp-faq {
+  padding: clamp(18px, 3vh, 28px) clamp(16px, 4%, 24px) clamp(8px, 1.5vh, 14px);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Header ---------------------------------------------------- */
+.cp-faq-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  margin-bottom: clamp(12px, 2vh, 18px);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* "faq's" — large thin upright, matches "get in touch" */
+.cp-faq-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(18px, 2.8vh, 26px);
+  font-weight: 300;
+  font-style: normal;
+  color: #1c1916;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+/* "(frequently asked questions)" — small inline grey text */
+.page-content .cp-faq-sub,
+.cp-faq-sub {
+  font-size: 11.5px !important;
+  font-weight: 300 !important;
+  font-style: normal;
+  color: #3a3632 !important;
+  letter-spacing: 0;
+  margin-left: 6px !important;
+}
+
+/* --- List ------------------------------------------------------ */
+/* --- List ------------------------------------------------------ */
+.cp-faq-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.cp-faq-item {
+  border-bottom: 1px solid #d5d2cc;
+  flex-shrink: 0;
+}
+
+.cp-faq-item:first-child {
+  border-top: 1px solid #d5d2cc;
+}
+
+/* --- Row button — with comfortable padding under each question --- */
+.cp-faq-btn {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  background: none;
+  border: none;
+  padding: clamp(5px, 0.8vh, 8.5px) 0 clamp(4px, 0.6vh, 7px);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.cp-faq-num {
+  font-size: clamp(10.5px, 1.35vh, 12.5px);
+  font-weight: 400;
+  color: #1c1916;
+  min-width: clamp(22px, 3vw, 28px);
+  flex-shrink: 0;
+  padding-top: 1px;
+  line-height: 1.35;
+}
+
+/* Question text — breaks naturally across lines without "..." ellipsis */
+.cp-faq-q {
+  font-size: clamp(10.5px, 1.35vh, 12.5px);
+  font-weight: 400;
+  color: #1c1916;
+  flex: 1;
+  line-height: 1.35;
+  white-space: normal;
+  word-break: normal;
+}
+
+/* SVG Chevron icon */
+.cp-faq-chevron-icon {
+  width: clamp(10px, 1.3vh, 12px);
+  height: clamp(10px, 1.3vh, 12px);
+  color: #333333;
+  flex-shrink: 0;
+  margin-left: 6px;
+  margin-top: 2px;
+  transition: transform 0.2s ease;
+  display: block;
+}
+
+.cp-faq-chevron-icon.open {
+  transform: rotate(180deg);
+}
+
+/* --- Answer text — smaller font size -------------------------- */
+.page-content .cp-faq-ans,
+.cp-faq-ans {
+  margin: 0 !important;
+  padding: 1px 0 4px clamp(18px, 2.5vw, 24px) !important;
+  font-size: 8px !important;
+  color: #555555 !important;
+  line-height: 1.3 !important;
+  font-style: normal !important;
+}
+
+/* ================================================================
+   RIGHT PAGE — CONTACT FORM  (matches reference exactly)
+   ================================================================ */
+
+.cp-form-page {
+  padding: clamp(18px, 3vh, 28px) clamp(16px, 4%, 24px) clamp(8px, 1.5vh, 14px);
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Header — aligned flush left with inputs -------------------- */
+.cp-form-header {
+  flex-shrink: 0;
+  margin-bottom: clamp(8px, 1.4vh, 14px);
+  width: 100%;
+}
+
+/* "get in touch" — large thin upright */
+.cp-form-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(18px, 2.8vh, 26px);
+  font-weight: 300;
+  font-style: normal;
+  color: #1c1916;
+  letter-spacing: 0;
+  margin: 0 0 clamp(8px, 1.4vh, 14px) 0;
+  line-height: 1.1;
+}
+
+/* Subheading — force override any parent Book.css .page-content p styles */
+.page-content .cp-form-sub,
+.cp-form-sub {
+  font-size: 11.5px !important;
+  font-weight: 300 !important;
+  color: #3a3632 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+}
+
+/* --- Success banner ------------------------------------------- */
+.cp-success {
+  font-size: 11px;
+  color: #2e6930;
+  background: #f0faf0;
+  border: 1px solid #90c090;
+  padding: 5px 8px;
+  border-radius: 2px;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* --- Form container — full width matching header alignment ----- */
+.cp-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5px, 0.85vh, 9px);
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ---------------------------------------------------------------
+   FIELDS — decreased height and centered width:
+   - White background
+   - 1px solid grey border
+   - 2px border radius
+   - Height: reduced to clamp(24px, 3.3vh, 30px)
+   --------------------------------------------------------------- */
+.cp-field {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #b8b5b0;
+  border-radius: 2px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(10px, 1.25vh, 12px);
+  color: #1c1916;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  /* Reduced height for single-line inputs */
+  height: clamp(24px, 3.3vh, 30px);
+  padding: 0 clamp(8px, 1.2vw, 10px);
+  display: block;
+}
+
+.cp-field::placeholder {
+  color: #999591;
+  font-weight: 400;
+  font-size: inherit;
+}
+
+.cp-field:focus {
+  border-color: #c4a96a;
+  box-shadow: 0 0 0 0px transparent;
+  outline: none;
+}
+
+/* ---------------------------------------------------------------
+   TEXTAREA — reduced min-height to clamp(45px, 7.5vh, 75px)
+   --------------------------------------------------------------- */
+.cp-textarea {
+  height: auto !important;
+  flex: 1;
+  min-height: clamp(45px, 7.5vh, 75px);
+  padding-top: clamp(6px, 0.9vh, 8px);
+  padding-bottom: clamp(6px, 0.9vh, 8px);
+  resize: none;
+  vertical-align: top;
+}
+
+/* --- Checkbox row --------------------------------------------- */
+.cp-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.cp-checkbox {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  accent-color: #b9a483;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 0;
+}
+
+.cp-checkbox-label {
+  font-size: clamp(9px, 1.15vh, 11px);
+  color: #555;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* --- Button — centered, wide, transparent bg, gold/tan border --- */
+.cp-btn-wrap {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cp-send-btn {
+  /* Transparent background */
+  background: transparent;
+  /* Gold/tan border matching reference */
+  border: 1px solid #c4a96a;
+  /* Gold/tan text */
+  color: #c4a96a;
+  /* Wide padded */
+  padding: clamp(7px, 1.1vh, 10px) clamp(36px, 7vw, 60px);
+  font-family: inherit;
+  font-size: clamp(10px, 1.25vh, 11.5px);
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.cp-send-btn:hover {
+  background: #c4a96a;
+  color: #fff;
+}
+
+.cp-send-btn:active {
+  opacity: 0.85;
+}
+
+/* --- Footer ---------------------------------------------------- */
+.cp-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  margin-top: clamp(8px, 1.3vh, 14px);
+  font-size: clamp(9.5px, 1.2vh, 11.5px);
+  color: #444;
+  width: 100%;
+}
+
+.cp-footer-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #444;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.cp-footer-icon {
+  width: clamp(11px, 1.5vh, 14px);
+  height: clamp(11px, 1.5vh, 14px);
+  flex-shrink: 0;
+  color: #555;
+}

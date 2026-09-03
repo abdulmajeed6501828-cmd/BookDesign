@@ -1,0 +1,490 @@
+/* ================================================================
+   ABOUT US / START A PROJECT PAGE SPREAD
+   100% Pixel-Perfect match to reference image
+   ================================================================ */
+
+.ab-page {
+    padding: clamp(18px, 3vh, 28px) clamp(16px, 4%, 24px) clamp(8px, 1.5vh, 14px);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Override global Book.css page-content rules */
+.page-content .ab-page,
+.page-content p.ab-important-text,
+.page-content p.ab-kdp-note {
+    margin: 0;
+    text-align: left;
+}
+
+/* Header — "start a project" */
+.ab-title {
+    position: relative;
+    top: -5px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(18px, 2.8vh, 26px);
+    font-weight: 300;
+    font-style: normal;
+    color: #1c1916;
+    letter-spacing: 0;
+    margin: 0 0 clamp(4px, 0.7vh, 8px) 0;
+    line-height: 1.1;
+    flex-shrink: 0;
+}
+
+/* Section Divider with Gold Lines */
+.ab-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: clamp(5px, 0.8vh, 9px);
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.ab-divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: #c4a96a;
+}
+
+.ab-divider-text {
+    font-size: clamp(9px, 1.15vh, 11px);
+    font-weight: 600;
+    color: #1c1916;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Radio Group Rows */
+.ab-radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    margin-bottom: clamp(5px, 0.8vh, 9px);
+    flex-shrink: 0;
+}
+
+.ab-cover-type-row,
+.ab-pref-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(4px, 0.8vw, 10px);
+    margin-bottom: clamp(3px, 0.5vh, 6px);
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.ab-cover-type-row .ab-label-inline,
+.ab-cover-type-row .ab-radio-label,
+.ab-pref-row .ab-label-inline,
+.ab-pref-row .ab-radio-label {
+    font-size: clamp(7px, 0.88vh, 8.5px);
+}
+
+.ab-cover-type-row .ab-radio,
+.ab-pref-row .ab-radio {
+    width: 10px;
+    height: 10px;
+}
+
+.ab-radio-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.ab-radio {
+    width: 11px;
+    height: 11px;
+    accent-color: #c4a96a;
+    cursor: pointer;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.ab-radio-label {
+    font-size: clamp(8px, 1.05vh, 9.8px);
+    color: #2c2825;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+/* Form Layout Grid */
+.ab-form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 0.8vh, 9px);
+    flex: 1;
+    overflow: hidden;
+}
+
+.ab-row-2col {
+    display: flex;
+    gap: clamp(8px, 1.2vw, 12px);
+    width: 100%;
+}
+
+.ab-align-center {
+    align-items: center;
+}
+
+.ab-author-photo-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.ab-inline-label {
+    font-size: clamp(8.5px, 1.05vh, 10px);
+    color: #333333;
+    font-weight: 400;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ab-row-2col>.ab-field-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.ab-row-textareas {
+    flex: 1;
+    min-height: clamp(65px, 10vh, 110px);
+}
+
+.ab-flex-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.ab-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+
+.ab-label {
+    font-size: clamp(8.5px, 1.05vh, 10px);
+    color: #3a3632;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.ab-label-inline {
+    margin-right: 2px;
+}
+
+/* Inputs & Controls — Pure white background matching reference image */
+.ab-input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #d5d2cc;
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: clamp(8.5px, 1.1vh, 10.5px);
+    color: #1c1916;
+    outline: none;
+    height: clamp(23px, 3vh, 28px);
+    padding: 0 clamp(6px, 1vw, 8px);
+    transition: border-color 0.18s ease;
+}
+
+.ab-input::placeholder {
+    color: #333333;
+    font-weight: 400;
+}
+
+.ab-input:focus {
+    border-color: #c4a96a;
+}
+
+.ab-select {
+    cursor: pointer;
+}
+
+/* Textareas — Pure white background with placeholder label inside */
+.ab-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #d5d2cc;
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: clamp(8.5px, 1.1vh, 10.5px);
+    color: #1c1916;
+    outline: none;
+    padding: 6px clamp(6px, 1vw, 8px);
+    resize: none;
+    flex: 1;
+    min-height: clamp(55px, 8vh, 85px);
+    transition: border-color 0.18s ease;
+}
+
+.ab-textarea::placeholder {
+    color: #333333;
+    font-weight: 400;
+}
+
+.ab-textarea-short {
+    flex: none;
+    min-height: clamp(28px, 4vh, 45px);
+    height: clamp(28px, 4vh, 45px);
+}
+
+.ab-textarea:focus {
+    border-color: #c4a96a;
+}
+
+/* Additional Document Block Container */
+.ab-add-doc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: #ffffff;
+    border: 1px solid #d5d2cc;
+    border-radius: 2px;
+    padding: 6px clamp(8px, 1.2vw, 12px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ab-add-doc-label {
+    font-size: clamp(8.5px, 1.05vh, 10px);
+    color: #333333;
+    font-weight: 400;
+}
+
+/* Upload Box Buttons */
+.ab-upload-box {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #c8c5c0;
+    border-radius: 2px;
+    height: clamp(21px, 2.7vh, 26px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0 6px;
+    transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.ab-upload-box:hover {
+    border-color: #c4a96a;
+    background-color: #faf8f5;
+}
+
+.ab-upload-full {
+    width: 100%;
+}
+
+.ab-upload-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: clamp(8.5px, 1.05vh, 10px);
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ab-upload-icon {
+    width: 10px;
+    height: 10px;
+    color: #555;
+    flex-shrink: 0;
+}
+
+/* ================================================================
+   RIGHT PAGE SPECIFIC STYLES
+   ================================================================ */
+
+.ab-page-right {
+    padding: clamp(12px, 2.2vh, 20px) clamp(14px, 3.5%, 20px) clamp(6px, 1vh, 12px);
+}
+
+.ab-important-box {
+    border: 1px solid #c4a96a;
+    background-color: #faf8f4;
+    border-radius: 3px;
+    padding: clamp(4px, 0.7vh, 7px) clamp(6px, 1vw, 10px);
+    margin-bottom: clamp(3px, 0.5vh, 6px);
+    flex-shrink: 0;
+}
+
+.ab-important-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 2px;
+}
+
+.ab-important-icon {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 1.2px solid #c4a96a;
+    color: #c4a96a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.ab-important-title {
+    font-size: clamp(8.5px, 1.1vh, 10px);
+    font-weight: 700;
+    color: #1c1916;
+    letter-spacing: 0.5px;
+}
+
+.ab-important-text {
+    font-size: clamp(7.5px, 0.95vh, 8.8px) !important;
+    color: #444444 !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+}
+
+/* 4 Specs Grid */
+.ab-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(4px, 0.6vw, 6px);
+    margin-bottom: clamp(3px, 0.4vh, 5px);
+    flex-shrink: 0;
+}
+
+/* KDP Calculator Note */
+.ab-kdp-note {
+    font-size: clamp(7.5px, 0.95vh, 8.8px) !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    margin: clamp(2px, 0.3vh, 4px) 0 !important;
+    flex-shrink: 0;
+}
+
+.ab-kdp-link {
+    color: #1a56b0;
+    text-decoration: underline;
+}
+
+.ab-kdp-link:hover {
+    color: #0c3673;
+}
+
+/* Inspiration 3 Button Row */
+.ab-inspiration-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(4px, 0.8vw, 8px);
+}
+
+/* ISBN Row */
+.ab-isbn-row {
+    display: flex;
+    gap: clamp(6px, 1vw, 10px);
+    align-items: center;
+    margin-bottom: clamp(2px, 0.4vh, 5px);
+}
+
+.ab-isbn-input {
+    flex: 1;
+}
+
+.ab-upload-btn-only {
+    width: clamp(90px, 14vw, 110px);
+    flex-shrink: 0;
+}
+
+/* Declaration Checkbox Row */
+.ab-declaration-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    margin: clamp(2px, 0.4vh, 5px) 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.ab-checkbox {
+    width: 11px;
+    height: 11px;
+    accent-color: #c4a96a;
+    cursor: pointer;
+    margin: 1px 0 0 0;
+    flex-shrink: 0;
+}
+
+.ab-declaration-label {
+    font-size: clamp(7.5px, 0.95vh, 8.8px);
+    color: #444;
+    line-height: 1.25;
+}
+
+/* Submit Button Wrap */
+.ab-submit-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(2px, 0.4vh, 5px);
+    flex-shrink: 0;
+}
+
+.ab-submit-btn {
+    background: transparent;
+    border: 1.5px solid #c4a96a;
+    color: #c4a96a;
+    padding: clamp(4px, 0.6vh, 6px) clamp(24px, 4vw, 38px);
+    font-family: inherit;
+    font-size: clamp(9px, 1.15vh, 10.5px);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.ab-submit-btn:hover {
+    background: #c4a96a;
+    color: #ffffff;
+}
+
+.ab-submit-btn:active {
+    opacity: 0.85;
+}
+
+.ab-submit-success {
+    font-size: clamp(9px, 1.1vh, 10px);
+    color: #2e6930;
+    font-weight: 600;
+    padding: 3px 10px;
+    background: #f0faf0;
+    border: 1px solid #90c090;
+}
