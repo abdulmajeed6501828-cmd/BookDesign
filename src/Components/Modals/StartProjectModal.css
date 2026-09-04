@@ -1,0 +1,1105 @@
+/* =============================================================
+   START A PROJECT MODAL — WHITE THEME
+   Matches the reference image exactly:
+   · Dark black header bar
+   · White modal body
+   · Light gray input borders
+   · Dark text, gold accents
+   ============================================================= */
+
+/* ----------------------------------------------------------------
+   OVERLAY — full viewport, dark translucent bg
+   ---------------------------------------------------------------- */
+
+.spm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  animation: spmFadeIn 0.22s ease;
+}
+
+@keyframes spmFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------------------------------
+   MODAL BOX
+   ---------------------------------------------------------------- */
+
+.spm-modal {
+  background: #ffffff;
+  color: #1a1a1a;
+  width: 100%;
+  max-width: 970px;
+  max-height: 98vh;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  animation: spmSlideUp 0.24s ease;
+  font-family: 'Helvetica Light';
+}
+
+@keyframes spmSlideUp {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------------------------------
+   HEADER — dark black bar (matches reference)
+   ---------------------------------------------------------------- */
+
+.spm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 2px;
+  background: #111111;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.spm-header-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.spm-header-logo img {
+  width: 85px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.spm-header-center {
+  flex: 1;
+  text-align: center;
+}
+
+.spm-header-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+  font-family: 'Helvetica Light';
+}
+
+.spm-header-subtitle {
+  margin: 1px 0 0;
+  font-size: clamp(7px, 0.8vw, 9px);
+  color: #999;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  font-family: 'Helvetica Light';
+}
+
+.spm-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.spm-page-label {
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: #cccccc;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.spm-page-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c8a951;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.spm-close-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #555;
+  background: transparent;
+  color: #ccc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 1;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.spm-close-btn:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* ----------------------------------------------------------------
+   BODY — two columns, white bg
+   ---------------------------------------------------------------- */
+
+.spm-body {
+  display: flex;
+  gap: 0;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  align-items: stretch;
+}
+
+/* ----------------------------------------------------------------
+   LEFT COLUMN
+   ---------------------------------------------------------------- */
+
+.spm-col-left {
+  flex: 1;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  min-width: 0;
+  background: #ffffff;
+}
+
+.spm-col-left::-webkit-scrollbar,
+.spm-col-right::-webkit-scrollbar {
+  width: 3px;
+}
+
+.spm-col-left::-webkit-scrollbar-track,
+.spm-col-right::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.spm-col-left::-webkit-scrollbar-thumb,
+.spm-col-right::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+/* ----------------------------------------------------------------
+   RIGHT COLUMN
+   ---------------------------------------------------------------- */
+
+.spm-col-right {
+  flex: 1;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  min-width: 0;
+  background: #ffffff;
+}
+
+/* ----------------------------------------------------------------
+   SECTION HEADINGS  (e.g. "YOUR DETAILS", "BOOK INFORMATION")
+   ---------------------------------------------------------------- */
+
+.spm-section-heading {
+  margin: 0 0 2px;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #111111;
+  font-family: 'Helvetica Light';
+}
+
+/* ----------------------------------------------------------------
+   FORM ROWS
+   ---------------------------------------------------------------- */
+
+.spm-row {
+  display: flex;
+  gap: 6px;
+}
+
+.spm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.spm-label {
+  font-size: 7.5px;
+  color: #444;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  font-family: 'Helvetica Light';
+}
+
+/* ----------------------------------------------------------------
+   INPUTS / SELECT / TEXTAREA
+   ---------------------------------------------------------------- */
+
+.spm-input,
+.spm-select,
+.spm-textarea {
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  border-radius: 2px;
+  color: black;
+  font-family: 'Helvetica Light';
+  font-size: 9.5px;
+  font-weight: 300;
+  padding: 4px 7px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.spm-input:focus,
+.spm-select:focus,
+.spm-textarea:focus {
+  border-color: #c8a951;
+  outline: none;
+}
+
+.spm-input::placeholder,
+.spm-textarea::placeholder {
+  color: rgb(47, 46, 46);
+  font-size: 9px;
+}
+
+.spm-textarea {
+  resize: none;
+  min-height: 28px;
+  max-height: 60px;
+}
+
+.spm-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 7px center;
+  padding-right: 22px;
+  cursor: pointer;
+}
+
+/* ----------------------------------------------------------------
+   UPLOAD BOX
+   ---------------------------------------------------------------- */
+
+.spm-upload-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid #c8c8c8;
+  border-radius: 2px;
+  background: #ffffff;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  font-size: 8.5px;
+  color: #444;
+  font-family: 'Helvetica Light';
+  font-weight: 300;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1;
+}
+
+.spm-upload-box:hover {
+  border-color: #c8a951;
+  color: #c8a951;
+}
+
+.spm-upload-box svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+}
+
+.spm-upload-row {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+}
+
+.spm-upload-label {
+  font-size: 9px;
+  color: #111111;
+  font-weight: 500;
+  margin-bottom: 2px;
+  display: block;
+  font-family: 'Helvetica Light';
+}
+
+/* ----------------------------------------------------------------
+   AUTHOR PHOTO ROW
+   ---------------------------------------------------------------- */
+
+.spm-author-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.spm-author-photo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.spm-author-photo-label {
+  font-size: 8.5px;
+  color: #444;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: 'Helvetica Light', ;
+}
+
+/* ----------------------------------------------------------------
+   RADIO — custom styled circles
+   ---------------------------------------------------------------- */
+
+.spm-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.spm-radio-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 8.5px;
+  color: #333;
+  font-family: 'Helvetica Light';
+  font-weight: 400;
+}
+
+.spm-radio-item input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid #aaa;
+  border-radius: 50%;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s;
+  background: #fff;
+}
+
+.spm-radio-item input[type="radio"]:checked {
+  border-color: #c8a951;
+}
+
+.spm-radio-item input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c8a951;
+}
+
+/* ----------------------------------------------------------------
+   PACKAGE BUTTONS  (Starter / Basic / Premium / Business)
+   ---------------------------------------------------------------- */
+
+.spm-pkg-group {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.spm-pkg-btn {
+  flex: 1;
+  min-width: 55px;
+  border: 1.5px solid #c8c8c8;
+  border-radius: 3px;
+  background: #ffffff;
+  color: #555;
+  padding: 4px 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s;
+  font-family: 'Helvetica Light';
+  position: relative;
+}
+
+.spm-pkg-btn .spm-pkg-name {
+  display: block;
+  font-size: 8px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: inherit;
+}
+
+.spm-pkg-btn .spm-pkg-price {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  color: inherit;
+  margin-top: 1px;
+}
+
+.spm-pkg-btn:hover {
+  border-color: #c8a951;
+  color: #c8a951;
+}
+
+.spm-pkg-btn.active {
+  border-color: #c8a951;
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Gold radio dot top-left corner on active package */
+.spm-pkg-btn.active::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c8a951;
+}
+
+/* ----------------------------------------------------------------
+   COVER TYPE ROW
+   ---------------------------------------------------------------- */
+
+.spm-cover-type-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.spm-cover-type-label {
+  font-size: 8.5px;
+  color: #333;
+  margin-right: 2px;
+  font-family: 'Helvetica Light';
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------------
+   SPECS GRID
+   ---------------------------------------------------------------- */
+
+.spm-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr 1fr;
+  gap: 4px;
+}
+
+/* ----------------------------------------------------------------
+   KDP NOTE
+   ---------------------------------------------------------------- */
+
+.spm-kdp-note {
+  font-size: 7.5px;
+  color: #555;
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Helvetica Light';
+}
+
+.spm-kdp-link {
+  color: #c8a951;
+  text-decoration: none;
+}
+
+.spm-kdp-link:hover {
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------
+   INSPIRATION ROW (3 upload boxes)
+   ---------------------------------------------------------------- */
+
+.spm-inspiration-row {
+  display: flex;
+  gap: 4px;
+}
+
+.spm-inspiration-row .spm-upload-box {
+  flex: 1;
+}
+
+/* ----------------------------------------------------------------
+   IMPORTANT BOX
+   ---------------------------------------------------------------- */
+
+.spm-important-box {
+  border: 1.5px solid #c8a951;
+  border-radius: 3px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: #ffffff;
+}
+
+.spm-important-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.spm-important-icon {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #c8a951;
+  border-radius: 50%;
+  color: #c8a951;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.spm-important-title {
+  color: #111111;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Light';
+}
+
+.spm-important-text {
+  font-size: 8px;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+  font-family: 'Helvetica Light';
+  font-weight: 500;
+}
+
+/* ----------------------------------------------------------------
+   DIVIDER
+   ---------------------------------------------------------------- */
+
+.spm-divider {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------------
+   BOTTOM ROW — Additional doc + ISBN + IMPORTANT (same line)
+   ---------------------------------------------------------------- */
+
+.spm-bottom-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 12px;
+  border-top: 1px solid #e0e0e0;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.spm-bottom-row .spm-field {
+  flex: 1;
+}
+
+.spm-bottom-row .spm-important-box {
+  flex: 1;
+  margin-top: 0;
+}
+
+/* ----------------------------------------------------------------
+   FOOTER — white bg, top border
+   ---------------------------------------------------------------- */
+
+.spm-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+  background: #ffffff;
+}
+
+/* Declaration checkbox */
+.spm-declaration-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.spm-declaration-row input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid #aaa;
+  border-radius: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+  background: #fff;
+}
+
+.spm-declaration-row input[type="checkbox"]:checked {
+  border-color: #333;
+  background: #333;
+}
+
+.spm-declaration-row input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  font-size: 7px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.spm-declaration-text {
+  font-size: 11px;
+  color: #333;
+  line-height: 1.6;
+  font-family: 'Helvetica Light';
+}
+
+.spm-declaration-text a {
+  color: #1a1a1a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.spm-declaration-text a:hover {
+  text-decoration: underline;
+}
+
+/* Action buttons */
+.spm-footer-buttons {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CANCEL — white bg, dark border */
+.spm-btn-cancel {
+  flex: 1;
+  padding: 13px 20px;
+  border: 1.5px solid #333;
+  border-radius: 2px;
+  background: #ffffff;
+  color: #111;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Helvetica Light';
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+}
+
+.spm-btn-cancel:hover {
+  background: #f0f0f0;
+}
+
+/* SUBMIT PROJECT */
+.spm-btn-submit {
+  flex: 2;
+  padding: 13px 20px;
+  border: 1px solid #c8a951;
+  border-radius: 2px;
+  background: transparent;
+  color: black;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Helvetica Light';
+  transition: background 0.2s;
+  text-align: center;
+}
+
+
+.spm-btn-submit:hover {
+  background: #c8a951;
+}
+
+.spm-btn-submit.success {
+  background: #2d6a4f;
+  color: #fff;
+  letter-spacing: 1.2px;
+}
+
+/* ----------------------------------------------------------------
+   RESPONSIVE — STACK COLUMNS ON SMALL SCREENS
+   ---------------------------------------------------------------- */
+
+@media (max-width: 820px) {
+  .spm-modal {
+    max-height: 99vh;
+  }
+
+  .spm-body {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .spm-col-left {
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-y: visible;
+    padding: 6px 10px;
+    gap: 4px;
+  }
+
+  .spm-col-right {
+    overflow-y: visible;
+    padding: 6px 10px;
+    gap: 4px;
+  }
+
+  .spm-specs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .spm-pkg-group {
+    gap: 4px;
+  }
+
+  .spm-header-title {
+    font-size: 14px;
+  }
+
+  .spm-page-label {
+    display: none;
+  }
+
+  .spm-header {
+    padding: 6px 12px 4px;
+  }
+
+  .spm-footer {
+    padding: 6px 12px;
+  }
+
+  .spm-close-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .spm-header-logo img {
+    width: 22px;
+  }
+
+  .spm-logo-text {
+    font-size: 4.5px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spm-overlay {
+    padding: 4px;
+  }
+
+  .spm-modal {
+    max-height: 100vh;
+    border-radius: 2px;
+  }
+
+  .spm-header {
+    padding: 4px 8px 3px;
+    gap: 6px;
+  }
+
+  .spm-header-logo img {
+    width: 18px;
+  }
+
+  .spm-logo-text {
+    font-size: 4px;
+    letter-spacing: 0.8px;
+  }
+
+  .spm-header-title {
+    font-size: 11px;
+  }
+
+  .spm-header-subtitle {
+    font-size: 6px;
+  }
+
+  .spm-close-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 9px;
+    border-width: 1px;
+  }
+
+  .spm-col-left,
+  .spm-col-right {
+    padding: 4px 8px;
+    gap: 3px;
+  }
+
+  .spm-section-heading {
+    font-size: 6px;
+    letter-spacing: 1.5px;
+    margin-bottom: 1px;
+  }
+
+  .spm-row {
+    gap: 4px;
+  }
+
+  .spm-input,
+  .spm-select,
+  .spm-textarea {
+    font-size: 8px;
+    padding: 3px 5px;
+  }
+
+  .spm-textarea {
+    min-height: 28px;
+  }
+
+  .spm-label,
+  .spm-upload-label {
+    font-size: 6.5px;
+  }
+
+  .spm-upload-box {
+    font-size: 7px;
+    padding: 3px 6px;
+  }
+
+  .spm-upload-box svg {
+    width: 9px;
+    height: 9px;
+  }
+
+  .spm-specs-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+
+  .spm-pkg-btn {
+    padding: 3px 4px;
+    min-width: 40px;
+  }
+
+  .spm-pkg-btn .spm-pkg-name {
+    font-size: 6.5px;
+  }
+
+  .spm-pkg-btn .spm-pkg-price {
+    font-size: 7px;
+  }
+
+  .spm-pkg-btn.active::before {
+    width: 4px;
+    height: 4px;
+    top: 3px;
+    left: 3px;
+  }
+
+  .spm-cover-type-label {
+    font-size: 7px;
+  }
+
+  .spm-radio-item {
+    font-size: 7px;
+  }
+
+  .spm-radio-item input[type="radio"] {
+    width: 10px;
+    height: 10px;
+  }
+
+  .spm-radio-item input[type="radio"]:checked::after {
+    width: 5px;
+    height: 5px;
+  }
+
+  .spm-kdp-note {
+    font-size: 6.5px;
+  }
+
+  .spm-important-box {
+    padding: 4px 6px;
+    gap: 5px;
+  }
+
+  .spm-important-icon {
+    width: 13px;
+    height: 13px;
+    font-size: 7px;
+  }
+
+  .spm-important-text {
+    font-size: 6.5px;
+  }
+
+  .spm-divider {
+    margin: 0;
+  }
+
+  .spm-footer {
+    padding: 4px 8px;
+    gap: 4px;
+  }
+
+  .spm-declaration-text {
+    font-size: 6.5px;
+  }
+
+  .spm-declaration-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.spm-declaration-row input[type="checkbox"] {
+  width: 9px;
+  height: 9px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.spm-declaration-row input[type="checkbox"]:checked::after {
+  font-size: 6px;
+  top: -7px;
+  left: 0px;
+}
+
+  .spm-btn-cancel,
+  .spm-btn-submit {
+    padding: 5px 10px;
+    font-size: 6.5px;
+    letter-spacing: 1.4px;
+  }
+
+  .spm-footer-buttons {
+    gap: 6px;
+  }
+
+  .spm-author-photo-label {
+    font-size: 7px;
+  }
+
+  .spm-inspiration-row {
+    flex-direction: column;
+    gap: 3px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .spm-header-title {
+    font-size: 9px;
+  }
+
+  .spm-header-subtitle {
+    font-size: 5px;
+  }
+
+  .spm-col-left,
+  .spm-col-right {
+    padding: 3px 6px;
+    gap: 2px;
+  }
+
+  .spm-section-heading {
+    font-size: 5px;
+    letter-spacing: 1.2px;
+  }
+
+  .spm-input,
+  .spm-select,
+  .spm-textarea {
+    font-size: 7px;
+    padding: 2px 4px;
+  }
+
+  .spm-textarea {
+    min-height: 22px;
+  }
+
+  .spm-specs-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .spm-pkg-btn {
+    padding: 2px 3px;
+    min-width: 30px;
+  }
+
+  .spm-pkg-btn .spm-pkg-name {
+    font-size: 5.5px;
+  }
+
+  .spm-pkg-btn .spm-pkg-price {
+    font-size: 6px;
+  }
+}

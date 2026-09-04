@@ -403,12 +403,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 6px clamp(10px, 3.5%, 18px) 6px;
   pointer-events: none;
   overflow: hidden;
   box-sizing: border-box;
-  gap: clamp(4px, 1%, 7px);
+  gap: 0;
 }
 
 /* ── TITLE ─────────────────────────────────────────────── */
@@ -455,21 +455,21 @@
 .bc-bio-area {
   flex: 1 1 auto;
   width: 100%;
-  min-height: 160px;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 6px;
+  gap: 0;
   overflow: hidden;
-  margin-bottom: 0;
+  padding: 4px 0;
 }
 
 .bc-para {
   width: 100%;
   font-family: 'Helvetica Light';
   font-size: clamp(6px, 0.62vw, 8.5px);
-  line-height: 1.32;
+  line-height: 1.75;
   color: rgba(255, 255, 255, 0.88);
   margin: 0;
   text-align: center;

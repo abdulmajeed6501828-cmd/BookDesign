@@ -5,7 +5,7 @@ import BookPage from "./BookPage";
 
 import Home from "../Sections/Home";
 import Portfolio from "../Sections/Portfolio";
-import About from "../Sections/About";
+
 import Pricing from "../Sections/Pricing";
 import Contact from "../Sections/Contact";
 
@@ -24,6 +24,7 @@ import {
 
 import "./Book.css";
 import "./BookCover.css";
+import StartProjectModal from "../Modals/StartProjectModal";
 
 /* =========================================================
    RESPONSIVE BOOK DIMENSIONS
@@ -109,25 +110,22 @@ const Book = () => {
      PAGE 1  → HOME LEFT
      PAGE 2  → HOME RIGHT
 
-    PAGE 3  → ABOUT LEFT
-    PAGE 4  → ABOUT RIGHT
+    PAGE 3  → PORTFOLIO LEFT
+    PAGE 4  → PORTFOLIO RIGHT
 
     PAGE 5  → PORTFOLIO LEFT
     PAGE 6  → PORTFOLIO RIGHT
 
-    PAGE 7  → PORTFOLIO LEFT
-    PAGE 8  → PORTFOLIO RIGHT
+    PAGE 7  → PRICING SECTION 1 → STARTER
+    PAGE 8  → PRICING SECTION 2 → BASIC
 
-    PAGE 9  → PRICING SECTION 1 → STARTER
-    PAGE 10 → PRICING SECTION 2 → BASIC
+    PAGE 9  → PRICING SECTION 3 → PREMIUM
+    PAGE 10 → PRICING SECTION 4 → BUSINESS
 
-    PAGE 11 → PRICING SECTION 3 → PREMIUM
-    PAGE 12 → PRICING SECTION 4 → BUSINESS
+    PAGE 11 → CONTACT LEFT
+    PAGE 12 → CONTACT RIGHT
 
-    PAGE 13 → CONTACT LEFT
-    PAGE 14 → CONTACT RIGHT
-
-    PAGE 15 → BACK COVER
+    PAGE 13 → BACK COVER
      ======================================================= */
 
   const [pages] = useState([
@@ -165,27 +163,6 @@ const Book = () => {
       isLeftPage: false, // Explicitly mark as right page
     },
 
-     /* =====================================================
-       PAGE 3 - ABOUT LEFT
-       ===================================================== */
-
-    {
-      id: 3,
-      type: "component",
-      componentName: "About",
-      isLeftPage: true,
-    },
-
-    /* =====================================================
-       PAGE 4 - ABOUT RIGHT
-       ===================================================== */
-
-    {
-      id: 4,
-      type: "component",
-      componentName: "About",
-      isLeftPage: false,
-    },
 
     /* =====================================================
        PAGE 5 - PORTFOLIO LEFT
@@ -368,6 +345,12 @@ const Book = () => {
   const [isPreviewStage, setIsPreviewStage] = useState(false);
 
   /* =======================================================
+     START A PROJECT MODAL STATE
+     ======================================================= */
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  /* =======================================================
      BOOK REF
      ======================================================= */
 
@@ -469,19 +452,19 @@ const Book = () => {
   /* =======================================================
      NAVIGATION MAPPING
 
-    about       = 1
-    portfolio   = 5
-    pricing     = 9
-    contact     = 13
-    behindCover = 15
+    about       = 1  (Home intro spread)
+    portfolio   = 3
+    pricing     = 7
+    contact     = 11
+    behindCover = last
      ======================================================= */
 
   const SECTION_PAGES = {
     home: 0,
     about: 1,
-    portfolio: 5,
-    pricing: 9,
-    contact: 13,
+    portfolio: 3,
+    pricing: 7,
+    contact: 11,
     behindCover: pages.length - 1,
   };
 
@@ -492,7 +475,6 @@ const Book = () => {
   const COMPONENTS_MAP = {
     Home,
     Portfolio,
-    About,
     Pricing,
     Contact,
   };
@@ -522,8 +504,7 @@ const Book = () => {
 
   /* =======================================================
      START A PROJECT CLICK HANDLER
-    Flips directly to page 3 (About / Start a Project)
-     when user clicks "LET'S START" in Home or Pricing.
+     Opens the Start a Project modal from Home or Pricing.
      ======================================================= */
 
   const handleStartProject = (e) => {
@@ -540,9 +521,7 @@ const Book = () => {
       return;
     }
 
-    if (bookRef.current && bookRef.current.pageFlip()) {
-      bookRef.current.pageFlip().flip(3);
-    }
+    setIsModalOpen(true);
   };
 
   /* =======================================================
@@ -1689,6 +1668,16 @@ const Book = () => {
           <p className="landing-copyright">Copyright © 2026 AAFI Designs</p>
         </div>
       )}
+
+      {/* ===================================================
+          START A PROJECT MODAL
+         =================================================== */}
+
+      <StartProjectModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+
     </div>
   );
 };

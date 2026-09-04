@@ -158,7 +158,7 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
         w-full
         flex-col
         items-center
-        justify-start
+        justify-between
         overflow-hidden
         bg-transparent
         px-2
@@ -220,13 +220,15 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
          ================================================= */}
       <div
         className="
-          mt-2
+          mt-1
           flex
           w-full
-          shrink-0
+          flex-1
+          min-h-0
           flex-col
           items-center
-          gap-[2px]
+          justify-evenly
+          gap-[3px]
           px-1
         "
       >
@@ -240,7 +242,7 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
               text-center
               font-['Helvetica_Light']
               font-light
-              leading-[1.15]
+              leading-[1.5]
               text-[#666666]
               ${sz.detailText}
             `}

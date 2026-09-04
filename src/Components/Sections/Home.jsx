@@ -58,7 +58,7 @@ const PARA_LEFT = {
   fontFamily: FONT,
   fontWeight: 300,
   fontSize: "clamp(11.8px, 1.52vh, 13.2px)",
-  lineHeight: 1.62,
+  lineHeight: 1.78,
   color: "#2a2520",
 };
 
@@ -82,7 +82,7 @@ const PARA_RIGHT = {
 
 const INTRO_RIGHT_PARA = {
   ...PARA_LEFT,
-  lineHeight: 1.4,
+  lineHeight: 1.88,
 };
 
 /* =========================================================
@@ -134,7 +134,7 @@ const HomeLeft = () => (
       style={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
+        justifyContent: "space-between",
         gap: "12px",
         flex: 1,
         minHeight: 0,
@@ -179,7 +179,9 @@ const HomeRight = ({ onStartProject }) => (
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "4px",
+          justifyContent: "space-between",
+          flex: 1,
+          gap: "8px",
         }}
       >
         {/* FIRST PARAGRAPH */}
