@@ -8,7 +8,7 @@ const L1 =
   "AAFI Designs offers complete creative solutions for independent authors, publishers and businesses looking for professional, distinctive and market-ready designs. Our services include custom book-cover design, ebook and print-ready covers, interior formatting, ACX audiobook artwork, 3D book mockups, author branding, logos, promotional graphics and other publishing materials.";
 
 const L2 =
-  "With more than 25 years of experience in graphic design, advertising, art direction and print production, we understand that an effective book design must do more than simply look attractive. It should communicate the book's message, connect with its intended audience, reflect the expectations of its genre and remain clear and engaging at both full size and thumbnail size.";
+  "With more than 25 years of experience in graphic design, advertising, art direction and print production, we understand that an effective book design must do more than simply look attractive. It should communicate the book\u2019s message, connect with its intended audience, reflect the expectations of its genre and remain clear and engaging at both full size and thumbnail size.";
 
 const R1 =
   "Having successfully completed more than 2,000 creative projects, AAFI Designs brings experience, thoughtful creative direction and careful attention to detail to every assignment. We work closely with each client to understand their ideas, audience and publishing goals before developing a design tailored specifically to their project.";
@@ -50,15 +50,15 @@ const PAGE = {
   width: "100%",
   boxSizing: "border-box",
   overflow: "hidden",
-  padding: "clamp(12px, 2.5vh, 20px) clamp(16px, 3.5%, 24px)",
+  padding: "clamp(10px, 2vh, 16px) clamp(14px, 3%, 22px) clamp(10px, 2vh, 16px)",
 };
 
 const PARA_LEFT = {
   margin: 0,
   fontFamily: FONT,
   fontWeight: 300,
-  fontSize: "clamp(11.8px, 1.52vh, 13.2px)",
-  lineHeight: 1.78,
+  fontSize: "clamp(11.5px, 1.48vh, 12.8px)",
+  lineHeight: 1.58,
   color: "#2a2520",
 };
 
@@ -67,7 +67,7 @@ const PARA = {
   fontFamily: FONT,
   fontWeight: 300,
   fontSize: "clamp(11px, 1.42vh, 12.5px)",
-  lineHeight: 1.6,
+  lineHeight: 1.5,
   color: "#2a2520",
 };
 
@@ -76,13 +76,13 @@ const PARA_RIGHT = {
   fontFamily: FONT,
   fontWeight: 300,
   fontSize: "clamp(10.5px, 1.35vh, 12px)",
-  lineHeight: 1.55,
+  lineHeight: 1.45,
   color: "#2a2520",
 };
 
 const INTRO_RIGHT_PARA = {
   ...PARA_LEFT,
-  lineHeight: 1.88,
+  lineHeight: 1.58,
 };
 
 /* =========================================================
@@ -135,7 +135,7 @@ const HomeLeft = () => (
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        gap: "12px",
+        gap: "10px",
         flex: 1,
         minHeight: 0,
         overflow: "hidden",
@@ -182,6 +182,8 @@ const HomeRight = ({ onStartProject }) => (
           justifyContent: "space-between",
           flex: 1,
           gap: "8px",
+          minHeight: 0,
+          overflow: "hidden",
         }}
       >
         {/* FIRST PARAGRAPH */}
@@ -202,11 +204,11 @@ const HomeRight = ({ onStartProject }) => (
         </p>
       </div>
 
-      {/* BUTTON - LET'S START (ALIGNED WITH BOTTOM OF LEFT PAGE TEXT) */}
+      {/* BUTTON - LET'S START */}
       <div
         style={{
-          paddingTop: "6px",
-          paddingBottom: "0",
+          paddingTop: "8px",
+          flexShrink: 0,
           display: "flex",
           justifyContent: "center",
           width: "100%",
