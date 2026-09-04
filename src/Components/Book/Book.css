@@ -264,7 +264,7 @@
   align-items: center;
   gap: 20px;
   color: #f5e6c8;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: 16px;
   letter-spacing: 2px;
 }
@@ -306,7 +306,7 @@
 }
 
 .book-error p {
-  font-family: Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: 14px;
   line-height: 1.6;
 }
@@ -421,7 +421,7 @@
 }
 
 .bc-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-weight: 300;
   font-size: clamp(13px, 1.2vw, 17px);
   color: #ffffff;
@@ -440,11 +440,11 @@
 }
 
 .bc-photo {
-  width: clamp(80px, 23%, 115px);
+  width: clamp(90px, 25%, 130px);
   aspect-ratio: 1;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 10%;
   border: clamp(2px, 0.25vw, 3px) solid #c8a951;
   outline: clamp(3px, 0.4vw, 5px) solid rgba(200, 169, 81, 0.25);
   display: block;
@@ -528,7 +528,7 @@
 }
 
 .bc-tagline {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-style: italic;
   font-size: 13px;
   color: rgba(200, 169, 81, 0.7);
@@ -628,7 +628,7 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  font-family: 'Cinzel', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -649,7 +649,7 @@
 }
 
 .page-content h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-weight: 600;
   font-size: clamp(12px, 1.8vw, 17px);
   margin-bottom: 10px;
@@ -661,7 +661,7 @@
 }
 
 .page-content p {
-  font-family: Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: clamp(11px, 1.5vw, 14px);
   line-height: 1.6;
 }
@@ -672,7 +672,7 @@
   align-items: flex-start;
   justify-content: center;
   margin: auto;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: clamp(11px, 1.5vw, 13.5px);
   line-height: 1.4;
   font-style: italic;
@@ -694,7 +694,7 @@
 
 .page-footer {
   text-align: center;
-  font-family: 'Cinzel', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: 9px;
   color: #8b7355;
   letter-spacing: 2px;
@@ -720,7 +720,7 @@
   background: rgba(245, 230, 200, 0.92);
   color: #3b2617;
   cursor: pointer;
-  font-family: 'Cinzel', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: 12px;
   letter-spacing: 1px;
   font-weight: 600;
@@ -828,7 +828,7 @@
 }
 
 .landing-logo {
-  font-family: 'Cinzel', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-weight: 600;
   font-size: clamp(14px, 1.5vw, 18px);
   letter-spacing: 5px;
@@ -857,7 +857,7 @@
 }
 
 .landing-heading {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: clamp(32px, 4.5vw, 76px);
   font-weight: 400;
   line-height: 1.05;
@@ -867,7 +867,7 @@
 }
 
 .landing-subheading {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Light';
   font-size: clamp(14px, 1.5vw, 18px);
   color: #c8a951;
   margin-bottom: clamp(15px, 2.5vh, 30px);
@@ -881,7 +881,7 @@
 }
 
 .landing-description {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Light';
   font-size: clamp(13px, 1.2vw, 15px);
   color: #555;
   line-height: 1.6;
@@ -907,7 +907,7 @@
 }
 
 .landing-btn {
-  font-family: 'Cinzel', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: 11px;
   letter-spacing: 2px;
   padding: 16px 36px;
@@ -947,7 +947,7 @@
 }
 
 .landing-copyright {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Light';
   font-size: 11px;
   color: #888;
 }
@@ -962,7 +962,7 @@
 }
 
 .landing-contact {
-  font-family: 'Cinzel', Georgia, serif;
+  font-family: 'Helvetica Light';
   font-size: 11px;
   letter-spacing: 2px;
   color: #1a1a1a;
@@ -2149,7 +2149,7 @@
     border: 1px solid #b39a69;
     background-color: white;
     color: #b39a69;
-    font-family: "'Helvetica Neue', Helvetica, Arial, sans-serif";
+    font-family: 'Helvetica Light';
     font-weight: 300;
     font-size: 8px;
     letter-spacing: 2px;

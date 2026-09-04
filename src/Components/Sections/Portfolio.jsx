@@ -661,15 +661,14 @@ export default function Portfolio({
               right-3
               top-[7px]
               z-20
-              text-[18px]
+              text-[20px]
               font-normal
               tracking-[0.5px]
               text-[#211912]
               sm:right-5
               sm:top-[7px]
-              sm:text-[20px]
             "
-            style={{ fontFamily: '"Helvetica Light", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            style={{ fontFamily: '"Helvetica Light"' }}
           >
             {getPageNumber()}
           </div>

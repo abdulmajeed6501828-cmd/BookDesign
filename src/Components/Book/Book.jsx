@@ -4,7 +4,6 @@ import HTMLFlipBook from "react-pageflip";
 import BookPage from "./BookPage";
 
 import Home from "../Sections/Home";
-import Testimonials from "../Sections/Testimonials";
 import Portfolio from "../Sections/Portfolio";
 import About from "../Sections/About";
 import Pricing from "../Sections/Pricing";
@@ -113,25 +112,22 @@ const Book = () => {
     PAGE 3  → ABOUT LEFT
     PAGE 4  → ABOUT RIGHT
 
-    PAGE 5  → TESTIMONIALS LEFT
-    PAGE 6  → TESTIMONIALS RIGHT
+    PAGE 5  → PORTFOLIO LEFT
+    PAGE 6  → PORTFOLIO RIGHT
 
     PAGE 7  → PORTFOLIO LEFT
     PAGE 8  → PORTFOLIO RIGHT
 
-    PAGE 9  → PORTFOLIO LEFT
-    PAGE 10 → PORTFOLIO RIGHT
+    PAGE 9  → PRICING SECTION 1 → STARTER
+    PAGE 10 → PRICING SECTION 2 → BASIC
 
-    PAGE 11 → PRICING SECTION 1 → STARTER
-    PAGE 12 → PRICING SECTION 2 → BASIC
+    PAGE 11 → PRICING SECTION 3 → PREMIUM
+    PAGE 12 → PRICING SECTION 4 → BUSINESS
 
-    PAGE 13 → PRICING SECTION 3 → PREMIUM
-    PAGE 14 → PRICING SECTION 4 → BUSINESS
+    PAGE 13 → CONTACT LEFT
+    PAGE 14 → CONTACT RIGHT
 
-    PAGE 15 → CONTACT LEFT
-    PAGE 16 → CONTACT RIGHT
-
-    PAGE 17 → BACK COVER
+    PAGE 15 → BACK COVER
      ======================================================= */
 
   const [pages] = useState([
@@ -192,83 +188,61 @@ const Book = () => {
     },
 
     /* =====================================================
-       PAGE 5 - TESTIMONIALS LEFT
+       PAGE 5 - PORTFOLIO LEFT
        ===================================================== */
 
     {
       id: 5,
       type: "component",
-      componentName: "Testimonials",
+      componentName: "Portfolio",
+      spread: 1,
       isLeftPage: true,
     },
 
     /* =====================================================
-       PAGE 6 - TESTIMONIALS RIGHT
+      PAGE 6 - PORTFOLIO RIGHT
        ===================================================== */
 
     {
       id: 6,
       type: "component",
-      componentName: "Testimonials",
+      componentName: "Portfolio",
+      spread: 1,
       isLeftPage: false,
     },
 
     /* =====================================================
-       PAGE 7 - PORTFOLIO LEFT
+      PAGE 7 - PORTFOLIO LEFT
        ===================================================== */
 
     {
       id: 7,
       type: "component",
       componentName: "Portfolio",
-      spread: 1,
+      spread: 2,
       isLeftPage: true,
     },
 
     /* =====================================================
-       PAGE 8 - PORTFOLIO RIGHT
+      PAGE 8 - PORTFOLIO RIGHT
        ===================================================== */
 
     {
       id: 8,
       type: "component",
       componentName: "Portfolio",
-      spread: 1,
-      isLeftPage: false,
-    },
-
-    /* =====================================================
-       PAGE 9 - PORTFOLIO LEFT
-       ===================================================== */
-
-    {
-      id: 9,
-      type: "component",
-      componentName: "Portfolio",
-      spread: 2,
-      isLeftPage: true,
-    },
-
-    /* =====================================================
-       PAGE 10 - PORTFOLIO RIGHT
-       ===================================================== */
-
-    {
-      id: 10,
-      type: "component",
-      componentName: "Portfolio",
       spread: 2,
       isLeftPage: false,
     },
 
     /* =====================================================
-       PAGE 11 - PRICING SECTION 1
+      PAGE 9 - PRICING SECTION 1
        STARTER
        LEFT PAGE
        ===================================================== */
 
     {
-      id: 11,
+      id: 9,
       type: "component",
       componentName: "Pricing",
       pricingSection: 1,
@@ -276,13 +250,13 @@ const Book = () => {
     },
 
     /* =====================================================
-       PAGE 12 - PRICING SECTION 2
+      PAGE 10 - PRICING SECTION 2
        BASIC
        RIGHT PAGE
        ===================================================== */
 
     {
-      id: 12,
+      id: 10,
       type: "component",
       componentName: "Pricing",
       pricingSection: 2,
@@ -290,13 +264,13 @@ const Book = () => {
     },
 
     /* =====================================================
-       PAGE 13 - PRICING SECTION 3
+      PAGE 11 - PRICING SECTION 3
        PREMIUM
        LEFT PAGE
        ===================================================== */
 
     {
-      id: 13,
+      id: 11,
       type: "component",
       componentName: "Pricing",
       pricingSection: 3,
@@ -304,13 +278,13 @@ const Book = () => {
     },
 
     /* =====================================================
-       PAGE 14 - PRICING SECTION 4
+      PAGE 12 - PRICING SECTION 4
        BUSINESS
        RIGHT PAGE
        ===================================================== */
 
     {
-      id: 14,
+      id: 12,
       type: "component",
       componentName: "Pricing",
       pricingSection: 4,
@@ -318,22 +292,22 @@ const Book = () => {
     },
 
     /* =====================================================
-       PAGE 15 - CONTACT LEFT
+      PAGE 13 - CONTACT LEFT
        ===================================================== */
 
     {
-      id: 15,
+      id: 13,
       type: "component",
       componentName: "Contact",
       isLeftPage: true,
     },
 
     /* =====================================================
-       PAGE 16 - CONTACT RIGHT
+      PAGE 14 - CONTACT RIGHT
        ===================================================== */
 
     {
-      id: 16,
+      id: 14,
       type: "component",
       componentName: "Contact",
       isLeftPage: false,
@@ -495,21 +469,19 @@ const Book = () => {
   /* =======================================================
      NAVIGATION MAPPING
 
-    about        = 1
-    testimonials = 5
-    portfolio    = 7
-    pricing      = 11
-    contact      = 15
-    behindCover  = 17
+    about       = 1
+    portfolio   = 5
+    pricing     = 9
+    contact     = 13
+    behindCover = 15
      ======================================================= */
 
   const SECTION_PAGES = {
     home: 0,
     about: 1,
-    testimonials: 5,
-    portfolio: 7,
-    pricing: 11,
-    contact: 15,
+    portfolio: 5,
+    pricing: 9,
+    contact: 13,
     behindCover: pages.length - 1,
   };
 
@@ -519,7 +491,6 @@ const Book = () => {
 
   const COMPONENTS_MAP = {
     Home,
-    Testimonials,
     Portfolio,
     About,
     Pricing,
@@ -1053,20 +1024,6 @@ const Book = () => {
             }
           >
             About
-          </a>
-
-
-          <a
-            href="#testimonials"
-            className={`nav-link ${getIsActive("testimonials")
-              ? "active"
-              : ""
-              }`}
-            onClick={(e) =>
-              handleNavClick(e, "testimonials")
-            }
-          >
-            Testimonials
           </a>
 
 

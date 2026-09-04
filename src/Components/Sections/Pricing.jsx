@@ -105,6 +105,8 @@ const PricingPageHeading = () => {
       >
         pricing / packages
       </h2>
+
+      <div className="mt-2 h-[2px] w-10 bg-[#c8a951]" />
     </div>
   );
 };
@@ -359,15 +361,14 @@ const PricingContent = ({
             right-3
             top-1
             z-20
-            font-['Helvetica_Light']
-            text-sm
+            text-[20px]
             font-light
             tracking-[0.5px]
             text-black
             sm:right-4
             sm:top-2
-            sm:text-base
           "
+          style={{ fontFamily: '"Helvetica Light"' }}
         >
           {pageNumber}
         </div>

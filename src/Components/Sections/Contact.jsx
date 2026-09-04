@@ -4,63 +4,63 @@ import "./Contact.css";
 const FAQ_ITEMS = [
   {
     id: 1,
-    question: "What information do you need to get started?",
+    question: "1What information do you need to get started?",
     answer:
-      "Everything I need is included in the requirements form you'll complete after placing your order.",
+      "Everything I need is included in the requirements form you’ll complete after placing your order.",
   },
   {
     id: 2,
     question: "What if my book is not yet formatted?",
     answer:
-      "We provide complete manuscript formatting for print and eBook formats.",
+      "I can begin the front cover, but final print dimensions require the completed page count.",
   },
   {
     id: 3,
     question: "Do you prepare files for IngramSpark, or Lulu as well?",
     answer:
-      "Yes — files are prepared to KDP, IngramSpark, Lulu, and Barnes & Noble specs.",
+      "Yes, I prepare print-ready files for Amazon KDP. Files for other major publishing platforms are available for an additional fee.",
   },
   {
     id: 4,
     question: "What file formats are delivered upon completion?",
     answer:
-      "Print-ready PDFs (CMYK, 300 DPI), digital EPUB files, and layered source files.",
+      "You’ll receive a high-resolution JPG for ebooks and a print-ready PDF for print according to your order.",
   },
   {
     id: 5,
     question: "What is a source file?",
     answer:
-      "The original editable project file (e.g. InDesign .indd or Illustrator .ai).",
+      "It is the editable Photoshop file used to create your cover.",
   },
   {
     id: 6,
     question: "What is included in the Social Media Kit?",
     answer:
-      "3D book mockups, promotional banners, and social graphics for Instagram and Facebook.",
+      "It includes promotional book mockups and social-media-ready graphics.",
   },
   {
     id: 7,
     question: "What is a PDF cover template?",
     answer:
-      "A layout file from the printer tailored to your exact trim size, page count, and paper type.",
+      "It shows the required dimensions, spine, bleed, margins, and barcode area.",
   },
   {
     id: 8,
     question: "Can I request revisions after the order is complete?",
     answer:
-      "Yes, minor tweaks and text adjustments are included to ensure 100% satisfaction.",
+      "Revisions should be requested before completion. Later changes may cost extra.",
   },
   {
     id: 9,
     question: "Can you adjust a rejected book cover?",
     answer:
-      "Absolutely — we fix trim, barcode, margin, spine, and color profile rejections.",
+      "Yes, I can correct technical issues based on the publisher’s feedback.",
   },
   {
     id: 10,
     question: "What is the stock-image licensing policy?",
     answer:
-      "All stock imagery is licensed for commercial distribution within standard print limits.",
+      "I’ll confirm whether the selected stock images or vectors are free or licensed. If licensed assets are required, I’ll provide purchase links before final delivery.",
   },
 ];
 
@@ -122,6 +122,7 @@ export default function Contact({ isLeft }) {
           <span className="cp-faq-title">faq's</span>
           <span className="cp-faq-sub">(frequently asked questions)</span>
         </div>
+        <div className="cp-faq-heading-line" />
 
         {/* FAQ list */}
         <div className="cp-faq-list">
