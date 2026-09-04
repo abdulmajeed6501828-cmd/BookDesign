@@ -34,8 +34,8 @@
 
 .book-wrapper.is-landing {
   background: #f4f1e9;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: clamp(16px, 3vh, 28px);
+  padding-bottom: clamp(16px, 3vh, 28px);
   justify-content: flex-start;
 }
 
@@ -59,18 +59,19 @@
 
 .site-navbar {
   display: flex;
-  width: 100%;
-  gap: clamp(8px, 1.5vw, 16px);
+  width: 125%;
+  gap: clamp(8px, 1.5vw, 18px);
   align-items: center;
+  justify-content: center;
 }
 
 .nav-link {
-  font-family: 'Helvetica Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(10px, 1.1vw, 12.5px);
+  font-family: 'Helvetica Light';
+  font-size: clamp(10px, 1.1vw, 13px);
   letter-spacing: 2px;
   color: #000000;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 550;
   transition: color 0.25s ease, transform 0.2s ease;
 }
 
@@ -454,25 +455,25 @@
 .bc-bio-area {
   flex: 1 1 auto;
   width: 100%;
-  min-height: 150px;
+  min-height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   overflow: hidden;
   margin-bottom: 0;
 }
 
 .bc-para {
   width: 100%;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(6.5px, 0.62vw, 8.5px);
+  font-family: 'Helvetica Light';
+  font-size: clamp(6px, 0.62vw, 8.5px);
   line-height: 1.32;
   color: rgba(255, 255, 255, 0.88);
   margin: 0;
   text-align: center;
-  padding:0 20px;
+  padding:0 37px;
 }
 
 .bc-strong {
@@ -1016,7 +1017,7 @@
 /* Desktop landing content offset */
 @media (min-width: 1024px) {
   .landing-overlay {
-    padding: 0 65px;
+    padding: clamp(16px, 3vh, 28px) 65px;
   }
 
   .landing-left {
@@ -1026,7 +1027,7 @@
 
   .landing-logo {
     position: absolute;
-    top: 0;
+    top: clamp(16px, 3vh, 28px);
     left: 0;
     margin-bottom: 0;
   }
@@ -1041,13 +1042,13 @@
 
   .landing-right-top {
     position: absolute;
-    top: 0;
+    top: clamp(16px, 3vh, 28px);
     right: 65px;
   }
 
   .landing-overlay {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: clamp(16px, 3vh, 28px);
+    padding-bottom: clamp(16px, 3vh, 28px);
   }
 }
 
@@ -1694,7 +1695,7 @@
 
   .bc-bio-area {
     min-height: 0;
-    gap: 8px;
+    gap: 6px;
     flex: 0 1 auto;
   }
 

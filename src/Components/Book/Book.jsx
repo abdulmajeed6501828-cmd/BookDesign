@@ -495,7 +495,7 @@ const Book = () => {
   /* =======================================================
      NAVIGATION MAPPING
 
-    about        = 3
+    about        = 1
     testimonials = 5
     portfolio    = 7
     pricing      = 11
@@ -504,8 +504,8 @@ const Book = () => {
      ======================================================= */
 
   const SECTION_PAGES = {
-    home: 1,
-    about: 3,
+    home: 0,
+    about: 1,
     testimonials: 5,
     portfolio: 7,
     pricing: 11,
@@ -704,6 +704,10 @@ const Book = () => {
 
   const getIsActive = (section) => {
     const target = SECTION_PAGES[section];
+
+    if (activePage === 0) {
+      return section === "home";
+    }
 
     return portrait
       ? activePage === target

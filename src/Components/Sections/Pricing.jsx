@@ -315,7 +315,7 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
             lg:text-[11px]
           "
         >
-          LET'S START
+        START A PROJECT
         </button>
       </div>
     </div>
@@ -411,7 +411,7 @@ const PricingContent = ({
                 lowercase
                 leading-none
                 tracking-[0.5px]
-                text-[16px]
+                text-[22px]
                 xs:text-[18px]
                 sm:text-[20px]
                 md:text-[22px]

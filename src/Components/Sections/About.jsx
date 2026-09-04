@@ -83,14 +83,14 @@ export default function About({ isLeft }) {
   ============================================================ */
   if (isLeft) {
     return (
-      <div className="ab-page ab-page-left" {...sp} style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+      <div className="ab-page ab-page-left" {...sp} style={{ fontFamily: "Helvetica Light" }}>
         {/* Header — "start a project" */}
-        <h2 className="ab-title" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>start a project</h2>
+        <h2 className="ab-title" style={{ fontFamily: "Helvetica Light" }}>start a project</h2>
 
         {/* Section Divider with Gold Lines */}
         <div className="ab-divider">
           <span className="ab-divider-line"></span>
-          <span className="ab-divider-text" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>PROJECT DETAILS</span>
+          <span className="ab-divider-text" style={{ fontFamily: "Helvetica Light" }}>PROJECT DETAILS</span>
           <span className="ab-divider-line"></span>
         </div>
 
@@ -102,7 +102,7 @@ export default function About({ isLeft }) {
             { id: "premium", label: "premium $350" },
             { id: "business", label: "business $500" },
           ].map((pkg) => (
-            <label key={pkg.id} className="ab-radio-item" {...sp} style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+            <label key={pkg.id} className="ab-radio-item" {...sp} style={{ fontFamily: "Helvetica Light" }}>
               <input
                 type="radio"
                 name="package"
@@ -112,7 +112,7 @@ export default function About({ isLeft }) {
                 className="ab-radio"
                 {...sp}
               />
-              <span className="ab-radio-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>{pkg.label}</span>
+              <span className="ab-radio-label" style={{ fontFamily: "Helvetica Light" }}>{pkg.label}</span>
             </label>
           ))}
         </div>
@@ -130,7 +130,7 @@ export default function About({ isLeft }) {
               onChange={handleInputChange}
               className="ab-input"
               {...sp}
-              style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+              style={{ fontFamily: "Helvetica Light" }}
             />
             <input
               type="email"
@@ -140,7 +140,7 @@ export default function About({ isLeft }) {
               onChange={handleInputChange}
               className="ab-input"
               {...sp}
-              style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+              style={{ fontFamily: "Helvetica Light" }}
             />
           </div>
 
@@ -153,7 +153,7 @@ export default function About({ isLeft }) {
             onChange={handleInputChange}
             className="ab-input"
             {...sp}
-            style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+            style={{ fontFamily: "Helvetica Light" }}
           />
 
           {/* Row 3: Subtitle */}
@@ -165,7 +165,7 @@ export default function About({ isLeft }) {
             onChange={handleInputChange}
             className="ab-input"
             {...sp}
-            style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+            style={{ fontFamily: "Helvetica Light" }}
           />
 
           {/* Row 4: Second subtitle (optional) */}
@@ -177,7 +177,7 @@ export default function About({ isLeft }) {
             onChange={handleInputChange}
             className="ab-input"
             {...sp}
-            style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+            style={{ fontFamily: "Helvetica Light" }}
           />
 
           {/* Row 5: Author name & Author Photo upload */}
@@ -190,12 +190,12 @@ export default function About({ isLeft }) {
               onChange={handleInputChange}
               className="ab-input"
               {...sp}
-              style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+              style={{ fontFamily: "Helvetica Light" }}
             />
             <div className="ab-author-photo-group">
-              <span className="ab-inline-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Author Photo:</span>
+              <span className="ab-inline-label" style={{ fontFamily: "Helvetica Light" }}>Author Photo:</span>
               <div className="ab-upload-box" onClick={() => authorPhotoRef.current?.click()} {...sp}>
-                <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+                <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light" }}>
                   {formData.authorPhoto ? formData.authorPhoto : (
                     <>
                       <svg className="ab-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -226,7 +226,7 @@ export default function About({ isLeft }) {
               onChange={handleInputChange}
               className="ab-textarea"
               {...sp}
-              style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+              style={{ fontFamily: "Helvetica Light" }}
             />
             <textarea
               name="authorBio"
@@ -235,15 +235,15 @@ export default function About({ isLeft }) {
               onChange={handleInputChange}
               className="ab-textarea"
               {...sp}
-              style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+              style={{ fontFamily: "Helvetica Light" }}
             />
           </div>
 
           {/* Row 7: Additional document upload block */}
           <div className="ab-add-doc-container">
-            <span className="ab-add-doc-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Additional document:</span>
+            <span className="ab-add-doc-label" style={{ fontFamily: "Helvetica Light" }}>Additional document:</span>
             <div className="ab-upload-box ab-upload-full" onClick={() => addDocRef.current?.click()} {...sp}>
-              <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+              <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light" }}>
                 {formData.additionalDocument ? formData.additionalDocument : (
                   <>
                     <svg className="ab-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -273,23 +273,23 @@ export default function About({ isLeft }) {
      RIGHT PAGE — IMPORTANT NOTICE & SPECIFICATIONS
   ============================================================ */
   return (
-    <div className="ab-page ab-page-right" {...sp} style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+    <div className="ab-page ab-page-right" {...sp} style={{ fontFamily: "Helvetica Light" }}>
       {/* Important Callout Banner */}
       <div className="ab-important-box">
         <div className="ab-important-header">
-          <div className="ab-important-icon" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>!</div>
-          <span className="ab-important-title" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>IMPORTANT</span>
+          <div className="ab-important-icon" style={{ fontFamily: "Helvetica Light" }}>!</div>
+          <span className="ab-important-title" style={{ fontFamily: "Helvetica Light" }}>IMPORTANT</span>
         </div>
-        <p className="ab-important-text" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+        <p className="ab-important-text" style={{ fontFamily: "Helvetica Light" }}>
           Please verify all information before submitting—especially the trim size, page count, paper type, bleed settings and cover format. Incorrect specifications can affect the spine width and overall cover dimensions. For print covers, please upload the final template supplied by your publishing platform.
         </p>
       </div>
 
       {/* Book Cover Type Radio Group */}
       <div className="ab-cover-type-row">
-        <span className="ab-label ab-label-inline" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Book Cover Type:</span>
+        <span className="ab-label ab-label-inline" style={{ fontFamily: "Helvetica Light" }}>Book Cover Type:</span>
         {["Ebook", "Paperback", "Hardcover", "Jacket Cover"].map((type) => (
-          <label key={type} className="ab-radio-item" {...sp} style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+          <label key={type} className="ab-radio-item" {...sp} style={{ fontFamily: "Helvetica Light" }}>
             <input
               type="radio"
               name="coverType"
@@ -299,7 +299,7 @@ export default function About({ isLeft }) {
               className="ab-radio"
               {...sp}
             />
-            <span className="ab-radio-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>{type}</span>
+            <span className="ab-radio-label" style={{ fontFamily: "Helvetica Light" }}>{type}</span>
           </label>
         ))}
       </div>
@@ -307,7 +307,7 @@ export default function About({ isLeft }) {
       {/* 4 Specifications Grid — Labels inside / above compact */}
       <div className="ab-specs-grid">
         <div className="ab-field-group">
-          <label className="ab-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Trim Size:</label>
+          <label className="ab-label" style={{ fontFamily: "Helvetica Light" }}>Trim Size:</label>
           <input
             type="text"
             name="trimSize"
@@ -316,12 +316,12 @@ export default function About({ isLeft }) {
             onChange={handleInputChange}
             className="ab-input"
             {...sp}
-            style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+            style={{ fontFamily: "Helvetica Light" }}
           />
         </div>
 
         <div className="ab-field-group">
-          <label className="ab-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Page Count:</label>
+          <label className="ab-label" style={{ fontFamily: "Helvetica Light" }}>Page Count:</label>
           <input
             type="text"
             name="pageCount"
@@ -329,19 +329,19 @@ export default function About({ isLeft }) {
             onChange={handleInputChange}
             className="ab-input"
             {...sp}
-            style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+            style={{ fontFamily: "Helvetica Light" }}
           />
         </div>
 
         <div className="ab-field-group">
-          <label className="ab-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Paper Type:</label>
+          <label className="ab-label" style={{ fontFamily: "Helvetica Light" }}>Paper Type:</label>
           <select
             name="paperType"
             value={formData.paperType}
             onChange={handleInputChange}
             className="ab-input ab-select"
             {...sp}
-            style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+            style={{ fontFamily: "Helvetica Light" }}
           >
             <option value="White/Cream">White/Cream</option>
             <option value="White">White</option>
@@ -351,7 +351,7 @@ export default function About({ isLeft }) {
         </div>
 
         <div className="ab-field-group">
-          <label className="ab-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Spine Width:</label>
+          <label className="ab-label" style={{ fontFamily: "Helvetica Light" }}>Spine Width:</label>
           <input
             type="text"
             name="spineWidth"
@@ -360,16 +360,16 @@ export default function About({ isLeft }) {
             onChange={handleInputChange}
             className="ab-input"
             {...sp}
-            style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+            style={{ fontFamily: "Helvetica Light" }}
           />
         </div>
       </div>
 
       {/* Print Cover Template Upload */}
       <div className="ab-field-group">
-        <label className="ab-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Print Cover Template (for Paperback/Hardcover):</label>
+        <label className="ab-label" style={{ fontFamily: "Helvetica Light" }}>Print Cover Template (for Paperback/Hardcover):</label>
         <div className="ab-upload-box ab-upload-full" onClick={() => pdfTemplateRef.current?.click()} {...sp}>
-          <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+          <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light" }}>
             {formData.pdfTemplate ? formData.pdfTemplate : (
               <>
                 <svg className="ab-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -392,7 +392,7 @@ export default function About({ isLeft }) {
       </div>
 
       {/* KDP Calculator Note */}
-      <p className="ab-kdp-note" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+      <p className="ab-kdp-note" style={{ fontFamily: "Helvetica Light" }}>
         To find out the exact dimensions of your cover, visit Amazon KDP Cover Calculator:{" "}
         <a
           href="https://kdp.amazon.com/cover-calculator"
@@ -400,7 +400,7 @@ export default function About({ isLeft }) {
           rel="noreferrer"
           className="ab-kdp-link"
           {...sp}
-          style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+          style={{ fontFamily: "Helvetica Light" }}
         >
           https://kdp.amazon.com/cover-calculator
         </a>{" "}
@@ -409,23 +409,23 @@ export default function About({ isLeft }) {
 
       {/* Design Needs / Instructions */}
       <div className="ab-field-group">
-        <label className="ab-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Design Needs / Instructions:</label>
+        <label className="ab-label" style={{ fontFamily: "Helvetica Light" }}>Design Needs / Instructions:</label>
         <textarea
           name="designInstructions"
           value={formData.designInstructions}
           onChange={handleInputChange}
           className="ab-textarea ab-textarea-short"
           {...sp}
-          style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+          style={{ fontFamily: "Helvetica Light" }}
         />
       </div>
 
       {/* Visual / Design Inspiration (3 upload buttons) */}
       <div className="ab-field-group">
-        <label className="ab-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Visual / Design Inspiration:</label>
+        <label className="ab-label" style={{ fontFamily: "Helvetica Light" }}>Visual / Design Inspiration:</label>
         <div className="ab-inspiration-row">
           <div className="ab-upload-box" onClick={() => sample1Ref.current?.click()} {...sp}>
-            <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+            <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light" }}>
               {formData.inspirationSample1 ? formData.inspirationSample1 : (
                 <>
                   <svg className="ab-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -441,7 +441,7 @@ export default function About({ isLeft }) {
           </div>
 
           <div className="ab-upload-box" onClick={() => sample2Ref.current?.click()} {...sp}>
-            <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+            <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light" }}>
               {formData.inspirationSample2 ? formData.inspirationSample2 : (
                 <>
                   <svg className="ab-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -457,7 +457,7 @@ export default function About({ isLeft }) {
           </div>
 
           <div className="ab-upload-box" onClick={() => sample3Ref.current?.click()} {...sp}>
-            <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+            <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light" }}>
               {formData.inspirationSample3 ? formData.inspirationSample3 : (
                 <>
                   <svg className="ab-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -476,9 +476,9 @@ export default function About({ isLeft }) {
 
       {/* Preference Radio Row */}
       <div className="ab-pref-row">
-        <span className="ab-label ab-label-inline" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>Let us know your preference:</span>
+        <span className="ab-label ab-label-inline" style={{ fontFamily: "Helvetica Light" }}>Let us know your preference:</span>
         {["Typographic", "AI-Generated", "Stock Image"].map((pref) => (
-          <label key={pref} className="ab-radio-item" {...sp} style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+          <label key={pref} className="ab-radio-item" {...sp} style={{ fontFamily: "Helvetica Light" }}>
             <input
               type="radio"
               name="preference"
@@ -488,14 +488,14 @@ export default function About({ isLeft }) {
               className="ab-radio"
               {...sp}
             />
-            <span className="ab-radio-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>{pref}</span>
+            <span className="ab-radio-label" style={{ fontFamily: "Helvetica Light" }}>{pref}</span>
           </label>
         ))}
       </div>
 
       {/* ISBN # or Barcode Code Row */}
       <div className="ab-isbn-row">
-        <span className="ab-label ab-label-inline" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>ISBN # or Barcode Code:</span>
+        <span className="ab-label ab-label-inline" style={{ fontFamily: "Helvetica Light" }}>ISBN # or Barcode Code:</span>
         <input
           type="text"
           name="isbnCode"
@@ -504,10 +504,10 @@ export default function About({ isLeft }) {
           onChange={handleInputChange}
           className="ab-input ab-isbn-input"
           {...sp}
-          style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}
+          style={{ fontFamily: "Helvetica Light" }}
         />
         <div className="ab-upload-box ab-upload-btn-only" onClick={() => isbnFileRef.current?.click()} {...sp}>
-          <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+          <span className="ab-upload-text" style={{ fontFamily: "Helvetica Light" }}>
             {formData.isbnFile ? formData.isbnFile : (
               <>
                 <svg className="ab-upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -524,7 +524,7 @@ export default function About({ isLeft }) {
       </div>
 
       {/* Declaration Checkbox */}
-      <label className="ab-declaration-row" {...sp} style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+      <label className="ab-declaration-row" {...sp} style={{ fontFamily: "Helvetica Light" }}>
         <input
           type="checkbox"
           checked={declared}
@@ -532,7 +532,7 @@ export default function About({ isLeft }) {
           className="ab-checkbox"
           {...sp}
         />
-        <span className="ab-declaration-label" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+        <span className="ab-declaration-label" style={{ fontFamily: "Helvetica Light" }}>
           I hereby declare that all the information submitted by me in the order form is correct, true, and valid. Yes, I agree with the privacy policy and terms and conditions.
         </span>
       </label>
@@ -540,9 +540,9 @@ export default function About({ isLeft }) {
       {/* Submit Button */}
       <div className="ab-submit-wrap">
         {isSubmitted ? (
-          <div className="ab-submit-success" style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>✓ ORDER SUBMITTED SUCCESSFULLY!</div>
+          <div className="ab-submit-success" style={{ fontFamily: "Helvetica Light" }}>✓ ORDER SUBMITTED SUCCESSFULLY!</div>
         ) : (
-          <button type="button" onClick={handleSubmit} className="ab-submit-btn" {...sp} style={{ fontFamily: "Helvetica Light, Helvetica, Arial, sans-serif" }}>
+          <button type="button" onClick={handleSubmit} className="ab-submit-btn" {...sp} style={{ fontFamily: "Helvetica Light" }}>
             SUBMIT ORDER
           </button>
         )}

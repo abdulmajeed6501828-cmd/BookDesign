@@ -13,7 +13,7 @@ import Layer8 from "../../assets/images/Layer8.png";
    ========================================================= */
 
 const FONT =
-  "'Helvetica Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+  "'Helvetica Light'";
 
 
 /* =========================================================
@@ -119,11 +119,7 @@ const testimonialStyles = `
 
   font-family:
     'Helvetica Light',
-    'Helvetica Neue Light',
-    'Helvetica Neue',
-    Helvetica,
-    Arial,
-    sans-serif !important;
+    ;
 
   font-weight: 300 !important;
 
@@ -141,16 +137,11 @@ const testimonialStyles = `
   position: relative !important;
   top: 0 !important;
 
-  margin: 0 0 10px 0 !important;
+  margin: 0 0 6px 0 !important;
   padding: 0 10px !important;
 
   font-family:
-    'Helvetica Light',
-    'Helvetica Neue Light',
-    'Helvetica Neue',
-    Helvetica,
-    Arial,
-    sans-serif !important;
+    'Helvetica Light' !important;
 
   font-size: 17px !important;
   font-weight: 300 !important;
@@ -159,6 +150,13 @@ const testimonialStyles = `
   line-height: 1.1 !important;
 
   color: #191919 !important;
+}
+
+.aafi-testimonials-heading-divider {
+  width: 40px !important;
+  height: 2px !important;
+  margin: 0 0 12px 10px !important;
+  background-color: #c8a951 !important;
 }
 
 
@@ -266,12 +264,7 @@ const testimonialStyles = `
   overflow: hidden !important;
 
   font-family:
-    'Helvetica Light',
-    'Helvetica Neue Light',
-    'Helvetica Neue',
-    Helvetica,
-    Arial,
-    sans-serif !important;
+    'Helvetica Light'!important;
 }
 
 
@@ -319,10 +312,10 @@ const testimonialStyles = `
 .aafi-testimonial-avatar-row {
   width: 100% !important;
 
-  height: 40px !important;
+  height: 50px !important;
   min-height: 40px !important;
 
-  flex: 0 0 40px !important;
+  flex: 0 0 50px !important;
 
   display: flex !important;
 
@@ -390,9 +383,7 @@ const testimonialStyles = `
   justify-content: center !important;
 
   font-family:
-    Georgia,
-    'Times New Roman',
-    serif !important;
+     Halvetica Light !important;
 
   font-size: 30px !important;
 
@@ -415,54 +406,26 @@ const testimonialStyles = `
    ========================================================= */
 
 .aafi-testimonial-body {
-  width: 100% !important;
-
+  width: 90% !important;
   height: auto !important;
-
   min-height: 0 !important;
-
   max-height: none !important;
-
-  margin: 0 0 13px 0 !important;
+  margin: 0 0 10px 0 !important;
   padding: 0 !important;
-
   box-sizing: border-box !important;
-
-  font-family:
-    'Helvetica Light',
-    'Helvetica Neue Light',
-    'Helvetica Neue',
-    Helvetica,
-    Arial,
-    sans-serif !important;
-
+  font-family: 'Helvetica Light' !important;
   font-size: 7.8px !important;
-
   font-weight: 300 !important;
-
   line-height: 1.42 !important;
-
   letter-spacing: 0 !important;
-
   color: #353535 !important;
-
   white-space: normal !important;
-
   word-break: normal !important;
-
   overflow-wrap: break-word !important;
-
   text-align: left !important;
-
   overflow: visible !important;
-
   display: block !important;
-
   flex: 0 0 auto !important;
-
-  -webkit-line-clamp: unset !important;
-
-  -webkit-box-orient: unset !important;
 }
 
 
@@ -475,22 +438,17 @@ const testimonialStyles = `
 
   height: auto !important;
 
-  margin: 0 0 8px 0 !important;
+  margin: 0 0 2px 0 !important;
   padding: 0 !important;
 
   font-family:
-    'Helvetica Light',
-    'Helvetica Neue Light',
-    'Helvetica Neue',
-    Helvetica,
-    Arial,
-    sans-serif !important;
+    'Helvetica Light'!important;
 
   font-size: 8px !important;
 
   font-weight: 700 !important;
 
-  line-height: 1.2 !important;
+   
 
   color: #171717 !important;
 
@@ -513,12 +471,7 @@ const testimonialStyles = `
   padding: 0 !important;
 
   font-family:
-    'Helvetica Light',
-    'Helvetica Neue Light',
-    'Helvetica Neue',
-    Helvetica,
-    Arial,
-    sans-serif !important;
+    'Helvetica Light'!important;
 
   font-size: 6.3px !important;
 
@@ -838,6 +791,11 @@ function TestimonialsLeft() {
       <h2 className="aafi-testimonials-heading" style={{ fontFamily: FONT }}>
         Testimonials
       </h2>
+
+      <div
+        className="aafi-testimonials-heading-divider"
+        aria-hidden="true"
+      />
 
       <div className="aafi-testimonials-grid" style={{ fontFamily: FONT }}>
 

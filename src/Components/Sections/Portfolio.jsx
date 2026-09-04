@@ -699,14 +699,14 @@ export default function Portfolio({
               <div className="relative top-[7px]">
                 <h2
                   className="
-                    text-[27px]
+                    text-[20px]
                     font-normal
                     leading-none
                     tracking-[0.5px]
                     text-[#211912]
-                    sm:text-[29px]
+                    sm:text-[20px]
                   "
-                  style={{ fontFamily: '"Helvetica Light", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+                  style={{ fontFamily: '"Helvetica Light", ' }}
                 >
                   portfolio
                 </h2>

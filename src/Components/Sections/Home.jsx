@@ -26,7 +26,7 @@ const withItalicBrand = (text) =>
         <em
           style={{
             fontStyle: "italic",
-            fontWeight: 600,
+            fontWeight: 300,
             color: "#4a4238",
           }}
         >
@@ -40,7 +40,7 @@ const withItalicBrand = (text) =>
    BASE STYLES
    ========================================================= */
 
-const FONT = "'Helvetica Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+const FONT = "'Helvetica Light'";
 
 const PAGE = {
   display: "flex",
@@ -80,6 +80,11 @@ const PARA_RIGHT = {
   color: "#2a2520",
 };
 
+const INTRO_RIGHT_PARA = {
+  ...PARA_LEFT,
+  lineHeight: 1.4,
+};
+
 /* =========================================================
    LEFT PAGE
    FIRST FLIP — INTRODUCTION LEFT PAGE
@@ -102,15 +107,15 @@ const HomeLeft = () => (
       <h2
         style={{
           margin: "4px 0 6px 0",
-          fontFamily: FONT,
+          fontFamily: "Helvetica Light",
           fontWeight: 400,
-          fontSize: "clamp(22px, 3vh, 28px)",
+          fontSize: "22px",
           lineHeight: 1,
           letterSpacing: "0.3px",
           color: "#1a1a1a",
         }}
       >
-        Introduction
+        introduction
       </h2>
 
       {/* GOLD UNDERLINE */}
@@ -130,7 +135,7 @@ const HomeLeft = () => (
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        gap: "14px",
+        gap: "12px",
         flex: 1,
         minHeight: 0,
         overflow: "hidden",
@@ -174,19 +179,19 @@ const HomeRight = ({ onStartProject }) => (
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "9px",
+          gap: "4px",
         }}
       >
         {/* FIRST PARAGRAPH */}
-        <p style={PARA_LEFT}>{withItalicBrand(R1)}</p>
+        <p style={INTRO_RIGHT_PARA}>{withItalicBrand(R1)}</p>
 
         {/* SECOND PARAGRAPH */}
-        <p style={PARA_LEFT}>{withItalicBrand(R2)}</p>
+        <p style={INTRO_RIGHT_PARA}>{withItalicBrand(R2)}</p>
 
         {/* QUOTE */}
         <p
           style={{
-            ...PARA_LEFT,
+            ...INTRO_RIGHT_PARA,
             fontStyle: "italic",
             color: "#4a4238",
           }}
@@ -199,7 +204,7 @@ const HomeRight = ({ onStartProject }) => (
       <div
         style={{
           paddingTop: "6px",
-          paddingBottom: "2px",
+          paddingBottom: "0",
           display: "flex",
           justifyContent: "center",
           width: "100%",
@@ -221,7 +226,7 @@ const HomeRight = ({ onStartProject }) => (
             fontFamily: FONT,
             fontWeight: 500,
             fontSize: "clamp(8.5px, 1.05vh, 10px)",
-            letterSpacing: "1.5px",
+            letterSpacing: "1.1px",
             textTransform: "uppercase",
             color: "#b39a69",
             backgroundColor: "transparent",
@@ -240,7 +245,7 @@ const HomeRight = ({ onStartProject }) => (
             e.target.style.color = "#b39a69";
           }}
         >
-          LET'S START
+          START A PROJECT
         </button>
       </div>
     </div>
@@ -269,22 +274,22 @@ const responsiveStyle = `
     }
 
     .home-left-content p {
-      font-family: 'Helvetica Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-      font-size: 11px !important;
-      line-height: 1.72 !important;
+      fontFamily: 'Helvetica Light' !important;
+      fontSize: 11px !important;
+      lineHeight: 1.72 !important;
     }
 
     /* RIGHT PAGE */
     .home-right-content {
-      gap: 9px !important;
+      gap: 4px !important;
       justify-content: flex-start !important;
-      padding-bottom: 45px !important;
+      padding-bottom: 0 !important;
     }
 
     .home-right-content p {
-      font-family: 'Helvetica Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-      font-size: 11px !important;
-      line-height: 1.62 !important;
+      fontFamily: 'Helvetica Light' !important;
+      fontSize: 11px !important;
+      lineHeight: 1.4 !important;
     }
 
     .home-right-content button {
@@ -316,14 +321,14 @@ const responsiveStyle = `
     }
 
     .home-right-content {
-      gap: 8px !important;
-      padding-bottom: 40px !important;
+      gap: 4px !important;
+      padding-bottom: 0 !important;
     }
 
     .home-right-content p {
       font-family: 'Helvetica Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
       font-size: 11.5px !important;
-      line-height: 1.58 !important;
+      line-height: 1.38 !important;
     }
 
     .home-right-content button {
@@ -355,14 +360,14 @@ const responsiveStyle = `
     }
 
     .home-right-content {
-      gap: 7px !important;
-      padding-bottom: 35px !important;
+      gap: 3px !important;
+      padding-bottom: 0 !important;
     }
 
     .home-right-content p {
       font-family: 'Helvetica Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
       font-size: 11px !important;
-      line-height: 1.55 !important;
+      line-height: 1.35 !important;
     }
 
     .home-right-content button {
