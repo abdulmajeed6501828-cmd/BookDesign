@@ -151,7 +151,7 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
 
   return (
     <div
-      className="
+      className={`
         flex
         h-full
         min-h-0
@@ -163,8 +163,8 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
         bg-transparent
         px-2
         pb-2
-        pt-1
-      "
+        ${isBusiness ? "pt-0" : "pt-1"}
+      `}
     >
       {/* =================================================
           PLAN NAME
@@ -188,14 +188,13 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
 
       {/* GOLD LINE */}
       <div
-        className="
-          mt-1.5
-          mb-1.5
+        className={`
           h-[1px]
           w-[55%]
           shrink-0
           bg-[#b39a69]
-        "
+          ${isBusiness ? "mt-0.5 mb-0.5" : "mt-1.5 mb-1.5"}
+        `}
       />
 
       {/* SUBTITLE */}
@@ -207,8 +206,8 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
           text-center
           font-['Helvetica_Light']
           font-light
-          leading-[1.2]
           text-[#b39a69]
+          ${isBusiness ? "leading-[0.82]" : "leading-[1.2]"}
           ${sz.subtitle}
         `}
       >
@@ -219,8 +218,7 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
           DETAILS — tight stack, small text
          ================================================= */}
       <div
-        className="
-          mt-1
+        className={`
           flex
           w-full
           flex-1
@@ -228,9 +226,9 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
           flex-col
           items-center
           justify-evenly
-          gap-[3px]
           px-1
-        "
+          ${isBusiness ? "mt-0 gap-[1px]" : "mt-1 gap-[3px]"}
+        `}
       >
         {plan.details.map((detail, index) => (
           <p
@@ -242,8 +240,8 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
               text-center
               font-['Helvetica_Light']
               font-light
-              leading-[1.5]
               text-[#666666]
+              ${isBusiness ? "leading-[0.72]" : "leading-[1.5]"}
               ${sz.detailText}
             `}
           >
@@ -255,7 +253,7 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
       {/* =================================================
           PRICE
          ================================================= */}
-      <div className="mt-2 w-full text-center">
+      <div className={`w-full text-center ${isBusiness ? "mt-0.5" : "mt-2"}`}>
         <p
           className={`
             m-0
@@ -276,7 +274,7 @@ const PricingCard = ({ plan, compact = false, onStartProject }) => {
       {/* =================================================
           BUTTON
          ================================================= */}
-      <div className="mt-2 flex w-full shrink-0 items-center justify-center pb-1">
+      <div className={`flex w-full shrink-0 items-center justify-center pb-1 ${isBusiness ? "mt-0.5" : "mt-2"}`}>
         <button
           type="button"
           onClick={(e) => {
