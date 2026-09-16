@@ -1,0 +1,237 @@
+/* ============================================================
+   PRICING SECTION CSS (UNIFIED ABOUT PAGE FONT FAMILY & STYLING)
+   ============================================================ */
+
+.pricing-page-container,
+.pricing-page-container * {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.pricing-page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    padding-top: clamp(8px, 1.4vh, 14px) !important;
+    padding-bottom: clamp(8px, 1.4vh, 14px) !important;
+    padding-left: clamp(14px, 2.8vw, 28px) !important;
+    padding-right: clamp(6px, 1vw, 10px) !important;
+}
+
+.pricing-page-container.pricing-page-right {
+    padding-left: clamp(6px, 1vw, 10px) !important;
+    padding-right: clamp(14px, 2.8vw, 28px) !important;
+}
+
+/* ============================================================
+   HEADER WITH CONTINUOUS GOLD ACCENT LINE (MATCHING ABOUT/PORTFOLIO)
+   ============================================================ */
+
+.pricing-header-left,
+.pricing-header-right {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: clamp(6px, 1vh, 12px);
+    height: 24px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.pricing-title {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(16px, 2.1vh, 20px) !important;
+    font-weight: 300 !important;
+    color: #1c1c1c !important;
+    margin: 0 !important;
+    padding-right: 12px !important;
+    line-height: 1 !important;
+    letter-spacing: 0.3px !important;
+    text-transform: capitalize !important;
+}
+
+.pricing-gold-line {
+    flex: 1;
+    height: 1.3px;
+    background-color: #b8a47e;
+    opacity: 0.75;
+}
+
+.pricing-header-right .pricing-gold-line {
+    margin-right: 12px;
+}
+
+.pricing-page-number {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(16px, 2.2vh, 20px) !important;
+    font-weight: 300 !important;
+    color: #1c1c1c !important;
+    line-height: 1 !important;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   SINGLE PRICING PLAN CONTAINER
+   ============================================================ */
+
+.pricing-plan-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+    padding-top: clamp(4px, 0.8vh, 10px);
+    padding-bottom: clamp(4px, 0.8vh, 10px);
+}
+
+/* ============================================================
+   PLAN NAME & SUBTITLE
+   ============================================================ */
+
+.pricing-plan-name {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(28px, 4.2vh, 38px) !important;
+    font-weight: 300 !important;
+    color: #b8a47e !important;
+    margin: 0 0 clamp(4px, 0.6vh, 8px) 0 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    text-transform: capitalize !important;
+    letter-spacing: 0.5px !important;
+}
+
+.pricing-plan-subtitle {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(9.5px, 1.25vh, 11.5px) !important;
+    font-weight: 300 !important;
+    color: #b8a47e !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+}
+
+/* ============================================================
+   DETAILS LIST (USING EXACT ABOUT PAGE TEXT COLOR & FONT)
+   ============================================================ */
+
+.pricing-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    margin-top: clamp(6px, 1vh, 14px);
+    margin-bottom: clamp(6px, 1vh, 14px);
+}
+
+.pricing-detail-text {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(9.5px, 1.22vh, 11px) !important;
+    font-weight: 300 !important;
+    color: #2a2723 !important;
+    margin: 0 !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    white-space: pre-line !important;
+}
+
+/* ============================================================
+   PRICE NUMBER
+   ============================================================ */
+
+.pricing-price-container {
+    width: 100%;
+    text-align: center !important;
+    margin-bottom: clamp(6px, 1vh, 12px);
+    flex-shrink: 0;
+}
+
+.pricing-price-text {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(42px, 5.8vh, 56px) !important;
+    font-weight: 300 !important;
+    color: #b8a47e !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* ============================================================
+   START A PROJECT BUTTON
+   ============================================================ */
+
+.pricing-button-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.pricing-start-button {
+    display: inline-block;
+    width: clamp(140px, 55%, 190px);
+    padding: clamp(8px, 1.2vh, 12px) 0;
+    border: 1px solid #b8a47e !important;
+    background: transparent !important;
+    color: #b8a47e !important;
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(9px, 1.15vh, 10.5px) !important;
+    font-weight: 300 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.pricing-start-button:hover {
+    background-color: #b8a47e !important;
+    color: #ffffff !important;
+}
+
+.pricing-start-button:active {
+    transform: scale(0.98);
+}
+
+/* ============================================================
+   RESPONSIVE OVERRIDES FOR TABLET / MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .pricing-page-container {
+        padding: 6px 10px !important;
+    }
+
+    .pricing-plan-name {
+        font-size: 24px !important;
+    }
+
+    .pricing-plan-subtitle {
+        font-size: 9px !important;
+    }
+
+    .pricing-detail-text {
+        font-size: 8.5px !important;
+    }
+
+    .pricing-price-text {
+        font-size: 34px !important;
+    }
+
+    .pricing-start-button {
+        padding: 7px 0 !important;
+        font-size: 8.5px !important;
+    }
+}

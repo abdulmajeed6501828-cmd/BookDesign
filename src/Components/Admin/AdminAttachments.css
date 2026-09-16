@@ -1,0 +1,18 @@
+.attachments-section { margin: 0 27px 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.attachments-section h3 { display: flex; align-items: center; gap: 7px; margin: 0 0 12px; color: #7d8b93; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.attachment-list { display: grid; gap: 7px; }
+.attachment-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 11px; border: 1px solid var(--line); border-radius: 7px; background: #fbfcfc; }
+.attachment-info { display: flex; align-items: center; gap: 9px; min-width: 0; color: #65757e; }
+.attachment-info > div { min-width: 0; }
+.attachment-info b, .attachment-info span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.attachment-info b { color: var(--ink); font-size: 11px; }
+.attachment-info span { margin-top: 3px; color: var(--muted); font-size: 10px; }
+.attachment-actions { display: flex; flex: 0 0 auto; gap: 6px; }
+.attachment-actions a { display: grid; place-items: center; width: 29px; height: 29px; border: 1px solid #dce4e6; border-radius: 5px; color: #60747d; background: #fff; }
+.attachment-actions a:hover { color: #bd6549; border-color: #e6b9a9; }
+.no-attachments { margin: 0; color: var(--muted); font-size: 12px; }
+@media (max-width: 620px) {
+  .attachments-section { margin-left: 21px; margin-right: 21px; }
+  .attachment-item { align-items: flex-start; }
+  .attachment-actions { padding-top: 1px; }
+}

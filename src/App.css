@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Helvetica Light';
+    src: local('Arial');
+    font-weight: 300;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+html,
+body,
+#root,
+button,
+input,
+select,
+textarea {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-weight: 300;
+    background: url('./assets/bgimg.jpeg') center / cover no-repeat fixed #0d1b2a;
+    overflow: hidden;
+}
+
+@media (max-width: 639px) {
+
+    html,
+    body,
+    #root {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: auto;
+        min-height: 100%;
+    }
+
+    body {
+        overflow-y: auto;
+    }
+
+    * {
+        scrollbar-width: thin;
+        -ms-overflow-style: auto;
+    }
+
+    *::-webkit-scrollbar {
+        display: block;
+        width: 6px;
+        height: 6px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 999px;
+    }
+}

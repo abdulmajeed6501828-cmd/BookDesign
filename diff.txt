@@ -1,0 +1,284 @@
+﻿diff --git a/src/Components/Book/Book.css b/src/Components/Book/Book.css
+index 8ec4aee..40e5a27 100644
+--- a/src/Components/Book/Book.css
++++ b/src/Components/Book/Book.css
+@@ -60,12 +60,13 @@
+ }
+ 
+ .nav-link {
+-  font-family: 'Cinzel', serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: clamp(10px, 1.1vw, 12.5px);
+   letter-spacing: 2px;
+   color: #000000;
+   text-decoration: none;
+-  font-weight: 600;
++  /* removed old font-weight */
+   transition: color 0.25s ease, transform 0.2s ease;
+ }
+ 
+@@ -134,7 +135,8 @@
+   align-items: center;
+   padding: 10px 40px;
+   z-index: 20;
+-  font-family: Arial, sans-serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: clamp(9.5px, 1vw, 11.5px);
+   color: #374151;
+   gap: 24px;
+@@ -192,7 +194,8 @@
+   align-items: center;
+   gap: 20px;
+   color: #f5e6c8;
+-  font-family: 'Cormorant Garamond', Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: 16px;
+   letter-spacing: 2px;
+ }
+@@ -234,7 +237,8 @@
+ }
+ 
+ .book-error p {
+-  font-family: Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: 14px;
+   line-height: 1.6;
+ }
+@@ -244,7 +248,7 @@
+   padding: 10px 20px;
+   background: #c8a951;
+   color: #0d1b2a;
+-  font-weight: 700;
++  /* removed old font-weight */
+   border-radius: 4px;
+   cursor: pointer;
+   margin-top: 8px;
+@@ -331,7 +335,8 @@
+ }
+ 
+ .bc-tagline {
+-  font-family: 'Cormorant Garamond', Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-style: italic;
+   font-size: 13px;
+   color: rgba(200, 169, 81, 0.7);
+@@ -366,6 +371,24 @@
+   -ms-overflow-style: none !important;
+ }
+ 
++/* Prevent layout shift before react-pageflip initializes */
++.html-book:not(.stpageflip) {
++  position: relative;
++}
++
++.html-book:not(.stpageflip) > * {
++  position: absolute !important;
++  top: 0;
++  left: 0;
++  opacity: 0;
++  pointer-events: none;
++}
++
++.html-book:not(.stpageflip) > *:first-child {
++  opacity: 1;
++  position: relative !important; 
++}
++
+ .html-book::-webkit-scrollbar,
+ .stpageflip-container::-webkit-scrollbar,
+ .stpageflip::-webkit-scrollbar,
+@@ -432,7 +455,8 @@
+   display: flex;
+   justify-content: space-between;
+   align-items: baseline;
+-  font-family: 'Cinzel', Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: 9px;
+   letter-spacing: 2px;
+   text-transform: uppercase;
+@@ -455,8 +479,9 @@
+ }
+ 
+ .page-content h1 {
+-  font-family: 'Cormorant Garamond', Georgia, serif;
+-  font-weight: 600;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
++  /* removed old font-weight */
+   font-size: clamp(12px, 1.8vw, 17px);
+   margin-bottom: 10px;
+   text-align: center;
+@@ -467,7 +492,8 @@
+ }
+ 
+ .page-content p {
+-  font-family: Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: clamp(11px, 1.5vw, 14px);
+   line-height: 1.6;
+ }
+@@ -479,7 +505,8 @@
+   align-items: flex-start;
+   justify-content: center;
+   margin: auto;
+-  font-family: 'Cormorant Garamond', Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: clamp(11px, 1.5vw, 13.5px);
+   line-height: 1.4;
+   font-style: italic;
+@@ -502,7 +529,8 @@
+ /* ΓöÇΓöÇ Footer ΓöÇΓöÇ */
+ .page-footer {
+   text-align: center;
+-  font-family: 'Cinzel', Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: 9px;
+   color: #8b7355;
+   letter-spacing: 2px;
+@@ -529,10 +557,11 @@
+   background: rgba(245, 230, 200, 0.92);
+   color: #3b2617;
+   cursor: pointer;
+-  font-family: 'Cinzel', Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: 12px;
+   letter-spacing: 1px;
+-  font-weight: 600;
++  /* removed old font-weight */
+   transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+ }
+@@ -607,53 +636,23 @@
+ 
+ .landing-overlay {
+   position: absolute;
+-  inset: 0;
++  top: 0;
++  left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+-  padding: 15px 45px;
++  padding: 15px 45px 15px 100px;
+   z-index: 15;
+   pointer-events: none;
+   transition: opacity 0.8s ease, visibility 0.8s ease;
+ }
+ 
+-.landing-overlay.hidden {
+-  opacity: 0;
+-  visibility: hidden;
+-}
+-
+-.landing-left {
+-  display: flex;
+-  flex-direction: column;
+-  width: 50%;
+-  pointer-events: auto;
+-  position: relative;
+-  height: 100%;
+-}
+-
+-.landing-logo {
+-  font-family: 'Cinzel', Georgia, serif;
+-  font-weight: 600;
+-  font-size: clamp(14px, 1.5vw, 18px);
+-  letter-spacing: 5px;
+-  color: #c8a951;
+-  text-transform: uppercase;
+-  flex-shrink: 0;
+-}
+-
+-.landing-text-content {
+-  flex: 1;
+-  display: flex;
+-  flex-direction: column;
+-  justify-content: center;
+-  margin: 0;
+-}
+-
+ .landing-heading {
+-  font-family: 'Cormorant Garamond', Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: clamp(32px, 4.5vw, 76px);
+-  font-weight: 400;
++  /* removed old font-weight */
+   line-height: 1.05;
+   color: #1a1a1a;
+   text-transform: uppercase;
+@@ -661,7 +660,8 @@
+ }
+ 
+ .landing-subheading {
+-  font-family: Arial, sans-serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: clamp(14px, 1.5vw, 18px);
+   color: #c8a951;
+   margin-bottom: clamp(15px, 2.5vh, 30px);
+@@ -675,7 +675,8 @@
+ }
+ 
+ .landing-description {
+-  font-family: Arial, sans-serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: clamp(13px, 1.2vw, 15px);
+   color: #555;
+   line-height: 1.6;
+@@ -701,14 +702,15 @@
+ }
+ 
+ .landing-btn {
+-  font-family: 'Cinzel', Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: 11px;
+   letter-spacing: 2px;
+   padding: 16px 36px;
+   cursor: pointer;
+   border: none;
+   transition: all 0.3s ease;
+-  font-weight: 600;
++  /* removed old font-weight */
+ }
+ 
+ .landing-btn-primary {
+@@ -740,7 +742,8 @@
+ }
+ 
+ .landing-copyright {
+-  font-family: Arial, sans-serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: 11px;
+   color: #888;
+ }
+@@ -755,12 +758,13 @@
+ }
+ 
+ .landing-contact {
+-  font-family: 'Cinzel', Georgia, serif;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  font-weight: 300;
+   font-size: 11px;
+   letter-spacing: 2px;
+   color: #1a1a1a;
+   text-decoration: none;
+-  font-weight: 600;
++  /* removed old font-weight */
+ }
+ 
+ .landing-divider {

@@ -1,0 +1,334 @@
+/* ================================================================
+   CONTACT & FAQ'S SECTION CSS (WITH CONTINUOUS GOLD HEADER LINE)
+   ================================================================ */
+
+.cp-faq,
+.cp-form-page {
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  color: #1c1c1c;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================================================
+   HEADER GOLD LINE STYLING (MATCHING PORTFOLIO / PRICING)
+   ================================================================ */
+
+.cp-gold-line {
+  flex: 1;
+  height: 1.3px;
+  background-color: #b8a47e;
+  opacity: 0.75;
+}
+
+.cp-header-top-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+}
+
+/* ================================================================
+   LEFT PAGE — FAQ'S
+   ================================================================ */
+
+.cp-faq {
+  padding-top: clamp(8px, 1.4vh, 14px) !important;
+  padding-bottom: clamp(8px, 1.4vh, 14px) !important;
+  padding-left: clamp(14px, 2.8vw, 28px) !important;
+  padding-right: clamp(6px, 1vw, 10px) !important;
+  justify-content: space-between;
+}
+
+.cp-faq-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: clamp(8px, 1.2vh, 14px);
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.cp-faq-title {
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 2.1vh, 20px) !important;
+  font-weight: 300 !important;
+  color: #1c1c1c !important;
+  margin: 0 !important;
+  padding-right: 12px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.3px !important;
+}
+
+.cp-faq-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.cp-faq-item {
+  border-bottom: 1px solid rgba(210, 205, 195, 0.6);
+  flex-shrink: 0;
+}
+
+.cp-faq-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: none;
+  border: none;
+  padding: clamp(3px, 0.5vh, 6px) 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: inherit;
+}
+
+.cp-faq-num {
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(9.5px, 1.2vh, 11px) !important;
+  font-weight: 300 !important;
+  color: #1c1c1c !important;
+  min-width: clamp(20px, 2.8vw, 24px) !important;
+  flex-shrink: 0;
+  line-height: 1.2 !important;
+}
+
+.cp-faq-q {
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(9.5px, 1.2vh, 11px) !important;
+  font-weight: 300 !important;
+  color: #2a2723 !important;
+  flex: 1;
+  line-height: 1.25 !important;
+  white-space: normal;
+  word-break: normal;
+}
+
+.cp-faq-chevron-icon {
+  width: clamp(10px, 1.2vh, 12px);
+  height: clamp(10px, 1.2vh, 12px);
+  color: #444444;
+  flex-shrink: 0;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+  display: block;
+}
+
+.cp-faq-chevron-icon.open {
+  transform: rotate(180deg);
+}
+
+.cp-faq-ans {
+  margin: 0 !important;
+  padding: 0 0 clamp(4px, 0.6vh, 6px) clamp(20px, 2.8vw, 24px) !important;
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(8.2px, 1.05vh, 9.2px) !important;
+  color: #666666 !important;
+  line-height: 1.35 !important;
+}
+
+/* ================================================================
+   RIGHT PAGE — CONTACT FORM
+   ================================================================ */
+
+.cp-form-page {
+  padding-top: clamp(8px, 1.4vh, 14px) !important;
+  padding-bottom: clamp(8px, 1.4vh, 14px) !important;
+  padding-left: clamp(6px, 1vw, 10px) !important;
+  padding-right: clamp(14px, 2.8vw, 28px) !important;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+
+.cp-form-header {
+  flex-shrink: 0;
+  margin-bottom: clamp(6px, 1vh, 10px);
+  width: 100%;
+}
+
+.cp-form-title {
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 2.1vh, 20px) !important;
+  font-weight: 300 !important;
+  color: #1c1c1c !important;
+  margin: 0 !important;
+  padding-right: 12px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.3px !important;
+}
+
+.cp-form-sub {
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(9px, 1.15vh, 11px) !important;
+  font-weight: 300 !important;
+  color: #444444 !important;
+  margin: clamp(4px, 0.6vh, 8px) 0 0 0 !important;
+  line-height: 1.3 !important;
+  white-space: nowrap;
+}
+
+.cp-success {
+  font-size: 10.5px;
+  color: #2e6930;
+  background: #f0faf0;
+  border: 1px solid #90c090;
+  padding: 4px 8px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.cp-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 0.9vh, 10px);
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+}
+
+.cp-field {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fcfbf9 !important;
+  border: 1px solid #e2ded7 !important;
+  border-radius: 2px;
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(9.5px, 1.2vh, 11px) !important;
+  color: #1c1c1c !important;
+  outline: none;
+  transition: border-color 0.18s ease;
+  height: clamp(26px, 3.5vh, 32px);
+  padding: 0 clamp(8px, 1.2vw, 12px);
+  display: block;
+}
+
+.cp-field::placeholder {
+  color: #888888;
+  font-weight: 300;
+}
+
+.cp-field:focus {
+  border-color: #b8a47e !important;
+}
+
+.cp-textarea {
+  height: auto !important;
+  flex: 1;
+  min-height: clamp(50px, 8vh, 80px);
+  padding-top: clamp(6px, 0.9vh, 8px);
+  padding-bottom: clamp(6px, 0.9vh, 8px);
+  resize: none;
+}
+
+.cp-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.cp-checkbox {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  accent-color: #b8a47e;
+  cursor: pointer;
+  margin: 0;
+}
+
+.cp-checkbox-label {
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(9px, 1.15vh, 10.5px) !important;
+  color: #555555 !important;
+  font-weight: 300 !important;
+}
+
+.cp-btn-wrap {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: clamp(2px, 0.3vh, 5px);
+}
+
+.cp-send-btn {
+  background: transparent !important;
+  border: 1px solid #b8a47e !important;
+  color: #b8a47e !important;
+  padding: clamp(7px, 1.1vh, 10px) clamp(30px, 6vw, 48px);
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(9.5px, 1.18vh, 11px) !important;
+  font-weight: 300 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  border-radius: 0;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  line-height: 1 !important;
+}
+
+.cp-send-btn:hover {
+  background: #b8a47e !important;
+  color: #ffffff !important;
+}
+
+.cp-send-btn:active {
+  transform: scale(0.98);
+}
+
+.cp-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  margin-top: clamp(8px, 1.2vh, 14px);
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(9px, 1.15vh, 10.5px) !important;
+  color: #555555 !important;
+  width: 100%;
+}
+
+.cp-footer-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #555555 !important;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.cp-footer-icon {
+  width: clamp(11px, 1.4vh, 13px);
+  height: clamp(11px, 1.4vh, 13px);
+  flex-shrink: 0;
+  color: #555555;
+}
+
+@media (max-width: 767px) {
+  .cp-form-page {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .cp-field {
+    border-color: transparent !important;
+    box-shadow: none !important;
+    background-color: #fff !important;
+  }
+}
