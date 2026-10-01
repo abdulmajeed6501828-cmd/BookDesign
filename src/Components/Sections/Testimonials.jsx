@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import layer1 from "../../assets/images/Layer1.png";
 import layer2 from "../../assets/images/Layer2.png";
 import layer3 from "../../assets/images/Layer3.png";
@@ -9,152 +9,17 @@ import layer7 from "../../assets/images/Layer7.png";
 import layer8 from "../../assets/images/Layer8.png";
 import "./Testimonials.css";
 
-/* =========================================================
-   TESTIMONIALS RESPONSIVE STYLE
-   ========================================================= */
-
-const testimonialResponsiveStyle = `
-  .testimonials-page-container {
-    overflow: visible !important;
-    box-sizing: border-box;
-    min-width: 0;
-    min-height: 0;
-  }
-
-  .testimonials-header-left,
-  .testimonials-header-right {
-    flex-shrink: 0;
-    min-width: 0;
-  }
-
-  .testimonials-grid {
-    gap: clamp(3px, 0.8vh, 8px) !important;
-    min-width: 0;
-    min-height: 0;
-  }
-
-  .testimonials-grid-row {
-    min-width: 0;
-    min-height: 0;
-    gap: clamp(4px, 0.8vw, 8px);
-  }
-
-  .testimonial-card {
-    min-width: 0;
-    min-height: 0;
-    padding-left: clamp(6px, 0.8vw, 10px) !important;
-    padding-right: clamp(6px, 0.8vw, 10px) !important;
-    overflow: visible !important;
-  }
-
-  .testimonial-card.with-right-border {
-    border-right: 1px solid rgba(200, 185, 155, 0.45);
-  }
-
-  @media (max-width: 767px) {
-    .testimonials-page-container {
-      padding-top: 8px !important;
-      padding-bottom: 8px !important;
-      padding-left: 10px !important;
-      padding-right: 10px !important;
-      overflow: visible !important;
-    }
-
-    .testimonials-grid {
-      gap: 4px !important;
-      overflow: visible !important;
-      width: 100%;
-    }
-
-    .testimonials-grid-row {
-      gap: 6px !important;
-      overflow: visible !important;
-      min-height: 0;
-    }
-
-    .testimonial-card {
-      padding-left: 5px !important;
-      padding-right: 5px !important;
-      padding-top: 2px !important;
-      padding-bottom: 2px !important;
-      border-right: none !important;
-      overflow: visible !important;
-    }
-
-    .testimonial-card.with-right-border {
-      border-right: none !important;
-    }
-
-    .testimonial-avatar-wrapper {
-      width: 28px !important;
-      height: 28px !important;
-      flex-shrink: 0;
-    }
-
-    .testimonial-gold-quote {
-      font-size: 14px !important;
-    }
-
-    .testimonial-quote-text {
-      font-size: 8px !important;
-      line-height: 1.2 !important;
-    }
-
-    .testimonial-author-name {
-      font-size: 8.4px !important;
-      white-space: normal !important;
-    }
-
-    .testimonial-author-role {
-      font-size: 7.4px !important;
-      line-height: 1.2 !important;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .testimonials-page-container {
-      padding-top: 7px !important;
-      padding-bottom: 7px !important;
-      padding-left: 7px !important;
-      padding-right: 7px !important;
-      overflow: visible !important;
-    }
-
-    .testimonials-grid {
-      gap: 3px !important;
-    }
-
-    .testimonials-grid-row {
-      gap: 4px !important;
-    }
-
-    .testimonial-card {
-      padding-left: 4px !important;
-      padding-right: 4px !important;
-    }
-
-    .testimonial-avatar-wrapper {
-      width: 25px !important;
-      height: 25px !important;
-    }
-
-    .testimonial-quote-text {
-      font-size: 7.5px !important;
-      line-height: 1.18 !important;
-    }
-
-    .testimonial-author-name {
-      font-size: 7.7px !important;
-    }
-
-    .testimonial-author-role {
-      font-size: 6.9px !important;
-    }
-  }
-`;
+/* Reference page width (design px) the CSS is authored at */
+const DESIGN_W = 370;
+/* Smallest design height that still fits all four testimonials */
+const MIN_DESIGN_H = 480;
+/* Text-size factor range tried by the best-fit search (1 = reference size) */
+const MAX_TF = 1.9;
+const MIN_TF = 0.8;
+const TF_STEP = 0.04;
 
 /* =========================================================
-   TESTIMONIALS DATA (MATCHING REFERENCE IMAGE 100%)
+   TESTIMONIALS DATA
    ========================================================= */
 
 const testimonialsLeft = [
@@ -228,7 +93,7 @@ const testimonialsRight = [
 ];
 
 /* =========================================================
-   SINGLE TESTIMONIAL CARD COMPONENT
+   SINGLE TESTIMONIAL CARD
    ========================================================= */
 
 const TestimonialCard = ({ item, showRightBorder }) => {
@@ -257,10 +122,10 @@ const TestimonialCard = ({ item, showRightBorder }) => {
             <div className="testimonial-author-block">
                 <h4 className="testimonial-author-name">{item.name}</h4>
                 <p className="testimonial-author-role">
-                    {item.role.split("\n").map((line, idx) => (
+                    {item.role.split("\n").map((line, idx, arr) => (
                         <React.Fragment key={idx}>
                             {line}
-                            {idx < item.role.split("\n").length - 1 && <br />}
+                            {idx < arr.length - 1 && <br />}
                         </React.Fragment>
                     ))}
                 </p>
@@ -271,42 +136,118 @@ const TestimonialCard = ({ item, showRightBorder }) => {
 
 /* =========================================================
    MAIN TESTIMONIALS COMPONENT
+   - measures the book page (layout size, unaffected by flip transforms)
+   - sizes the artboard to exactly fill it, scaled by page width
+   - finds the largest text size at which every card still fits
    ========================================================= */
 
 export default function Testimonials({ isLeft }) {
     const items = isLeft ? testimonialsLeft : testimonialsRight;
 
+    const wrapRef = useRef(null);
+    const artRef = useRef(null);
+    const [dims, setDims] = useState(null); // { s, w, h } in design px
+    const [tf, setTf] = useState(null); // text-size factor; null = not decided yet
+
+    /* 1) measure the page */
+    useLayoutEffect(() => {
+        const el = wrapRef.current;
+        if (!el) return undefined;
+
+        const update = () => {
+            const pageW = el.clientWidth;
+            const pageH = el.clientHeight;
+            if (pageW > 0 && pageH > 0) {
+                const s = Math.min(pageW / DESIGN_W, pageH / MIN_DESIGN_H);
+                setDims({ s, w: pageW / s, h: pageH / s });
+            }
+        };
+
+        update();
+        const ro = new ResizeObserver(update);
+        ro.observe(el);
+        return () => ro.disconnect();
+    }, []);
+
+    /* 2) best-fit text size for the current page size */
+    useLayoutEffect(() => {
+        const art = artRef.current;
+        if (!art || !dims) return;
+
+        const cards = Array.from(art.querySelectorAll(".testimonial-card"));
+        const fits = () =>
+            cards.every(
+                (c) =>
+                    c.scrollHeight <= c.clientHeight + 1 &&
+                    c.scrollWidth <= c.clientWidth + 1
+            );
+
+        let best = MIN_TF;
+        for (let f = MAX_TF; f >= MIN_TF - 1e-6; f -= TF_STEP) {
+            art.style.setProperty("--tf", f.toFixed(3));
+            if (fits()) {
+                best = f;
+                break;
+            }
+        }
+        art.style.setProperty("--tf", best.toFixed(3));
+        setTf(best);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dims && dims.w, dims && dims.h, isLeft]);
+
+    const ready = dims !== null && tf !== null;
+
     return (
-        <>
-        <style>{testimonialResponsiveStyle}</style>
-        <div className={`testimonials-page-container ${isLeft ? "testimonials-page-left" : "testimonials-page-right"}`}>
-            {/* CONTINUOUS HEADER WITH GOLD LINE (MATCHING PORTFOLIO) */}
-            {isLeft ? (
-                <div className="testimonials-header-left">
-                    <h2 className="testimonials-title">Testimonials</h2>
-                    <div className="testimonials-gold-line" />
-                </div>
-            ) : (
-                <div className="testimonials-header-right">
-                    <div className="testimonials-gold-line" />
-                </div>
-            )}
+        <div
+            ref={wrapRef}
+            className={`testimonials-page-container ${
+                isLeft ? "testimonials-page-left" : "testimonials-page-right"
+            }`}
+        >
+            <div
+                ref={artRef}
+                className="testimonials-artboard"
+                style={
+                    dims
+                        ? {
+                              "--s": dims.s,
+                              "--tf": tf === null ? 1 : tf,
+                              width: dims.w,
+                              height: dims.h,
+                              visibility: ready ? "visible" : "hidden",
+                          }
+                        : {
+                              width: DESIGN_W,
+                              height: MIN_DESIGN_H,
+                              visibility: "hidden",
+                          }
+                }
+            >
+                {/* CONTINUOUS HEADER WITH GOLD LINE */}
+                {isLeft ? (
+                    <div className="testimonials-header-left">
+                        <h2 className="testimonials-title">Testimonials</h2>
+                        <div className="testimonials-gold-line" />
+                    </div>
+                ) : (
+                    <div className="testimonials-header-right">
+                        <div className="testimonials-gold-line" />
+                    </div>
+                )}
 
-            {/* 2 COLUMNS x 2 ROWS GRID */}
-            <div className="testimonials-grid">
-                {/* ROW 1 */}
-                <div className="testimonials-grid-row">
-                    <TestimonialCard item={items[0]} showRightBorder={true} />
-                    <TestimonialCard item={items[1]} showRightBorder={false} />
-                </div>
+                {/* 2 COLUMNS x 2 ROWS GRID */}
+                <div className="testimonials-grid">
+                    <div className="testimonials-grid-row">
+                        <TestimonialCard item={items[0]} showRightBorder={true} />
+                        <TestimonialCard item={items[1]} showRightBorder={false} />
+                    </div>
 
-                {/* ROW 2 */}
-                <div className="testimonials-grid-row">
-                    <TestimonialCard item={items[2]} showRightBorder={true} />
-                    <TestimonialCard item={items[3]} showRightBorder={false} />
+                    <div className="testimonials-grid-row">
+                        <TestimonialCard item={items[2]} showRightBorder={true} />
+                        <TestimonialCard item={items[3]} showRightBorder={false} />
+                    </div>
                 </div>
             </div>
         </div>
-        </>
     );
 }

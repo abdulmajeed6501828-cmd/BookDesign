@@ -15,7 +15,7 @@
 }
 
 /* ============================================================
-   WRAPPER — full-viewport dark stage
+   WRAPPER — full-viewport stage
    ============================================================ */
 .book-wrapper {
   width: 100%;
@@ -31,7 +31,12 @@
   align-items: center;
   /* Do NOT use space-between — it amplifies vh inconsistencies into visible gaps */
   justify-content: flex-start;
-  background: url('../../assets/bgimg.jpeg') center / cover no-repeat fixed #d4d4d4;
+  background-color: #d4d4d4;
+  background-image: url('../../assets/bgimg.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   padding: 0 24px;
   overflow: hidden;
   position: relative;
@@ -39,7 +44,12 @@
 }
 
 .book-wrapper.is-landing {
-  background: url('../../assets/bgimg.jpeg') center / cover no-repeat fixed #d4d4d4;
+  background-color: #d4d4d4;
+  background-image: url('../../assets/bgimg.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   padding: 0 24px;
   justify-content: flex-start;
 }
@@ -434,20 +444,12 @@
 }
 
 /* ============================================================
-   BACK COVER  —  matches reference image
+   BACK COVER  —  Behind the Cover
    Layout (top→bottom, all centered):
-     1. "about the designer" title
+     1. "Behind the Cover" title
      2. Circular photo with gold border
      3. Three bio paragraphs (center-aligned)
-     4. ISBN image inside white rounded box
-   ============================================================ */
-
-/* ============================================================
-   BACK COVER  —  Behind the Cover (100% Match to Pic 1)
-   ============================================================ */
-
-/* ============================================================
-   BACK COVER  —  Behind the Cover (100% Exact Reference Spacing)
+     4. ISBN image inside white box
    ============================================================ */
 
 .bc-layout {
@@ -1140,7 +1142,7 @@
 /* ── LARGE DESKTOP ≥ 1280px ─────────────────────────────── */
 @media (min-width: 1280px) {
   .page-inner {
-    padding: 28px 34px 20px;
+    padding: 0;
   }
 
   .page-header {
@@ -1514,5 +1516,399 @@
 @media (min-width: 769px) {
   .mobile-start-project-btn-wrapper {
     display: none !important;
+  }
+}
+
+/* ============================================================
+   FULL-HEIGHT BOOK + HOME BACKGROUND — RESPONSIVE FIXES
+   (kept at the END of the file so these rules win)
+   ============================================================ */
+
+/* `fixed` is unreliable on phones/tablets (iOS ignores it, others
+   zoom the image) — use normal scrolling background there */
+@media (max-width: 1023px) {
+  .book-wrapper,
+  .book-wrapper.is-landing {
+    background-attachment: scroll;
+  }
+}
+
+/* TABLET 768–1023px: navbar + footer are fixed 48px bars,
+   the stage fills everything between them */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .site-header {
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    padding: 0;
+  }
+
+  .site-navbar {
+    flex-wrap: nowrap;
+    padding: 0;
+  }
+
+  .site-footer {
+    max-width: min(750px, 100%);
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    padding: 0 8px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0;
+    text-align: left;
+  }
+
+  .footer-left {
+    flex: 1;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .footer-center {
+    width: auto;
+    order: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  .footer-right {
+    flex: 1;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* Stage grows to fill the space → book is vertically centered,
+     footer stays pinned at the bottom (not under the book) */
+  .book-wrapper:not(.is-landing) .book-stage-area {
+    flex: 1 1 0;
+    min-height: 0;
+    margin: 0;
+  }
+}
+
+/* ============================================================
+   MOBILE < 768px — lock the stage to the viewport so the book
+   can fill the full height between navbar and footer
+   (landing state keeps its scrollable layout)
+   ============================================================ */
+@media (max-width: 767px) {
+  .book-wrapper:not(.is-landing) {
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .book-wrapper:not(.is-landing) .book-stage-area {
+    flex: 1 1 0;
+    min-height: 0;
+    margin: 0;
+  }
+}
+
+/* ============================================================
+   SINGLE-PAGE MODE (.is-portrait) — book uses the FULL width
+   Set by Book.jsx whenever a single page is shown (phones and
+   tall / narrow screens). Arrows move INSIDE the book edges so
+   no side space has to be reserved for them.
+   ============================================================ */
+.book-wrapper.is-portrait,
+.book-wrapper.is-portrait.is-landing {
+  padding: 0 4px;
+}
+
+.book-wrapper.is-portrait .book-open-btn,
+.book-wrapper.is-portrait .book-next-arrow,
+.book-wrapper.is-portrait .book-close-btn,
+.book-wrapper.is-portrait .book-prev-arrow {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 15px;
+  border-radius: 50%;
+  color: #333333;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.book-wrapper.is-portrait .book-open-btn,
+.book-wrapper.is-portrait .book-next-arrow {
+  right: 12px;
+}
+
+.book-wrapper.is-portrait .book-close-btn,
+.book-wrapper.is-portrait .book-prev-arrow {
+  left: 12px;
+}
+
+.book-wrapper.is-portrait .book-open-btn:hover,
+.book-wrapper.is-portrait .book-next-arrow:hover,
+.book-wrapper.is-portrait .book-close-btn:hover,
+.book-wrapper.is-portrait .book-prev-arrow:hover {
+  color: #caa855;
+  background: #ffffff;
+}
+
+/* ============================================================
+   PHONES ≤ 500px — shorter book, extra spacing, and
+   breakpoint fine-tuning.
+   MUST STAY AT THE VERY END OF THE FILE so it wins over the
+   rules above. Nothing here affects screens wider than 500px.
+   (The matching book height / width values live in Book.jsx:
+   PHONE_HEIGHT_RATIO and PHONE_SIDE_MARGIN.)
+   ============================================================ */
+@media (max-width: 500px) {
+  .book-wrapper.is-portrait,
+  .book-wrapper.is-portrait.is-landing {
+    padding: 0 6px;
+  }
+
+  .site-header {
+    padding: 8px 0 6px;
+  }
+
+  .book-stage-area {
+    padding: 6px 0;
+  }
+
+  .site-footer {
+    padding: 6px 12px 10px;
+  }
+
+  .book-wrapper.is-portrait .book-open-btn,
+  .book-wrapper.is-portrait .book-next-arrow {
+    right: 10px;
+  }
+
+  .book-wrapper.is-portrait .book-close-btn,
+  .book-wrapper.is-portrait .book-prev-arrow {
+    left: 10px;
+  }
+}
+
+/* 481px – 500px */
+@media (min-width: 481px) and (max-width: 500px) {
+  .nav-link {
+    font-size: 11.5px;
+  }
+
+  .site-navbar {
+    gap: 6px 12px;
+  }
+}
+
+/* 431px – 480px */
+@media (min-width: 431px) and (max-width: 480px) {
+  .nav-link {
+    font-size: 11px;
+  }
+
+  .site-navbar {
+    gap: 5px 10px;
+  }
+
+  .footer-left,
+  .footer-right {
+    font-size: 10px;
+  }
+}
+
+/* 391px – 430px */
+@media (min-width: 391px) and (max-width: 430px) {
+  .nav-link {
+    font-size: 10.5px;
+  }
+
+  .site-navbar {
+    gap: 5px 9px;
+  }
+
+  .site-header {
+    padding: 6px 0 4px;
+  }
+
+  .footer-left,
+  .footer-right {
+    font-size: 9.5px;
+  }
+}
+
+/* 361px – 390px */
+@media (min-width: 361px) and (max-width: 390px) {
+  .nav-link {
+    font-size: 10px;
+  }
+
+  .site-navbar {
+    gap: 4px 8px;
+  }
+
+  .book-wrapper.is-portrait .book-open-btn,
+  .book-wrapper.is-portrait .book-next-arrow,
+  .book-wrapper.is-portrait .book-close-btn,
+  .book-wrapper.is-portrait .book-prev-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
+/* 321px – 360px */
+@media (min-width: 321px) and (max-width: 360px) {
+  .nav-link {
+    font-size: 9.5px;
+  }
+
+  .site-navbar {
+    gap: 4px 7px;
+  }
+
+  .site-footer {
+    padding: 4px 8px 8px;
+  }
+
+  .footer-left,
+  .footer-right {
+    font-size: 9px;
+  }
+
+  .book-wrapper.is-portrait .book-open-btn,
+  .book-wrapper.is-portrait .book-next-arrow,
+  .book-wrapper.is-portrait .book-close-btn,
+  .book-wrapper.is-portrait .book-prev-arrow {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+}
+
+/* ≤ 320px */
+@media (max-width: 320px) {
+  .nav-link {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  .site-navbar {
+    gap: 3px 6px;
+  }
+
+  .site-header {
+    padding: 4px 0;
+  }
+
+  .footer-left,
+  .footer-right {
+    font-size: 8.5px;
+  }
+}
+
+
+/* ============================================================
+   PHONES ≤ 400px — extra vertical breathing room
+   (book height is reduced further in Book.jsx via
+   PHONE_HEIGHT_STEPS; these rules add matching spacing.)
+   Kept at the very END of the file. Nothing here affects
+   screens wider than 400px.
+   ============================================================ */
+@media (max-width: 400px) {
+  .site-header {
+    padding: 8px 0 6px;
+  }
+
+  .book-stage-area {
+    padding: 10px 0;
+  }
+
+  .site-footer {
+    padding: 6px 10px 12px;
+  }
+
+  .site-navbar {
+    padding: 0 4px;
+  }
+}
+
+/* 381px – 400px */
+@media (min-width: 381px) and (max-width: 400px) {
+  .nav-link {
+    font-size: 10.5px;
+  }
+
+  .site-navbar {
+    gap: 5px 9px;
+  }
+
+  .book-stage-area {
+    padding: 10px 0;
+  }
+}
+
+/* 361px – 380px */
+@media (min-width: 361px) and (max-width: 380px) {
+  .nav-link {
+    font-size: 10px;
+  }
+
+  .site-navbar {
+    gap: 4px 8px;
+  }
+
+  .book-stage-area {
+    padding: 12px 0;
+  }
+
+  .site-footer {
+    padding: 6px 8px 12px;
+  }
+}
+
+/* 321px – 360px */
+@media (min-width: 321px) and (max-width: 360px) {
+  .book-stage-area {
+    padding: 14px 0;
+  }
+
+  .site-footer {
+    padding: 4px 8px 12px;
+  }
+
+  .social-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+}
+
+/* ≤ 320px */
+@media (max-width: 320px) {
+  .book-stage-area {
+    padding: 16px 0;
+  }
+
+  .site-header {
+    padding: 6px 0 4px;
+  }
+
+  .site-footer {
+    padding: 4px 6px 10px;
+  }
+
+  .social-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 9px;
+  }
+
+  .book-wrapper.is-portrait .book-open-btn,
+  .book-wrapper.is-portrait .book-next-arrow,
+  .book-wrapper.is-portrait .book-close-btn,
+  .book-wrapper.is-portrait .book-prev-arrow {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
   }
 }

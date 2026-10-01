@@ -1,230 +1,213 @@
 /* ============================================================
-   TESTIMONIALS SECTION CSS (WITH CONTINUOUS GOLD HEADER LINE)
+   TESTIMONIALS SECTION CSS  (pixel-matched to the reference image)
+   ------------------------------------------------------------
+   One book page in the reference = 370 x 528 design px.
+   Testimonials.jsx sizes the artboard to EXACTLY fill the real page,
+   scales it uniformly, and picks the largest text size (--tf) at which
+   all four testimonials still fit. So:
+     - same proportions as the reference on every device
+     - tall pages: text grows instead of leaving big empty gaps
+     - equal top / bottom padding
+   (!important is used so global book/page styles can't override.)
    ============================================================ */
 
 .testimonials-page-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    position: relative;
     width: 100%;
-    box-sizing: border-box;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
     overflow: hidden;
-    padding-top: clamp(8px, 1.4vh, 14px) !important;
-    padding-bottom: clamp(8px, 1.4vh, 14px) !important;
-    padding-left: clamp(14px, 2.8vw, 28px) !important;
-    padding-right: clamp(6px, 1vw, 10px) !important;
+}
+
+.testimonials-page-container,
+.testimonials-page-container * {
+    box-sizing: border-box !important;
     font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 
-.testimonials-page-container.testimonials-page-right {
-    padding-left: clamp(6px, 1vw, 10px) !important;
-    padding-right: clamp(14px, 2.8vw, 28px) !important;
+/* ---------- artboard (width / height / --s / --tf are set by JS) ---------- */
+
+.testimonials-artboard {
+    --gold: #b8a47e;
+    --quote-gold: #b58d3d;
+    --title: #1c1c1c;
+    --text: #2b2825;
+    --role: #555048;
+    --tf: 1;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    transform: scale(var(--s, 1));
+
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;                    /* equal top and bottom */
 }
 
-/* ============================================================
-   HEADER WITH CONTINUOUS GOLD ACCENT LINE (MATCHING PORTFOLIO)
-   ============================================================ */
+/* ---------- DESKTOP ONLY (801px and above) ----------
+   Slightly smaller top / bottom margin (40px -> 30px).
+   Phones and small tablets keep the original 40px. */
+@media (min-width: 801px) {
+    .testimonials-artboard {
+        padding: 30px 0;                /* equal top and bottom */
+    }
+}
+
+/* ---------- header: Testimonials ———— | ———— (rule is continuous) ---------- */
 
 .testimonials-header-left,
 .testimonials-header-right {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-bottom: clamp(6px, 1.1vh, 11px);
-    height: 22px;
-    flex-shrink: 0;
+    display: flex !important;
+    align-items: center !important;
+    height: 22px !important;
+    margin-bottom: 22px !important;
+    flex-shrink: 0 !important;
 }
 
+.testimonials-header-left  { padding-left: 15.1% !important; padding-right: 0 !important; }
+.testimonials-header-right { padding-left: 0 !important;     padding-right: 15.1% !important; }
+
 .testimonials-title {
-    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: clamp(16px, 2.1vh, 20px) !important;
-    font-weight: 300 !important;
-    color: #1c1c1c !important;
     margin: 0 !important;
-    padding-right: 12px !important;
+    padding-right: 10px !important;
+    font-size: 21px !important;
+    font-weight: 300 !important;
     line-height: 1 !important;
-    letter-spacing: 0.3px !important;
+    letter-spacing: 0.2px !important;
+    color: var(--title) !important;
 }
 
 .testimonials-gold-line {
-    flex: 1;
-    height: 1.3px;
-    background-color: #b8a47e;
-    opacity: 0.75;
+    flex: 1 !important;
+    height: 1.5px !important;
+    margin-top: 11px !important;
+    background-color: var(--gold) !important;
 }
 
-/* ============================================================
-   2x2 GRID & ROWS
-   ============================================================ */
+/* ---------- 2 x 2 grid ---------- */
 
 .testimonials-grid {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    width: 100%;
-    min-height: 0;
-    gap: clamp(4px, 0.8vh, 8px) !important;
-    justify-content: space-between;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    padding: 0 14.6% !important;        /* left page  */
+}
+
+.testimonials-page-right .testimonials-grid {
+    padding: 0 15.1% 0 12.4% !important; /* right page */
 }
 
 .testimonials-grid-row {
-    display: flex;
-    flex: 1;
-    width: 100%;
-    min-height: 0;
+    display: flex !important;
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    width: 100% !important;
 }
 
-.testimonials-grid-row:first-child .testimonial-card-header {
-    margin-bottom: clamp(5px, 0.6vh, 8px);
+/* first row holds longer quotes -> a bit more height, like the reference */
+.testimonials-grid-row:first-child { flex-grow: 1.24 !important; }
+
+.testimonials-grid-row + .testimonials-grid-row {
+    border-top: 1px solid rgba(200, 185, 155, 0.35) !important;
+    margin-top: 8px !important;
+    padding-top: 10px !important;
 }
 
-.testimonials-grid-row:first-child .testimonial-quote-text {
-    line-height: 1.08 !important;
-}
-
-.testimonials-grid-row:nth-child(2) .testimonial-quote-text {
-    line-height: 1.45 !important;
-}
-
-.testimonials-grid-row:nth-child(2) .testimonial-card {
-    padding-top: clamp(5px, 0.8vh, 10px);
-}
-
-.testimonials-grid-row:nth-child(2) .testimonial-author-role {
-    line-height: 1.3 !important;
-}
-
-/* ============================================================
-   SINGLE TESTIMONIAL CARD
-   ============================================================ */
+/* ---------- single card ---------- */
 
 .testimonial-card {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    padding-left: clamp(4px, 0.8vw, 8px);
-    padding-right: clamp(4px, 0.8vw, 8px);
-    padding-top: clamp(1px, 0.2vh, 3px);
-    padding-bottom: clamp(1px, 0.2vh, 3px);
-    overflow: hidden;
-    min-height: 0;
+    flex: 1 1 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 0 6px !important;
+    overflow: visible !important;
 }
 
 .testimonial-card.with-right-border {
-    border-right: 1px solid rgba(200, 185, 155, 0.4);
+    border-right: 1px solid rgba(200, 185, 155, 0.45) !important;
 }
 
-/* ============================================================
-   CARD HEADER: AVATAR + GOLD QUOTE
-   ============================================================ */
+/* ---------- avatar + gold quote mark ---------- */
 
 .testimonial-card-header {
-    display: flex;
-    align-items: center;
-    gap: clamp(6px, 0.8vw, 10px);
-    margin-bottom: clamp(5px, 0.6vh, 8px);
-    flex-shrink: 0;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 0 0 11px !important;
+    flex-shrink: 0 !important;
 }
 
 .testimonial-avatar-wrapper {
-    width: clamp(38px, 5.2vh, 48px) !important;
-    height: clamp(38px, 5.2vh, 48px) !important;
-    border-radius: 50%;
-    overflow: hidden;
-    flex-shrink: 0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: calc(56px * (0.7 + 0.3 * var(--tf))) !important;
+    height: calc(56px * (0.7 + 0.3 * var(--tf))) !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
 }
 
 .testimonial-avatar-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
 }
 
 .testimonial-gold-quote {
-    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: clamp(20px, 2.6vh, 26px) !important;
+    font-size: calc(38px * (0.7 + 0.3 * var(--tf))) !important;
     font-weight: 700 !important;
-    color: #b58d3d !important;
     line-height: 1 !important;
+    color: var(--quote-gold) !important;
     -webkit-user-select: none;
     user-select: none;
 }
 
-/* ============================================================
-   CARD QUOTE TEXT
-   ============================================================ */
+/* ---------- quote text ---------- */
 
 .testimonial-quote-text {
-    margin: 0 0 clamp(2px, 0.3vh, 4px) 0 !important;
-    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 300 !important;
-    font-size: clamp(8.7px, 1.12vh, 9.8px) !important;
-    line-height: 1.2 !important;
-    color: #2b2825 !important;
     display: block !important;
+    margin: 0 0 6px !important;
+    font-size: calc(9.6px * var(--tf)) !important;
+    font-weight: 300 !important;
+    line-height: 1.12 !important;
+    color: var(--text) !important;
 }
 
-/* ============================================================
-   AUTHOR DETAILS BLOCK
-   ============================================================ */
+/* second row reads with more air, as in the reference */
+.testimonials-grid-row:nth-child(2) .testimonial-quote-text {
+    line-height: 1.3 !important;
+}
+
+/* ---------- author (pinned to the bottom of every card) ---------- */
 
 .testimonial-author-block {
-    flex-shrink: 0;
-    margin-top: clamp(3px, 0.35vh, 5px) !important;
-    padding-top: 0 !important;
+    margin-top: auto !important;
+    padding-top: 6px !important;
+    flex-shrink: 0 !important;
 }
 
 .testimonial-author-name {
-    margin: 0 0 1px 0 !important;
-    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: clamp(8.8px, 1.08vh, 9.8px) !important;
+    margin: 0 0 2px !important;
+    font-size: calc(10px * var(--tf)) !important;
     font-weight: 700 !important;
-    color: #11100e !important;
     line-height: 1.1 !important;
-    white-space: nowrap;
+    color: #11100e !important;
+    white-space: nowrap !important;
 }
 
 .testimonial-author-role {
     margin: 0 !important;
-    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: clamp(7.7px, 1vh, 8.8px) !important;
+    font-size: calc(8.6px * var(--tf)) !important;
     font-weight: 300 !important;
-    color: #555048 !important;
-    line-height: 1.12 !important;
-}
-
-.testimonials-grid-row:first-child .testimonial-author-role {
-    line-height: 1 !important;
-}
-
-/* ============================================================
-   RESPONSIVE OVERRIDES FOR TABLET / MOBILE
-   ============================================================ */
-
-@media (max-width: 768px) {
-    .testimonial-avatar-wrapper {
-        width: 26px !important;
-        height: 26px !important;
-    }
-
-    .testimonial-gold-quote {
-        font-size: 14px !important;
-    }
-
-    .testimonial-quote-text {
-        font-size: 8.0px !important;
-        line-height: 1.2 !important;
-    }
-
-    .testimonial-author-name {
-        font-size: 8.4px !important;
-    }
-
-    .testimonial-author-role {
-        font-size: 7.4px !important;
-    }
+    line-height: 1.15 !important;
+    color: var(--role) !important;
 }

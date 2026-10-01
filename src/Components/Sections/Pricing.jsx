@@ -1,153 +1,75 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./Pricing.css";
 
-/* =========================================================
-   PRICING RESPONSIVE STYLE
-   ========================================================= */
+/* Reference page width (px) the CSS is authored at */
+const DESIGN_W = 322;
 
-const pricingResponsiveStyle = `
-  .pricing-page-container {
-    overflow: visible !important;
-    min-width: 0;
-    min-height: 0;
-    box-sizing: border-box;
-  }
+/* ---------- Top & bottom space (design px) ----------
+   Adapts to the page shape:
+   - normal book-shaped pages (tablet / desktop) -> PAD_MIN
+   - tall narrow pages (phones)                  -> PAD_MAX */
+const PAD_MIN = 22;
+const PAD_MAX = 52;
+const PAD_FROM_H = 440;
+const PAD_TO_H = 720;
 
-  .pricing-plan-card {
-    min-width: 0;
-    min-height: 0;
-    overflow: visible !important;
-  }
+/* ---------- Heading / price / button scale ----------
+   On tall narrow pages the fixed-size parts (title, plan name, subtitle,
+   price, button) scale up so they stay proportional to the bigger text. */
+const BOOST_MAX = 1.25;
+const BOOST_FROM_H = 540;
+const BOOST_TO_H = 900;
 
-  .pricing-details-container {
-    gap: clamp(3px, 0.5vh, 8px);
-    min-width: 0;
-  }
+/* Height (design px) of the content without any top/bottom padding */
+const CONTENT_MIN_H = 374;
+/* Smallest design height that still fits the longest plan (Business) */
+const MIN_DESIGN_H = CONTENT_MIN_H + PAD_MIN * 2;
+/* Height (design px) of everything except the details list and padding,
+   at scale 1 (header + heading + margins + price + button) */
+const FIXED_CONTENT_H = 197.5;
+/* Safety buffer (design px) */
+const FIXED_BUFFER = 20;
 
-  .pricing-detail-text {
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
+/* Share of the page width available to the details text */
+const TEXT_W_RATIO = 0.69;
+/* Average glyph width as a fraction of font-size (Helvetica) */
+const CHAR_W = 0.54;
+/* Font-size limits (design px) when text is allowed to wrap */
+const WRAP_MAX_FONT = 20;
+const WRAP_MIN_FONT = 9;
 
-  @media (max-width: 767px) {
-    .pricing-page-container {
-      padding-top: 8px !important;
-      padding-bottom: 8px !important;
-      padding-left: 10px !important;
-      padding-right: 10px !important;
-      overflow: visible !important;
-    }
+/* ---------- Header that matches the Portfolio / Testimonials pages ----------
+   On desktop the "Pricing" title, the gold line and the page number use the
+   exact same size, thickness and height as the Portfolio and Testimonials
+   headers. Those pages are authored at 370 x 480 and scale by
+   min(pageW / 370, pageH / 480), so we use the same scale here. */
+const MATCH_DESIGN_W = 370;
+const MATCH_DESIGN_H = 480;
+const MATCH_TOP = 30; // gap above the header (design px of those pages)
+const MATCH_HEADER_H = 22; // header height (design px of those pages)
+const DESKTOP_QUERY = "(min-width: 801px)";
 
-    .pricing-page-container.pricing-page-right {
-      padding-left: 10px !important;
-      padding-right: 10px !important;
-    }
+const ease = (v, from, to) => Math.min(1, Math.max(0, (v - from) / (to - from)));
 
-    .pricing-header-left,
-    .pricing-header-right {
-      height: auto !important;
-      min-height: 20px;
-      margin-bottom: 4px !important;
-    }
-
-    .pricing-title {
-      font-size: clamp(14px, 3vw, 18px) !important;
-    }
-
-    .pricing-plan-card {
-      justify-content: flex-start;
-      gap: 5px;
-      padding-top: 7px;
-      padding-bottom: 7px;
-    }
-
-    .pricing-plan-name {
-      font-size: clamp(20px, 3.4vw, 28px) !important;
-      line-height: 1.1 !important;
-    }
-
-    .pricing-plan-subtitle {
-      font-size: clamp(8.5px, 2vw, 10.5px) !important;
-      white-space: normal !important;
-      line-height: 1.2 !important;
-    }
-
-    .pricing-details-container {
-      gap: 4px !important;
-      margin-top: 3px !important;
-      margin-bottom: 3px !important;
-    }
-
-    .pricing-detail-text {
-      font-size: clamp(8px, 2vw, 10px) !important;
-      line-height: 1.25 !important;
-      white-space: normal !important;
-    }
-
-    .pricing-price-container {
-      margin-bottom: 4px !important;
-    }
-
-    .pricing-price-text {
-      font-size: clamp(28px, 5vw, 40px) !important;
-      line-height: 1 !important;
-    }
-
-    .pricing-start-button {
-      width: clamp(120px, 50%, 150px) !important;
-      padding: 7px 0 !important;
-      font-size: clamp(8px, 1.8vw, 9px) !important;
-      letter-spacing: 1px !important;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .pricing-page-container {
-      padding-top: 6px !important;
-      padding-bottom: 6px !important;
-      padding-left: 6px !important;
-      padding-right: 6px !important;
-      overflow: visible !important;
-    }
-
-    .pricing-page-container.pricing-page-right {
-      padding-left: 6px !important;
-      padding-right: 6px !important;
-    }
-
-    .pricing-plan-name {
-      font-size: clamp(18px, 4vw, 23px) !important;
-    }
-
-    .pricing-plan-subtitle {
-      font-size: clamp(8px, 2.2vw, 9px) !important;
-    }
-
-    .pricing-detail-text {
-      font-size: clamp(7px, 2vw, 8.5px) !important;
-      line-height: 1.2 !important;
-    }
-
-    .pricing-price-text {
-      font-size: clamp(26px, 4.8vw, 32px) !important;
-    }
-
-    .pricing-start-button {
-      width: clamp(110px, 55%, 135px) !important;
-      padding: 6px 0 !important;
-      font-size: clamp(7px, 2vw, 8.5px) !important;
-    }
-  }
-`;
+/* Padding, heading scale and "tall page" progress for a design height */
+const getMetrics = (designH) => {
+  const pt = ease(designH, PAD_FROM_H, PAD_TO_H);
+  const bt = ease(designH, BOOST_FROM_H, BOOST_TO_H);
+  return {
+    padY: Math.round((PAD_MIN + pt * (PAD_MAX - PAD_MIN)) * 10) / 10,
+    boost: Math.round((1 + bt * (BOOST_MAX - 1)) * 1000) / 1000,
+    bt,
+  };
+};
 
 /* =========================================================
-   PRICING DATA (MATCHING REFERENCE IMAGE 100%)
+   PRICING DATA
    ========================================================= */
 
 const pricingPlans = {
   starter: {
     name: "Starter",
-    subtitle: "Digital eBook Cover (Kindle Only)",
+    subtitle: "Digital eBook Cover\n(Kindle Only)",
     details: [
       "3 cover studies\nstock image / AI",
       "2 rounds of revisions",
@@ -161,7 +83,7 @@ const pricingPlans = {
 
   basic: {
     name: "Basic",
-    subtitle: "Physical Print Cover (Paperback Only)",
+    subtitle: "Physical Print Cover\n(Paperback Only)",
     details: [
       "2 cover studies\nstock image",
       "3 rounds of revisions",
@@ -175,7 +97,7 @@ const pricingPlans = {
 
   premium: {
     name: "Premium",
-    subtitle: "eBook + Print Cover Design (Paperback)",
+    subtitle: "eBook + Print Cover Design\n(Paperback)",
     details: [
       "2 cover studies\nstock image",
       "4 rounds of revisions",
@@ -189,7 +111,7 @@ const pricingPlans = {
 
   business: {
     name: "Business",
-    subtitle: "eBook & Print Cover Design + Book Layout",
+    subtitle: "eBook & Print Cover Design\n+ Book Layout",
     details: [
       "3 cover studies\nstock image",
       "5 rounds of revisions",
@@ -203,49 +125,163 @@ const pricingPlans = {
   },
 };
 
+const countLines = (details) =>
+  details.reduce((sum, d) => sum + d.split("\n").length, 0);
+
+/* Longest single line of text in a plan's details (characters) */
+const longestLine = (details) =>
+  Math.max(...details.flatMap((d) => d.split("\n").map((l) => l.length)));
+
+/* Greedy word-wrap estimate: how many lines does `text` take at `maxChars`? */
+const wrapLineCount = (text, maxChars) => {
+  const words = text.replace(/\n/g, " ").split(" ").filter(Boolean);
+  let lines = 1;
+  let cur = 0;
+  words.forEach((w) => {
+    if (cur === 0) cur = w.length;
+    else if (cur + 1 + w.length <= maxChars) cur += 1 + w.length;
+    else {
+      lines += 1;
+      cur = w.length;
+    }
+  });
+  return lines;
+};
+
+/*
+  Layout A: explicit line breaks, exactly as designed.
+*/
+const getFixedLayout = (details, designW, avail) => {
+  const lines = countLines(details);
+  const gaps = details.length - 1;
+
+  let ratio = 0.55; // gap / line-height
+  let k = 1.4; // line-height / font-size
+  let lh = avail / (lines + ratio * gaps);
+  let font = lh / k;
+
+  if (font < 10.5) {
+    ratio = 0.23;
+    k = 1.25;
+    lh = avail / (lines + ratio * gaps);
+    font = lh / k;
+  }
+
+  // keep the longest line within ~76% of the page width
+  const cap = (designW * 0.76) / (CHAR_W * longestLine(details));
+  if (font > cap) font = cap;
+
+  font = Math.max(9, font);
+  lh = font * k;
+
+  return { font, lh };
+};
+
+/*
+  Layout B: text may wrap. Find the largest font whose wrapped lines
+  + minimum gaps still fit the available height, so the list fills the
+  page with small, even gaps. On tall pages the line height grows a bit
+  (1.4 -> ~1.52) and the maximum font grows with the heading scale.
+*/
+const getWrapLayout = (details, designW, avail, boost, bt) => {
+  const textW = designW * TEXT_W_RATIO;
+  const k = 1.4 + 0.12 * bt; // line-height / font-size
+  const gapRatio = 0.5; // minimum gap / line-height
+  const gaps = details.length - 1;
+  const maxFont = Math.floor(WRAP_MAX_FONT * boost * 4) / 4;
+
+  for (let f = maxFont; f >= WRAP_MIN_FONT; f -= 0.25) {
+    const maxChars = Math.floor(textW / (CHAR_W * f));
+    const lh = f * k;
+    const lines = details.reduce(
+      (sum, d) => sum + wrapLineCount(d, maxChars),
+      0
+    );
+    if (lines * lh + gaps * gapRatio * lh <= avail) {
+      return { font: f, lh };
+    }
+  }
+  return { font: WRAP_MIN_FONT, lh: WRAP_MIN_FONT * k };
+};
+
+const getDetailsLayout = (details, designW, designH, headerExtra = 0) => {
+  const { padY, boost, bt } = getMetrics(designH);
+  const avail =
+    designH -
+    (padY * 2 + FIXED_CONTENT_H * boost + FIXED_BUFFER + headerExtra);
+
+  const fixed = getFixedLayout(details, designW, avail);
+  const wrap = getWrapLayout(details, designW, avail, boost, bt);
+
+  // Use wrapping when it gives clearly bigger text; on tall pages
+  // prefer it as soon as it is about as big (it fills the height better)
+  const useWrap = wrap.font > fixed.font * (1.05 - 0.1 * bt);
+  const chosen = useWrap ? wrap : fixed;
+
+  return {
+    font: Math.round(chosen.font * 100) / 100,
+    lh: Math.round(chosen.lh * 100) / 100,
+    wrap: useWrap,
+  };
+};
+
 /* =========================================================
-   SINGLE PRICING CARD COMPONENT
+   SINGLE PRICING CARD
    ========================================================= */
 
-const PricingCard = ({ plan, onStartProject }) => {
+const PricingCard = ({
+  plan,
+  onStartProject,
+  designWidth = DESIGN_W,
+  designHeight = MIN_DESIGN_H,
+  headerExtra = 0,
+}) => {
   if (!plan) return null;
+
+  const { font, lh, wrap } = getDetailsLayout(
+    plan.details,
+    designWidth,
+    designHeight,
+    headerExtra
+  );
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.nativeEvent) e.nativeEvent.stopImmediatePropagation();
+    if (onStartProject) onStartProject(e);
+  };
 
   return (
     <div className="pricing-plan-card">
-      {/* PLAN NAME & SUBTITLE */}
-      <div>
+      <div className="pricing-plan-heading">
         <h3 className="pricing-plan-name">{plan.name}</h3>
         <p className="pricing-plan-subtitle">{plan.subtitle}</p>
       </div>
 
-      {/* DETAILS STACK */}
-      <div className="pricing-details-container">
+      <div
+        className="pricing-details-container"
+        style={{
+          "--d-font": `${font}px`,
+          "--d-lh": `${lh}px`,
+          "--d-ws": wrap ? "normal" : "pre",
+        }}
+      >
         {plan.details.map((detail, index) => (
           <p key={`${plan.name}-${index}`} className="pricing-detail-text">
-            {detail}
+            {wrap ? detail.replace(/\n/g, " ") : detail}
           </p>
         ))}
       </div>
 
-      {/* PRICE NUMBER */}
       <div className="pricing-price-container">
         <p className="pricing-price-text">{plan.price}</p>
       </div>
 
-      {/* START A PROJECT BUTTON */}
       <div className="pricing-button-container">
         <button
           type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            if (e.nativeEvent) {
-              e.nativeEvent.stopImmediatePropagation();
-            }
-            if (onStartProject) {
-              onStartProject(e);
-            }
-          }}
+          onClick={handleClick}
           className="pricing-start-button"
         >
           START A PROJECT
@@ -256,7 +292,9 @@ const PricingCard = ({ plan, onStartProject }) => {
 };
 
 /* =========================================================
-   PAGE CONTENT WRAPPER WITH CONTINUOUS GOLD LINE
+   PAGE CONTENT
+   Measures the page (layout size, unaffected by flip transforms),
+   picks one scale, and sizes the artboard to exactly fill the page.
    ========================================================= */
 
 const PricingContent = ({
@@ -265,11 +303,94 @@ const PricingContent = ({
   pageNumber = null,
   onStartProject = null,
 }) => {
+  const wrapRef = useRef(null);
+  const [dims, setDims] = useState(null); // { s, w, h } in design px
+
+  /* desktop (801px and above) = header matches Portfolio / Testimonials */
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window !== "undefined" && window.matchMedia
+      ? window.matchMedia(DESKTOP_QUERY).matches
+      : false
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return undefined;
+    const mq = window.matchMedia(DESKTOP_QUERY);
+    const onChange = () => setIsDesktop(mq.matches);
+    onChange();
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else mq.addListener(onChange);
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener("change", onChange);
+      else mq.removeListener(onChange);
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return undefined;
+
+    const update = () => {
+      const pageW = el.clientWidth;
+      const pageH = el.clientHeight;
+      if (pageW > 0 && pageH > 0) {
+        const s = Math.min(pageW / DESIGN_W, pageH / MIN_DESIGN_H);
+        setDims({ s, w: pageW / s, h: pageH / s });
+      }
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const { padY, boost } = getMetrics(dims ? dims.h : MIN_DESIGN_H);
+
+  /* ---- header-match values (desktop only) ----
+     hm = (Portfolio / Testimonials scale) / (Pricing scale), so that
+     "21px * hm" inside the Pricing artboard is exactly the same on-screen
+     size as 21px * scale on those pages. */
+  const matchHeader = isDesktop && dims !== null;
+  let hm = 1;
+  let headerExtra = 0;
+  if (matchHeader) {
+    const pageW = dims.w * dims.s;
+    const pageH = dims.h * dims.s;
+    const S = Math.min(pageW / MATCH_DESIGN_W, pageH / MATCH_DESIGN_H);
+    hm = S / dims.s;
+    // extra height the new header takes compared with the old one
+    headerExtra = (MATCH_TOP + MATCH_HEADER_H) * hm - (padY + 22 * boost);
+  }
+
   return (
-    <>
-      <style>{pricingResponsiveStyle}</style>
-      <div className={`pricing-page-container ${isLeft ? "pricing-page-left" : "pricing-page-right"}`}>
-        {/* CONTINUOUS HEADER MATCHING REFERENCE IMAGE */}
+    <div
+      ref={wrapRef}
+      className={`pricing-page-container ${
+        isLeft ? "pricing-page-left" : "pricing-page-right"
+      }`}
+    >
+      <div
+        className={`pricing-artboard${matchHeader ? " pricing-match" : ""}`}
+        style={
+          dims
+            ? {
+                "--s": dims.s,
+                "--pad-y": `${padY}px`,
+                "--b": boost,
+                "--hm": hm,
+                width: dims.w,
+                height: dims.h,
+              }
+            : {
+                "--pad-y": `${padY}px`,
+                "--b": boost,
+                visibility: "hidden",
+                width: DESIGN_W,
+                height: MIN_DESIGN_H,
+              }
+        }
+      >
         {isLeft ? (
           <div className="pricing-header-left">
             <h2 className="pricing-title">Pricing</h2>
@@ -278,19 +399,26 @@ const PricingContent = ({
         ) : (
           <div className="pricing-header-right">
             <div className="pricing-gold-line" />
-            {pageNumber && <span className="pricing-page-number">{pageNumber}</span>}
+            {pageNumber && (
+              <span className="pricing-page-number">{pageNumber}</span>
+            )}
           </div>
         )}
 
-        {/* PLAN CARD */}
-        <PricingCard plan={plan} onStartProject={onStartProject} />
+        <PricingCard
+          plan={plan}
+          onStartProject={onStartProject}
+          designWidth={dims ? dims.w : DESIGN_W}
+          designHeight={dims ? dims.h : MIN_DESIGN_H}
+          headerExtra={headerExtra}
+        />
       </div>
-    </>
+    </div>
   );
 };
 
 /* =========================================================
-   MAIN PRICING COMPONENT
+   MAIN COMPONENT (same props as before)
    ========================================================= */
 
 export default function Pricing({
@@ -302,61 +430,25 @@ export default function Pricing({
 }) {
   const activeSection = section || pricingSection;
 
-  /* SPREAD 1 LEFT: STARTER */
-  if (activeSection === 1) {
+  const sections = {
+    1: { plan: pricingPlans.starter, isLeft: true, pageNumber: null },
+    2: { plan: pricingPlans.basic, isLeft: false, pageNumber: "01" },
+    3: { plan: pricingPlans.premium, isLeft: true, pageNumber: null },
+    4: { plan: pricingPlans.business, isLeft: false, pageNumber: "02" },
+  };
+
+  if (sections[activeSection]) {
     return (
       <PricingContent
-        plan={pricingPlans.starter}
-        isLeft={true}
-        pageNumber={null}
+        {...sections[activeSection]}
         onStartProject={onStartProject}
       />
     );
   }
 
-  /* SPREAD 1 RIGHT: BASIC */
-  if (activeSection === 2) {
-    return (
-      <PricingContent
-        plan={pricingPlans.basic}
-        isLeft={false}
-        pageNumber="01"
-        onStartProject={onStartProject}
-      />
-    );
-  }
-
-  /* SPREAD 2 LEFT: PREMIUM */
-  if (activeSection === 3) {
-    return (
-      <PricingContent
-        plan={pricingPlans.premium}
-        isLeft={true}
-        pageNumber={null}
-        onStartProject={onStartProject}
-      />
-    );
-  }
-
-  /* SPREAD 2 RIGHT: BUSINESS */
-  if (activeSection === 4) {
-    return (
-      <PricingContent
-        plan={pricingPlans.business}
-        isLeft={false}
-        pageNumber="02"
-        onStartProject={onStartProject}
-      />
-    );
-  }
-
-  /* DIRECT PLAN SUPPORT */
   if (plan && pricingPlans[plan]) {
     const isPlanLeft = plan === "starter" || plan === "premium";
-    let pageNum = null;
-    if (plan === "basic") pageNum = "01";
-    if (plan === "business") pageNum = "02";
-
+    const pageNum = plan === "basic" ? "01" : plan === "business" ? "02" : null;
     return (
       <PricingContent
         plan={pricingPlans[plan]}
@@ -367,7 +459,6 @@ export default function Pricing({
     );
   }
 
-  /* DEFAULT FALLBACK */
   return (
     <PricingContent
       plan={isLeft ? pricingPlans.starter : pricingPlans.basic}
