@@ -1,0 +1,537 @@
+/* ═══════════════════════════════════════════════════════════════
+   AAFI DESIGNS COVER STYLES
+═══════════════════════════════════════════════════════════════ */
+
+/* Standalone closed cover — fixed proportional size */
+.book-cover.closed-book {
+    width: clamp(190px, 24vw, 290px);
+    height: clamp(260px, 34vw, 390px);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 3px 8px 8px 3px;
+    box-shadow:
+        -6px 0 14px rgba(0, 0, 0, 0.65),
+        14px 20px 50px rgba(0, 0, 0, 0.7);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
+    background: #161616;
+}
+
+/* Open cover inside flipbook — fills the full page */
+.book-cover.open-cover {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #161616;
+    container-type: size; /* lets children scale with the cover itself */
+}
+
+/* The texture image is oversized (143%) and shifted up to hide the light
+   strip at the top of the JPEG (about 6% of the image height). */
+.book-cover-bg {
+    position: absolute;
+    inset: auto;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 143%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: 1;
+    margin-top: 0;
+}
+
+/* COVER TEXTURE — CONSTANT CROP AT EVERY BOOK SHAPE */
+.book-cover.back-cover {
+    container-type: size;
+}
+
+@supports (width: 1cqw) {
+    .book-cover.open-cover .book-cover-bg,
+    .book-cover.back-cover .book-cover-bg {
+        left: 0;
+        width: 100%;
+        height: max(143cqh, 182cqw);
+        top: calc(max(143cqh, 182cqw) * -0.07);
+    }
+}
+
+.bc-spine-shadow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.75), transparent);
+    z-index: 4;
+    pointer-events: none;
+}
+
+.bc-code-marker {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: #3b5a8c;
+    letter-spacing: 2px;
+    z-index: 4;
+}
+
+.aafi-cover-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px 24px;
+    text-align: center;
+}
+
+.aafi-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.aafi-logo-symbol {
+    width: clamp(185px, 27vw, 295px);            /* fallback */
+    width: clamp(150px, 68cqw, 320px);           /* scales with the book */
+    height: auto;
+    max-width: 85%;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    filter: brightness(1.15) contrast(1.1) drop-shadow(0 2px 8px rgba(200, 169, 81, 0.3));
+}
+
+.aafi-brand-title {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(15px, 1.8vw, 19px);
+    font-weight: 500;
+    letter-spacing: 4.5px;
+    color: #caa855;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+    margin-top: 16px;
+    text-transform: uppercase;
+}
+
+.aafi-subtitle-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: clamp(15px, 2.5vw, 30px);
+    margin-bottom: clamp(25px, 4vw, 45px);
+}
+
+.aafi-subtitle-wrapper p {
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(10px, 1.1vw, 12px);         /* fallback */
+    font-size: clamp(10px, 3.4cqw, 14px);        /* scales with the book */
+    letter-spacing: 2px;
+    color: #d8dcde;
+    text-transform: uppercase;
+    font-weight: 300;
+    line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PHONES ≤ 500px — cover spacing fine-tuning
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 500px) {
+    .aafi-cover-overlay {
+        padding: 24px 16px 20px;
+    }
+
+    .bc-code-marker {
+        top: 16px;
+        right: 14px;
+    }
+}
+
+@media (min-width: 361px) and (max-width: 430px) {
+    .aafi-subtitle-wrapper p {
+        letter-spacing: 1.6px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SMALL PHONES ≤ 400px (iPhone SE 375px, etc.)
+
+   1) Logo size            → --logo-w   (84% of the cover width)
+   2) Text block width     → --ink-w     (visible logo art width,
+                                          so text edges = logo edges)
+   3) Text size            → font-size = block width / --text-fit
+   4) Vertical centering   → the VISIBLE group (logo art + text) is
+                             centered in the cover. --group-shift is a
+                             % of the cover height, so it stays centered
+                             at any phone height.
+
+   TUNING (change only these variables):
+   --logo-scale : logo size.  0.80 = smaller, 0.90 = bigger.
+   --logo-ink   : visible art / PNG width (keeps text width = logo width).
+   --text-fit   : text size. LOWER = bigger text, HIGHER = smaller text.
+   --group-shift: more negative = group moves UP, less negative / positive
+                  = group moves DOWN. Try -4cqh to -7cqh.
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 400px) {
+    .aafi-cover-overlay {
+        --cover-pad: 16px;
+        --logo-scale: 0.84;
+        --logo-ink: 0.66;
+        --text-fit: 15.8;
+        --group-shift: -5.5cqh;
+        --logo-w: calc(100cqw * var(--logo-scale));
+        --ink-w: calc(var(--logo-w) * var(--logo-ink));
+
+        justify-content: center;
+        padding: var(--cover-pad);            /* equal on all sides */
+    }
+
+    .aafi-logo-wrapper {
+        margin: 0;
+        transform: translateY(var(--group-shift));
+    }
+
+    .aafi-logo-symbol {
+        display: block;                       /* removes hidden gap under image */
+        width: var(--logo-w);
+        max-width: 100%;
+    }
+
+    .aafi-subtitle-wrapper {
+        width: var(--ink-w);
+        align-items: center;
+        gap: 4px;
+        margin-top: 12px;
+        margin-bottom: 0;                     /* no extra space below the text */
+        transform: translateY(var(--group-shift));
+    }
+
+    .aafi-subtitle-wrapper p {
+        width: 100%;
+        white-space: nowrap;
+        text-align: center;
+        font-size: calc(var(--ink-w) / var(--text-fit));
+        letter-spacing: 0.14em;
+        text-indent: 0.14em;                  /* balances trailing letter-space */
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TALL LARGE PHONES — 401px–500px wide AND ≥ 760px high
+   (iPhone 16 Pro Max 440x956, iPhone 15/14 Plus & Pro Max 430x932,
+   Pixel / Galaxy Ultra in portrait).
+   Bigger logo + bigger text. The text block is exactly as wide as
+   the visible logo art, so the left and right edges line up.
+
+   TUNING (change only these variables):
+   --logo-scale : logo size (0.94 = near full cover width).
+   --logo-ink   : visible art width inside the PNG (keeps text = logo width).
+   --text-fit   : text size. LOWER = bigger text, HIGHER = smaller text.
+   --group-shift: more negative = group moves UP, less negative = DOWN.
+═══════════════════════════════════════════════════════════════ */
+@media (min-width: 401px) and (max-width: 500px) and (min-height: 760px) {
+    .aafi-cover-overlay {
+        --cover-pad: 10px;
+        --logo-scale: 0.94;
+        --logo-ink: 0.66;
+        --text-fit: 16.2;
+        --group-shift: -5cqh;
+        --logo-w: calc(100cqw * var(--logo-scale));
+        --ink-w: calc(var(--logo-w) * var(--logo-ink));
+
+        justify-content: center;
+        padding: var(--cover-pad);
+    }
+
+    .aafi-logo-wrapper {
+        margin: 0;
+        transform: translateY(var(--group-shift));
+    }
+
+    .aafi-logo-symbol {
+        display: block;
+        width: var(--logo-w);
+        max-width: 100%;
+    }
+
+    .aafi-subtitle-wrapper {
+        width: var(--ink-w);                  /* same width as the logo art */
+        align-items: center;
+        gap: 6px;
+        margin-top: 14px;
+        margin-bottom: 0;
+        transform: translateY(var(--group-shift));
+    }
+
+    .aafi-subtitle-wrapper p {
+        width: 100%;
+        white-space: nowrap;
+        text-align: center;
+        font-size: calc(var(--ink-w) / var(--text-fit));
+        letter-spacing: 0.14em;
+        text-indent: 0.14em;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TALL TABLETS — 768px–1023px wide AND ≥ 760px high
+   (iPad Mini 768x1024, iPad Air portrait 820x1180, etc.)
+   Does not affect phones or desktop (≥ 1024px).
+
+   Same idea as the tall-phone block: bigger logo, bigger text, and
+   the text block is exactly as wide as the visible logo art so the
+   left and right edges line up. Everything scales from the cover size.
+
+   TUNING (change only these variables):
+   --logo-scale : logo size (0.72 = 72% of the cover width).
+   --logo-ink   : visible art width inside the PNG (keeps text = logo width).
+   --text-fit   : text size. LOWER = bigger text, HIGHER = smaller text.
+                  (If the longest line is wider than the logo, raise it
+                  a little, e.g. 16.2 → 16.8.)
+   --group-shift: more negative = group moves UP, less negative = DOWN.
+═══════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1023px) and (min-height: 760px) {
+    .aafi-cover-overlay {
+        --cover-pad: 16px;
+        --logo-scale: 0.72;
+        --logo-ink: 0.66;
+        --text-fit: 16.2;
+        --group-shift: -4cqh;
+        --logo-w: calc(100cqw * var(--logo-scale));
+        --ink-w: calc(var(--logo-w) * var(--logo-ink));
+
+        justify-content: center;
+        padding: var(--cover-pad);
+    }
+
+    .aafi-logo-wrapper {
+        margin: 0;
+        transform: translateY(var(--group-shift));
+    }
+
+    .aafi-logo-symbol {
+        display: block;
+        width: var(--logo-w);                 /* overrides the 320px cap */
+        max-width: 100%;
+    }
+
+    .aafi-subtitle-wrapper {
+        width: var(--ink-w);                  /* same width as the logo art */
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+        margin-bottom: 0;
+        transform: translateY(var(--group-shift));
+    }
+
+    .aafi-subtitle-wrapper p {
+        width: 100%;
+        white-space: nowrap;
+        text-align: center;
+        font-size: calc(var(--ink-w) / var(--text-fit));   /* overrides the 14px cap */
+        letter-spacing: 0.14em;
+        text-indent: 0.14em;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TALL COVERS ON LARGE TABLETS — ≥ 1024px wide, single tall page
+   (iPad Pro 13 1032x1376, iPad Pro 12.9 1024x1366, Surface Pro
+   portrait, etc.).
+
+   Detected from the shape of the COVER itself (aspect ratio 0.68 or
+   less), the same way the back cover does it in Book.jsx. A normal
+   desktop two-page book (aspect ≈ 0.76) does not match, so laptops /
+   desktops, phones and the other tablet blocks are not affected.
+
+   Bigger logo, bigger text, and the text block is exactly as wide as
+   the visible logo art so the left and right edges line up.
+
+   TUNING (change only these variables):
+   --logo-scale : logo size (0.72 = 72% of the cover width).
+   --logo-ink   : visible art width inside the PNG (keeps text = logo width).
+   --text-fit   : text size. LOWER = bigger text, HIGHER = smaller text.
+                  (If the longest line is wider than the logo, raise it
+                  a little, e.g. 16.2 → 16.8.)
+   --group-shift: more negative = group moves UP, less negative = DOWN.
+═══════════════════════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+    @container (max-aspect-ratio: 68/100) {
+        .aafi-cover-overlay {
+            --cover-pad: 16px;
+            --logo-scale: 0.72;
+            --logo-ink: 0.66;
+            --text-fit: 16.2;
+            --group-shift: -4cqh;
+            --logo-w: calc(100cqw * var(--logo-scale));
+            --ink-w: calc(var(--logo-w) * var(--logo-ink));
+
+            justify-content: center;
+            padding: var(--cover-pad);
+        }
+
+        .aafi-logo-wrapper {
+            margin: 0;
+            transform: translateY(var(--group-shift));
+        }
+
+        .aafi-logo-symbol {
+            display: block;
+            width: var(--logo-w);             /* overrides the 320px cap */
+            max-width: 100%;
+        }
+
+        .aafi-subtitle-wrapper {
+            width: var(--ink-w);              /* same width as the logo art */
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            margin-bottom: 0;
+            transform: translateY(var(--group-shift));
+        }
+
+        .aafi-subtitle-wrapper p {
+            width: 100%;
+            white-space: nowrap;
+            text-align: center;
+            font-size: calc(var(--ink-w) / var(--text-fit));   /* overrides the 14px cap */
+            letter-spacing: 0.14em;
+            text-indent: 0.14em;
+        }
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DESKTOP / LAPTOP — ≥ 1024px wide, normal two-page book
+   (cover aspect ratio 0.68 or more, e.g. 1920x950, 1536x730,
+   1440x900, 1280x720, etc.).
+
+   Detected from the shape of the COVER itself, so it never overlaps
+   the tall-tablet block above (aspect ratio 0.68 or less). Placed
+   BEFORE the Nest Hub Max block so that screen keeps its own size.
+
+   Bigger logo, bigger text, and the text block is exactly as wide as
+   the visible logo art so the left and right edges line up.
+   Everything scales from the cover size, so it also adapts to the
+   650px page-width cap on very large monitors.
+
+   TUNING (change only these variables):
+   --logo-scale : logo size (0.74 = 74% of the cover width).
+   --logo-ink   : visible art width inside the PNG (keeps text = logo width).
+   --text-fit   : text size. LOWER = bigger text, HIGHER = smaller text.
+                  (If the longest line is wider than the logo, raise it
+                  a little, e.g. 16.2 → 16.8.)
+   --group-shift: more negative = group moves UP, less negative = DOWN.
+═══════════════════════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+    @container (min-aspect-ratio: 68/100) {
+        .aafi-cover-overlay {
+            --cover-pad: 20px;
+            --logo-scale: 0.74;
+            --logo-ink: 0.66;
+            --text-fit: 16.2;
+            --group-shift: -3cqh;
+            --logo-w: calc(100cqw * var(--logo-scale));
+            --ink-w: calc(var(--logo-w) * var(--logo-ink));
+
+            justify-content: center;
+            padding: var(--cover-pad);
+        }
+
+        .aafi-logo-wrapper {
+            margin: 0;
+            transform: translateY(var(--group-shift));
+        }
+
+        .aafi-logo-symbol {
+            display: block;
+            width: var(--logo-w);             /* overrides the 320px cap */
+            max-width: 100%;
+        }
+
+        .aafi-subtitle-wrapper {
+            width: var(--ink-w);              /* same width as the logo art */
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            margin-bottom: 0;
+            transform: translateY(var(--group-shift));
+        }
+
+        .aafi-subtitle-wrapper p {
+            width: 100%;
+            white-space: nowrap;
+            text-align: center;
+            font-size: calc(var(--ink-w) / var(--text-fit));   /* overrides the 14px cap */
+            letter-spacing: 0.14em;
+            text-indent: 0.14em;
+        }
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NEST HUB MAX / SMALL WIDE SCREENS — 1200px–1400px wide AND
+   740px–860px high (Nest Hub Max 1280x800, two-page desktop book).
+   Kept at the VERY END of the file so it wins over the desktop block
+   above. Does not affect phones, tablets or other desktop sizes.
+
+   A LITTLE bigger logo and text. The text block is tied to the
+   visible logo art width, so the edges stay in line with the logo.
+
+   TUNING (change only these variables):
+   --logo-scale : logo size (0.76 = 76% of the cover width).
+   --logo-ink   : visible art width inside the PNG (keeps text = logo width).
+   --text-fit   : text size. LOWER = bigger text, HIGHER = smaller text.
+   --group-shift: more negative = group moves UP, less negative = DOWN.
+═══════════════════════════════════════════════════════════════ */
+@media (min-width: 1200px) and (max-width: 1400px) and (min-height: 740px) and (max-height: 860px) {
+    .aafi-cover-overlay {
+        --cover-pad: 20px;
+        --logo-scale: 0.76;
+        --logo-ink: 0.66;
+        --text-fit: 16.2;
+        --group-shift: -3cqh;
+        --logo-w: calc(100cqw * var(--logo-scale));
+        --ink-w: calc(var(--logo-w) * var(--logo-ink));
+
+        justify-content: center;
+        padding: var(--cover-pad);
+    }
+
+    .aafi-logo-wrapper {
+        margin: 0;
+        transform: translateY(var(--group-shift));
+    }
+
+    .aafi-logo-symbol {
+        display: block;
+        width: var(--logo-w);                 /* overrides the 320px cap */
+        max-width: 100%;
+    }
+
+    .aafi-subtitle-wrapper {
+        width: var(--ink-w);                  /* same width as the logo art */
+        align-items: center;
+        gap: 5px;
+        margin-top: 16px;
+        margin-bottom: 0;
+        transform: translateY(var(--group-shift));
+    }
+
+    .aafi-subtitle-wrapper p {
+        width: 100%;
+        white-space: nowrap;
+        text-align: center;
+        font-size: calc(var(--ink-w) / var(--text-fit));   /* overrides the 14px cap */
+        letter-spacing: 0.14em;
+        text-indent: 0.14em;
+    }
+}

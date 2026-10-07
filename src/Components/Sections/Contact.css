@@ -1,0 +1,412 @@
+/* ================================================================
+   CONTACT & FAQ'S SECTION CSS
+   Desktop: balanced side margins, wider content area
+   Mobile (<=767px): handled by the inline responsive styles in Contact.jsx
+   ================================================================ */
+
+:root {
+  /* Page spacing tokens (desktop) */
+  --cp-pad-y: clamp(36px, 6.4vh, 68px);          /* top / bottom */
+  --cp-pad-outer: clamp(30px, 3.8vw, 52px);      /* outer page edge */
+  --cp-pad-spine: clamp(20px, 2.6vw, 38px);      /* side next to the spine */
+  --cp-gold: #b8a47e;
+  --cp-ink: #1c1c1c;
+
+  /* Field colours: soft white that blends with the white page */
+  --cp-field-bg: #fcfbf9;
+  --cp-field-bg-hover: #ffffff;
+  --cp-field-bg-focus: #ffffff;
+  --cp-field-border: #e4dfd5;
+  --cp-field-border-hover: #d3ccbd;
+  --cp-field-shadow: 0 1px 2px rgba(28, 28, 28, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.cp-faq,
+.cp-form-page {
+  font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  color: var(--cp-ink);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================================================
+   HEADER GOLD LINE
+   ================================================================ */
+
+.cp-gold-line {
+  flex: 1;
+  height: 1.3px;
+  background-color: var(--cp-gold);
+  opacity: 0.75;
+}
+
+.cp-header-top-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 28px;
+}
+
+/* ================================================================
+   LEFT PAGE — FAQ'S
+   (outer edge = left, spine side = right)
+   ================================================================ */
+
+.cp-faq {
+  padding-top: var(--cp-pad-y) !important;
+  padding-bottom: var(--cp-pad-y) !important;
+  padding-left: var(--cp-pad-outer) !important;
+  padding-right: var(--cp-pad-spine) !important;
+  justify-content: flex-start;
+}
+
+.cp-faq-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: clamp(14px, 2.2vh, 26px);
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.cp-faq-title {
+  font-size: clamp(17px, 2.2vh, 22px) !important;
+  font-weight: 300 !important;
+  color: var(--cp-ink) !important;
+  margin: 0 !important;
+  padding-right: 16px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.4px !important;
+}
+
+.cp-faq-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.cp-faq-item {
+  border-bottom: 1px solid rgba(210, 205, 195, 0.7);
+  flex-shrink: 0;
+}
+
+.cp-faq-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: none;
+  border: none;
+  padding: clamp(5px, 0.9vh, 10px) 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.cp-faq-btn:focus-visible {
+  outline: 1px solid var(--cp-gold);
+  outline-offset: 2px;
+}
+
+.cp-faq-num {
+  font-size: clamp(9.5px, 1.2vh, 11.5px) !important;
+  font-weight: 300 !important;
+  color: var(--cp-ink) !important;
+  min-width: clamp(20px, 2.4vw, 26px) !important;
+  flex-shrink: 0;
+  line-height: 1.2 !important;
+}
+
+.cp-faq-q {
+  font-size: clamp(9.5px, 1.2vh, 11.5px) !important;
+  font-weight: 300 !important;
+  color: #2a2723 !important;
+  flex: 1;
+  line-height: 1.3 !important;
+  white-space: normal;
+  word-break: normal;
+}
+
+.cp-faq-chevron-icon {
+  width: clamp(10px, 1.2vh, 12px);
+  height: clamp(10px, 1.2vh, 12px);
+  color: #444444;
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+  display: block;
+}
+
+.cp-faq-chevron-icon.open {
+  transform: rotate(180deg);
+}
+
+.cp-faq-ans {
+  margin: 0 !important;
+  padding: 0 clamp(8px, 1.2vw, 16px) clamp(8px, 1.1vh, 12px) clamp(20px, 2.4vw, 26px) !important;
+  font-size: clamp(8.4px, 1.06vh, 9.6px) !important;
+  color: #666666 !important;
+  line-height: 1.45 !important;
+}
+
+/* ================================================================
+   RIGHT PAGE — CONTACT FORM
+   (spine side = left, outer edge = right)
+   ================================================================ */
+
+.cp-form-page {
+  padding-top: var(--cp-pad-y) !important;
+  padding-bottom: var(--cp-pad-y) !important;
+  padding-left: var(--cp-pad-spine) !important;
+  padding-right: var(--cp-pad-outer) !important;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.cp-form-header {
+  flex-shrink: 0;
+  margin-bottom: clamp(12px, 2vh, 22px);
+  width: 100%;
+}
+
+.cp-form-title {
+  font-size: clamp(17px, 2.2vh, 22px) !important;
+  font-weight: 300 !important;
+  color: var(--cp-ink) !important;
+  margin: 0 !important;
+  padding-right: 16px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.4px !important;
+}
+
+.cp-form-sub {
+  font-size: clamp(9.5px, 1.2vh, 11.5px) !important;
+  font-weight: 300 !important;
+  color: #444444 !important;
+  margin: clamp(8px, 1.2vh, 14px) 0 0 0 !important;
+  line-height: 1.4 !important;
+  white-space: normal;
+}
+
+.cp-success {
+  font-size: 10.5px;
+  color: #2e6930;
+  background: #f0faf0;
+  border: 1px solid #90c090;
+  padding: 6px 10px;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cp-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.6vh, 16px);
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ---------- Input + textarea: soft white, professional ----------
+   Selector is `.cp-form .cp-field` (higher specificity) so it also wins
+   over the inline mobile styles in Contact.jsx. */
+.cp-field,
+.cp-form .cp-field {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--cp-field-bg) !important;
+  border: 1px solid var(--cp-field-border) !important;
+  border-radius: 3px;
+  box-shadow: var(--cp-field-shadow) !important;
+  font-family: inherit;
+  font-size: clamp(9.5px, 1.2vh, 11.5px) !important;
+  color: var(--cp-ink) !important;
+  outline: none;
+  transition: border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+  height: clamp(32px, 4.4vh, 42px);
+  padding: 0 clamp(10px, 1.2vw, 14px);
+  display: block;
+}
+
+.cp-form .cp-field:hover {
+  background-color: var(--cp-field-bg-hover) !important;
+  border-color: var(--cp-field-border-hover) !important;
+}
+
+.cp-field::placeholder {
+  color: #9a9a9a;
+  font-weight: 300;
+}
+
+.cp-form .cp-field:focus {
+  border-color: var(--cp-gold) !important;
+  background-color: var(--cp-field-bg-focus) !important;
+  box-shadow: 0 0 0 3px rgba(184, 164, 126, 0.16), 0 1px 3px rgba(28, 28, 28, 0.05) !important;
+}
+
+.cp-textarea {
+  height: auto !important;
+  flex: 1;
+  min-height: clamp(70px, 11vh, 120px);
+  max-height: 260px;
+  padding-top: clamp(10px, 1.4vh, 14px);
+  padding-bottom: clamp(10px, 1.4vh, 14px);
+  resize: none;
+  line-height: 1.5;
+}
+
+.cp-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.cp-checkbox {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  accent-color: var(--cp-gold);
+  cursor: pointer;
+  margin: 0;
+}
+
+.cp-checkbox-label {
+  font-size: clamp(9px, 1.15vh, 11px) !important;
+  color: #555555 !important;
+  font-weight: 300 !important;
+}
+
+.cp-btn-wrap {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: clamp(4px, 0.8vh, 10px);
+}
+
+.cp-send-btn {
+  background: transparent !important;
+  border: 1px solid var(--cp-gold) !important;
+  color: var(--cp-gold) !important;
+  padding: clamp(10px, 1.5vh, 14px) clamp(36px, 6vw, 56px);
+  font-family: inherit;
+  font-size: clamp(9.5px, 1.18vh, 11px) !important;
+  font-weight: 300 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  border-radius: 0;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  line-height: 1 !important;
+}
+
+.cp-send-btn:hover:not(:disabled) {
+  background: var(--cp-gold) !important;
+  color: #ffffff !important;
+}
+
+.cp-send-btn:focus-visible {
+  outline: 1px solid var(--cp-gold);
+  outline-offset: 3px;
+}
+
+.cp-send-btn:active {
+  transform: scale(0.98);
+}
+
+.cp-send-btn:disabled {
+  opacity: 0.6;
+  cursor: default !important;
+}
+
+.cp-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  margin-top: clamp(14px, 2.2vh, 24px);
+  padding-top: clamp(10px, 1.6vh, 16px);
+  border-top: 1px solid rgba(210, 205, 195, 0.7);
+  font-size: clamp(9px, 1.15vh, 11px) !important;
+  color: #555555 !important;
+  width: 100%;
+}
+
+.cp-footer-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555555 !important;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.cp-footer-icon {
+  width: clamp(11px, 1.4vh, 13px);
+  height: clamp(11px, 1.4vh, 13px);
+  flex-shrink: 0;
+  color: #555555;
+}
+
+/* ================================================================
+   MOBILE (<=767px)
+   ================================================================ */
+
+@media (max-width: 767px) {
+  .cp-form-page {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .cp-form .cp-field {
+    border-color: var(--cp-field-border) !important;
+    background-color: var(--cp-field-bg) !important;
+    box-shadow: var(--cp-field-shadow) !important;
+  }
+
+  .cp-form .cp-field:focus {
+    border-color: var(--cp-gold) !important;
+    background-color: var(--cp-field-bg-focus) !important;
+    box-shadow: 0 0 0 3px rgba(184, 164, 126, 0.16), 0 1px 3px rgba(28, 28, 28, 0.05) !important;
+  }
+
+  .cp-textarea {
+    max-height: none;
+  }
+
+  .cp-footer {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+/* Short desktop windows: trim vertical padding a little so nothing gets clipped */
+@media (min-width: 768px) and (max-height: 700px) {
+  :root {
+    --cp-pad-y: 26px;
+  }
+}
+
+/* Small laptops: slightly tighter side margins */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --cp-pad-outer: clamp(24px, 3.4vw, 34px);
+    --cp-pad-spine: clamp(16px, 2.2vw, 26px);
+  }
+}

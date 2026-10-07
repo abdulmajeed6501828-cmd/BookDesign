@@ -1,0 +1,3174 @@
+/* ================================================================
+   ABOUT US / START A PROJECT PAGE SPREAD
+   100% Pixel-Perfect match to reference image
+   ================================================================ */
+
+.ab-page {
+    padding: clamp(18px, 3vh, 28px) clamp(16px, 4%, 24px) clamp(8px, 1.5vh, 14px);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Override global Book.css page-content rules */
+.page-content .ab-page,
+.page-content p.ab-important-text,
+.page-content p.ab-kdp-note {
+    margin: 0;
+    text-align: left;
+}
+
+/* Header — "start a project" */
+.ab-title {
+    position: relative;
+    top: -5px;
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(20px, 2.8vh, 26px);
+    font-weight: 300;
+    font-style: normal;
+    color: #1c1916;
+    letter-spacing: 0;
+    margin: 0 0 clamp(4px, 0.7vh, 8px) 0;
+    line-height: 1.1;
+    flex-shrink: 0;
+}
+
+/* Section Divider with Gold Lines */
+.ab-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: clamp(5px, 0.8vh, 9px);
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.ab-divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: #c4a96a;
+}
+
+.ab-divider-text {
+    font-size: clamp(8.5px, 1.05vh, 10px);
+    font-weight: 600;
+    color: #1c1916;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Radio Group Rows */
+.ab-radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    margin-bottom: clamp(5px, 0.8vh, 9px);
+    flex-shrink: 0;
+}
+
+.ab-cover-type-row,
+.ab-pref-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(4px, 0.8vw, 10px);
+    margin-bottom: clamp(3px, 0.5vh, 6px);
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.ab-cover-type-row .ab-label-inline,
+.ab-cover-type-row .ab-radio-label,
+.ab-pref-row .ab-label-inline,
+.ab-pref-row .ab-radio-label {
+    font-size: clamp(6.8px, 0.82vh, 7.8px);
+}
+
+.ab-cover-type-row .ab-radio,
+.ab-pref-row .ab-radio {
+    width: 10px;
+    height: 10px;
+}
+
+.ab-radio-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.ab-radio {
+    width: 11px;
+    height: 11px;
+    accent-color: #c4a96a;
+    cursor: pointer;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.ab-radio-label {
+    font-size: clamp(7.5px, 0.95vh, 8.8px);
+    color: #2c2825;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+/* Form Layout Grid */
+.ab-form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 0.8vh, 9px);
+    flex: 1;
+    overflow: hidden;
+}
+
+.ab-row-2col {
+    display: flex;
+    gap: clamp(8px, 1.2vw, 12px);
+    width: 100%;
+}
+
+.ab-align-center {
+    align-items: center;
+}
+
+.ab-author-photo-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.ab-inline-label {
+    font-size: clamp(7.8px, 0.95vh, 9px);
+    color: #333333;
+    font-weight: 400;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ab-row-2col>.ab-field-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.ab-row-textareas {
+    flex: 1;
+    min-height: clamp(65px, 10vh, 110px);
+}
+
+.ab-flex-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.ab-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+
+.ab-label {
+    font-size: clamp(7.8px, 0.95vh, 9px);
+    color: #3a3632;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.ab-label-inline {
+    margin-right: 2px;
+}
+
+/* Inputs & Controls */
+.ab-input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #d5d2cc;
+    border-radius: 2px;
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(7.8px, 0.98vh, 9.2px);
+    color: #1c1916;
+    outline: none;
+    height: clamp(23px, 3vh, 28px);
+    padding: 0 clamp(6px, 1vw, 8px);
+    transition: border-color 0.18s ease;
+}
+
+.ab-input::placeholder {
+    color: #333333;
+    font-weight: 400;
+}
+
+.ab-input:focus {
+    border-color: #c4a96a;
+}
+
+.ab-select {
+    cursor: pointer;
+}
+
+/* Textareas */
+.ab-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #d5d2cc;
+    border-radius: 2px;
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(7.8px, 0.98vh, 9.2px);
+    color: #1c1916;
+    outline: none;
+    padding: 6px clamp(6px, 1vw, 8px);
+    resize: none;
+    flex: 1;
+    min-height: clamp(55px, 8vh, 85px);
+    transition: border-color 0.18s ease;
+}
+
+.ab-textarea::placeholder {
+    color: #333333;
+    font-weight: 400;
+}
+
+.ab-textarea-short {
+    flex: none;
+    min-height: clamp(28px, 4vh, 45px);
+    height: clamp(28px, 4vh, 45px);
+}
+
+.ab-textarea:focus {
+    border-color: #c4a96a;
+}
+
+/* Additional Document Block Container */
+.ab-add-doc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: #ffffff;
+    border: 1px solid #d5d2cc;
+    border-radius: 2px;
+    padding: 6px clamp(8px, 1.2vw, 12px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ab-add-doc-label {
+    font-size: clamp(7.8px, 0.95vh, 9px);
+    color: #333333;
+    font-weight: 400;
+}
+
+/* Upload Box Buttons */
+.ab-upload-box {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #c8c5c0;
+    border-radius: 2px;
+    height: clamp(21px, 2.7vh, 26px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0 6px;
+    transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.ab-upload-box:hover {
+    border-color: #c4a96a;
+    background-color: #faf8f5;
+}
+
+.ab-upload-full {
+    width: 100%;
+}
+
+.ab-upload-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: clamp(7.8px, 0.95vh, 9px);
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ab-upload-icon {
+    width: 10px;
+    height: 10px;
+    color: #555;
+    flex-shrink: 0;
+}
+
+/* ================================================================
+   RIGHT PAGE SPECIFIC STYLES
+   ================================================================ */
+
+.ab-page-right {
+    padding: clamp(12px, 2.2vh, 20px) clamp(14px, 3.5%, 20px) clamp(6px, 1vh, 12px);
+}
+
+.ab-important-box {
+    border: 1px solid #c4a96a;
+    background-color: #faf8f4;
+    border-radius: 3px;
+    padding: clamp(4px, 0.7vh, 7px) clamp(6px, 1vw, 10px);
+    margin-bottom: clamp(3px, 0.5vh, 6px);
+    flex-shrink: 0;
+}
+
+.ab-important-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 2px;
+}
+
+.ab-important-icon {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 1.2px solid #c4a96a;
+    color: #c4a96a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.ab-important-title {
+    font-size: clamp(7.8px, 0.98vh, 9.2px);
+    font-weight: 700;
+    color: #1c1916;
+    letter-spacing: 0.5px;
+}
+
+.ab-important-text {
+    font-size: clamp(7px, 0.88vh, 8.2px) !important;
+    color: #444444 !important;
+    line-height: 1.22 !important;
+    margin: 0 !important;
+}
+
+/* 4 Specs Grid */
+.ab-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(4px, 0.6vw, 6px);
+    margin-bottom: clamp(3px, 0.4vh, 5px);
+    flex-shrink: 0;
+}
+
+/* KDP Calculator Note */
+.ab-kdp-note {
+    font-size: clamp(7px, 0.88vh, 8.2px) !important;
+    color: #555555 !important;
+    line-height: 1.22 !important;
+    margin: clamp(2px, 0.3vh, 4px) 0 !important;
+    flex-shrink: 0;
+}
+
+.ab-kdp-link {
+    color: #1a56b0;
+    text-decoration: underline;
+}
+
+.ab-kdp-link:hover {
+    color: #0c3673;
+}
+
+/* Inspiration 3 Button Row */
+.ab-inspiration-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(4px, 0.8vw, 8px);
+}
+
+/* ISBN Row */
+.ab-isbn-row {
+    display: flex;
+    gap: clamp(6px, 1vw, 10px);
+    align-items: center;
+    margin-bottom: clamp(2px, 0.4vh, 5px);
+}
+
+.ab-isbn-input {
+    flex: 1;
+}
+
+.ab-upload-btn-only {
+    width: clamp(90px, 14vw, 110px);
+    flex-shrink: 0;
+}
+
+/* Declaration Checkbox Row */
+.ab-declaration-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    margin: clamp(2px, 0.4vh, 5px) 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.ab-checkbox {
+    width: 11px;
+    height: 11px;
+    accent-color: #c4a96a;
+    cursor: pointer;
+    margin: 1px 0 0 0;
+    flex-shrink: 0;
+}
+
+.ab-declaration-label {
+    font-size: clamp(7px, 0.88vh, 8.2px);
+    color: #444;
+    line-height: 1.22;
+}
+
+/* Submit Button Wrap */
+.ab-submit-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(2px, 0.4vh, 5px);
+    flex-shrink: 0;
+}
+
+.ab-submit-btn {
+    background: transparent;
+    border: 1.5px solid #c4a96a;
+    color: #c4a96a;
+    padding: clamp(4px, 0.6vh, 6px) clamp(24px, 4vw, 38px);
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(8.5px, 1.05vh, 10px);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.ab-submit-btn:hover {
+    background: #c4a96a;
+    color: #ffffff;
+}
+
+.ab-submit-btn:active {
+    opacity: 0.85;
+}
+
+.ab-submit-success {
+    font-size: clamp(8.5px, 1.05vh, 9.5px);
+    color: #2e6930;
+    font-weight: 600;
+    padding: 3px 10px;
+    background: #f0faf0;
+    border: 1px solid #90c090;
+}
+
+
+
+
+
+
+/* ============================================================
+   ABOUT PAGE — ALL STYLING (left + right page)
+
+   Scoped to .book-wrapper.is-portrait (single-page mode set by
+   Book.jsx). Two-page spreads and desktop are NOT affected.
+
+   Breakpoints (single-page mode only):
+     < 595px | 595-667 | 668-767 | 768-1242 | 1243+
+   Plus height tiers, small-phone tiers and a low-height tier.
+
+   RIGHT PAGE (595px and up): taller line height, ONE small fixed
+   gap between paragraphs, button pinned to the bottom.
+   EXCEPTION 595px - 667px: the button follows the text.
+   SPECIAL 768px - 1242px: its own block at the END of this file
+   (taller lines, EQUAL top and bottom margin, all content
+   visible).
+   ============================================================ */
+
+.about-responsive {
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================
+   STRUCTURE
+   ============================================================ */
+
+.book-wrapper.is-portrait .about-responsive {
+  container-type: size;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* Fallback tokens (used if container units are unsupported) */
+  --ab-fs: 15px;
+  --ab-lh: 1.9;
+  --ab-para-gap: 18px;
+  --ab-pad-x: 26px;
+  --ab-pad-top: 36px;
+  --ab-pad-bottom: 48px;
+  --ab-btn-gap: 24px;
+}
+
+/* Page = full height, proper padding */
+.book-wrapper.is-portrait .about-responsive .home-left-page,
+.book-wrapper.is-portrait .about-responsive .home-right-page {
+  container-type: normal !important; /* Home.jsx sets one at 1024px+ */
+  flex: 1 1 auto;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  overflow: hidden !important;
+  padding-top: var(--ab-pad-top) !important;
+  padding-bottom: var(--ab-pad-bottom) !important;
+  padding-left: var(--ab-pad-x) !important;
+  padding-right: var(--ab-pad-x) !important;
+}
+
+/* Text block: full width (removes Home's 330px column) */
+.book-wrapper.is-portrait .about-responsive .about-copy-container {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 0 !important;
+  padding: 0;
+  margin: 0;
+  overflow: visible !important;
+}
+
+/* Heading ("About" + gold line) */
+.book-wrapper.is-portrait .about-responsive .home-left-header {
+  height: auto !important;
+  min-height: 0 !important;
+  margin-bottom: calc(var(--ab-fs) * 1.5) !important;
+  flex-shrink: 0;
+}
+
+.book-wrapper.is-portrait .about-responsive .home-left-header h2 {
+  font-size: calc(var(--ab-fs) * 1.7) !important;
+  line-height: 1.15 !important;
+  padding-right: 14px !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* Paragraph wrappers: one fixed gap */
+.book-wrapper.is-portrait .about-responsive .home-left-content,
+.book-wrapper.is-portrait .about-responsive .home-right-content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: var(--ab-para-gap) !important;
+  width: 100%;
+  flex: 0 0 auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+
+/* Paragraphs */
+.book-wrapper.is-portrait .about-responsive .home-left-content p,
+.book-wrapper.is-portrait .about-responsive .home-right-content p {
+  font-size: var(--ab-fs) !important;
+  line-height: var(--ab-lh) !important;
+  letter-spacing: 0.1px !important;
+  margin: 0 !important;
+  max-width: 100%;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Manual desktop line breaks are hidden in single-page mode */
+.book-wrapper.is-portrait .about-responsive .about-copy-break {
+  display: none !important;
+}
+
+/* START A PROJECT — pinned to the bottom margin */
+.book-wrapper.is-portrait .about-responsive .home-right-button {
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: auto !important;
+  padding-top: calc(var(--ab-para-gap) * 1.5) !important;
+}
+
+.book-wrapper.is-portrait .about-responsive .home-right-button button {
+  font-size: clamp(9.5px, calc(var(--ab-fs) * 0.64), 13px) !important;
+  letter-spacing: 0.16em !important;
+  padding: clamp(10px, 1.6vh, 15px) clamp(28px, 8vw, 52px) !important;
+  line-height: 1.2 !important;
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   SCALE TOKENS — from the page's own size (container units)
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  /* Phones < 595px */
+  .book-wrapper.is-portrait .about-responsive {
+    --ab-fs: clamp(12.5px, min(3.9cqw, 2.75cqh), 21px);
+    --ab-para-gap: clamp(14px, 2.7cqh, 30px);
+    --ab-pad-x: clamp(20px, 6.5cqw, 36px);
+    --ab-pad-top: clamp(30px, 5.4cqh, 58px);
+    --ab-pad-bottom: clamp(40px, 7cqh, 80px);
+  }
+
+  /* 595px – 639px */
+  @media (min-width: 595px) and (max-width: 639px) {
+    .book-wrapper.is-portrait .about-responsive {
+      --ab-fs: clamp(15px, min(3.45cqw, 2.75cqh), 22px);
+      --ab-para-gap: clamp(16px, 2.8cqh, 32px);
+      --ab-pad-x: clamp(40px, 8.5cqw, 54px);
+      --ab-pad-top: clamp(34px, 5.6cqh, 60px);
+      --ab-pad-bottom: clamp(44px, 7.2cqh, 84px);
+    }
+  }
+
+  /* 640px – 767px */
+  @media (min-width: 640px) and (max-width: 767px) {
+    .book-wrapper.is-portrait .about-responsive {
+      --ab-fs: clamp(15px, min(3.3cqw, 2.75cqh), 23px);
+      --ab-para-gap: clamp(16px, 2.9cqh, 34px);
+      --ab-pad-x: clamp(44px, 8.5cqw, 58px);
+      --ab-pad-top: clamp(36px, 5.6cqh, 62px);
+      --ab-pad-bottom: clamp(46px, 7.2cqh, 88px);
+    }
+  }
+
+  /* 768px – 1023px */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .book-wrapper.is-portrait .about-responsive {
+      --ab-fs: clamp(16px, min(3.15cqw, 2.75cqh), 23px);
+      --ab-para-gap: clamp(18px, 3cqh, 36px);
+      --ab-pad-x: clamp(48px, 9cqw, 62px);
+      --ab-pad-top: clamp(38px, 5.8cqh, 66px);
+      --ab-pad-bottom: clamp(48px, 7.4cqh, 92px);
+    }
+  }
+
+  /* 1024px and up (tall screens; book width is capped at 678px) */
+  @media (min-width: 1024px) {
+    .book-wrapper.is-portrait .about-responsive {
+      --ab-fs: clamp(16px, min(3.15cqw, 2.75cqh), 23px);
+      --ab-para-gap: clamp(18px, 3cqh, 38px);
+      --ab-pad-x: clamp(48px, 9cqw, 62px);
+      --ab-pad-top: clamp(40px, 5.8cqh, 70px);
+      --ab-pad-bottom: clamp(50px, 7.4cqh, 96px);
+    }
+  }
+}
+
+/* ============================================================
+   LINE HEIGHT — by screen height
+   ============================================================ */
+
+@media (min-height: 700px) {
+  .book-wrapper.is-portrait .about-responsive {
+    --ab-lh: 1.9;
+  }
+}
+
+@media (min-height: 900px) {
+  .book-wrapper.is-portrait .about-responsive {
+    --ab-lh: 1.95;
+  }
+}
+
+/* ============================================================
+   SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 400px) {
+  .book-wrapper.is-portrait .about-responsive {
+    --ab-lh: 1.7;
+  }
+}
+
+@media (max-width: 340px) {
+  .book-wrapper.is-portrait .about-responsive {
+    --ab-fs: 12px;
+    --ab-lh: 1.55;
+    --ab-para-gap: 12px;
+    --ab-pad-x: 14px;
+    --ab-pad-top: 22px;
+    --ab-pad-bottom: 34px;
+  }
+
+  .book-wrapper.is-portrait .about-responsive .home-left-header h2 {
+    font-size: 19px !important;
+  }
+}
+
+/* ============================================================
+   LOW-HEIGHT SCREENS (short landscape phones)
+   ============================================================ */
+
+@media (max-height: 480px) {
+  .book-wrapper.is-portrait .about-responsive {
+    --ab-fs: 12px;
+    --ab-lh: 1.45;
+    --ab-para-gap: 8px;
+    --ab-pad-top: 14px;
+    --ab-pad-bottom: 22px;
+  }
+}
+
+/* ============================================================
+   RIGHT PAGE — 595px AND UP
+   ============================================================ */
+
+@media (min-width: 595px) {
+  /* Fallback tokens (no container units) */
+  .book-wrapper.is-portrait .about-responsive.about-right {
+    --ab-fs: 17px;
+    --ab-lh: 2.1;
+    --ab-para-gap: 10px;
+    --ab-btn-gap: 22px;
+    --ab-pad-top: 34px;
+    --ab-pad-bottom: 46px;
+  }
+
+  /* Text block: sized by its content, NOT stretched */
+  .book-wrapper.is-portrait .about-responsive.about-right .about-copy-container {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+  }
+
+  .book-wrapper.is-portrait .about-responsive.about-right .home-right-content {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    justify-content: flex-start !important;
+    gap: var(--ab-para-gap) !important;
+  }
+
+  /* Button: pinned to the bottom, minimum gap above it */
+  .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+    margin-top: auto !important;
+    padding-top: var(--ab-btn-gap) !important;
+    padding-bottom: 0 !important;
+    flex-shrink: 0;
+  }
+
+  .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+    font-size: clamp(9.5px, calc(var(--ab-fs) * 0.58), 12px) !important;
+    padding: clamp(9px, 1.4cqh, 13px) clamp(28px, 6cqw, 44px) !important;
+    min-height: 38px;
+  }
+}
+
+@supports (width: 1cqw) {
+  /* 595px – 767px */
+  @media (min-width: 595px) and (max-width: 767px) {
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-fs: clamp(15px, min(3.6cqw, 2.75cqh), 21px);
+      --ab-lh: 2.1;
+      --ab-para-gap: clamp(8px, 1.5cqh, 16px);
+      --ab-btn-gap: clamp(18px, 3cqh, 32px);
+      --ab-pad-x: clamp(40px, 8.5cqw, 56px);
+      --ab-pad-top: clamp(30px, 4.8cqh, 54px);
+      --ab-pad-bottom: clamp(40px, 6.4cqh, 70px);
+    }
+  }
+
+  /* 768px and up */
+  @media (min-width: 768px) {
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-fs: clamp(15.5px, min(3.35cqw, 2.75cqh), 22px);
+      --ab-lh: 2.1;
+      --ab-para-gap: clamp(9px, 1.6cqh, 18px);
+      --ab-btn-gap: clamp(20px, 3.2cqh, 34px);
+      --ab-pad-x: clamp(46px, 9cqw, 62px);
+      --ab-pad-top: clamp(32px, 5cqh, 58px);
+      --ab-pad-bottom: clamp(42px, 6.6cqh, 74px);
+    }
+  }
+}
+
+/* Very tall screens: a little more line height */
+@media (min-width: 595px) and (min-height: 900px) {
+  .book-wrapper.is-portrait .about-responsive.about-right {
+    --ab-lh: 2.2;
+  }
+}
+
+/* Low-height screens keep their own tight tokens on the right page */
+@media (min-width: 595px) and (max-height: 480px) {
+  .book-wrapper.is-portrait .about-responsive.about-right {
+    --ab-fs: 12px;
+    --ab-lh: 1.45;
+    --ab-para-gap: 8px;
+    --ab-btn-gap: 12px;
+    --ab-pad-top: 14px;
+    --ab-pad-bottom: 22px;
+  }
+}
+
+/* ============================================================
+   RIGHT PAGE — 595px to 667px ONLY
+   The button follows the text (no auto margin) and the text is
+   tightened so text + button always fit inside the page.
+   ============================================================ */
+
+@media (min-width: 595px) and (max-width: 667px) {
+  .book-wrapper.is-portrait .about-responsive.about-right {
+    --ab-fs: 15px;
+    --ab-lh: 1.75;
+    --ab-para-gap: 8px;
+    --ab-btn-gap: 18px;
+    --ab-pad-top: 24px;
+    --ab-pad-bottom: 34px;
+  }
+
+  .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+    margin-top: 0 !important;
+    padding-top: var(--ab-btn-gap) !important;
+    padding-bottom: 0 !important;
+  }
+
+  .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+    min-height: 34px;
+    padding: 8px clamp(26px, 5cqw, 38px) !important;
+  }
+}
+
+@supports (width: 1cqw) {
+  @media (min-width: 595px) and (max-width: 667px) {
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-fs: clamp(13.5px, min(3.2cqw, 2.15cqh), 18px);
+      --ab-lh: 1.75;
+      --ab-para-gap: clamp(6px, 1cqh, 12px);
+      --ab-btn-gap: clamp(14px, 2.2cqh, 24px);
+      --ab-pad-x: clamp(36px, 7.5cqw, 50px);
+      --ab-pad-top: clamp(22px, 3.6cqh, 40px);
+      --ab-pad-bottom: clamp(30px, 4.6cqh, 52px);
+    }
+  }
+}
+
+@media (min-width: 595px) and (max-width: 667px) and (max-height: 800px) {
+  .book-wrapper.is-portrait .about-responsive.about-right {
+    --ab-lh: 1.6;
+    --ab-para-gap: 6px;
+    --ab-btn-gap: 14px;
+    --ab-pad-top: 18px;
+    --ab-pad-bottom: 26px;
+  }
+}
+
+@media (min-width: 595px) and (max-width: 667px) and (max-height: 640px) {
+  .book-wrapper.is-portrait .about-responsive.about-right {
+    --ab-fs: 12.5px;
+    --ab-lh: 1.5;
+    --ab-para-gap: 5px;
+    --ab-btn-gap: 10px;
+    --ab-pad-top: 14px;
+    --ab-pad-bottom: 20px;
+  }
+}
+
+/* ============================================================
+   768px to 1242px — LEFT + RIGHT PAGE (single-page mode only)
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   - EQUAL MARGINS: --ab-pad-top and --ab-pad-bottom use the
+     SAME value on both pages (--ab-pad-y), so the space above the
+     first line / heading equals the space below the last line /
+     button.
+   - LEFT page: line height 2.3, both paragraphs fill the page.
+   - RIGHT page: line height 2.42, all 3 paragraphs fill the page
+     and the START A PROJECT button stays fully visible at the
+     bottom margin with a clear gap above it.
+   Nothing outside 768px - 1242px is affected.
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 768px) and (max-width: 1242px) {
+    /* ----- LEFT PAGE ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-pad-y: clamp(34px, 5.4cqh, 56px);
+      --ab-fs: clamp(14px, min(3.1cqw, 2.5cqh), 24px);
+      --ab-lh: 2.3;
+      --ab-para-gap: clamp(14px, 2.4cqh, 28px);
+      --ab-pad-x: clamp(44px, 8.8cqw, 64px);
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: var(--ab-pad-y);
+    }
+
+    /* ----- RIGHT PAGE ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-y: clamp(34px, 5.4cqh, 56px);
+      --ab-fs: clamp(14px, min(3cqw, 2.4cqh), 23px);
+      --ab-lh: 2.42;
+      --ab-para-gap: clamp(10px, 1.7cqh, 20px);
+      --ab-btn-gap: clamp(20px, 2.8cqh, 30px);
+      --ab-pad-x: clamp(44px, 8.8cqw, 64px);
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: var(--ab-pad-y);
+    }
+
+    /* Right page: text follows the top, button pinned to the bottom */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      font-size: clamp(9.5px, calc(var(--ab-fs) * 0.58), 12px) !important;
+      padding: clamp(9px, 1.4cqh, 13px) clamp(28px, 6cqw, 44px) !important;
+      min-height: 38px;
+    }
+  }
+}
+
+/* ============================================================
+   375px PHONES (361px – 389px) — ABOUT PAGE, SINGLE-PAGE MODE
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   - Text size / line height are calculated from the page height and
+     the real number of text lines (--sp-n-left / --sp-n-right, already
+     written by Home.jsx), so ALL text and the START A PROJECT button
+     always fit inside the page.
+   - LEFT page: more top and bottom spacing.
+   - RIGHT page: button pinned to the bottom margin, fully visible.
+   Other screen sizes are not affected.
+
+   TUNING:
+     --ab-pad-top / --ab-pad-bottom   page top / bottom spacing
+     --ab-fs                          text size
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 361px) and (max-width: 389px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left,
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-fs: clamp(11.5px, min(3.4cqw, 2.6cqh), 15px);
+      --ab-pad-top: clamp(36px, 7cqh, 52px);
+      --ab-pad-bottom: clamp(40px, 7.6cqh, 58px);
+      --ab-fs-scale: 1 !important; /* no enlarged text on the right page */
+    }
+
+    /* ----- LEFT PAGE ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-para-gap: clamp(12px, 2.2cqh, 18px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 17)
+        ),
+        calc(var(--ab-fs) * 1.9)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-para-gap: clamp(8px, 1.6cqh, 14px);
+      --ab-btn-gap: clamp(14px, 2.6cqh, 22px);
+      --ab-btn-h: 34px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 16)
+        ),
+        calc(var(--ab-fs) * 1.9)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(24px, 7cqw, 34px) !important;
+      font-size: clamp(9px, calc(var(--ab-fs) * 0.66), 10.5px) !important;
+      letter-spacing: 0.14em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+/* ============================================================
+   393px PHONES (390px – 399px) — ABOUT PAGE, SINGLE-PAGE MODE
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   - LEFT page: text fills the full page height, with proper equal
+     top and bottom spacing.
+   - RIGHT page: all 3 paragraphs visible, START A PROJECT button
+     fully visible and pinned to the bottom margin, with proper top
+     and bottom spacing.
+   - Line height is calculated from the page height and the real
+     number of text lines (--sp-n-left / --sp-n-right, already
+     written by Home.jsx), so nothing can be cut off.
+   Other screen sizes are not affected.
+
+   TUNING:
+     --ab-pad-top / --ab-pad-bottom   page top / bottom spacing
+     --ab-fs                          text size
+     last value inside each clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 390px) and (max-width: 399px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left,
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-fs: clamp(12px, min(3.6cqw, 2.7cqh), 16px);
+      --ab-pad-top: clamp(36px, 7cqh, 54px);
+      --ab-pad-bottom: clamp(40px, 7.6cqh, 60px);
+      --ab-fs-scale: 1 !important; /* no enlarged text on the right page */
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-para-gap: clamp(12px, 2.2cqh, 20px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 17)
+        ),
+        calc(var(--ab-fs) * 2.5)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: all content + button visible ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-para-gap: clamp(8px, 1.6cqh, 14px);
+      --ab-btn-gap: clamp(14px, 2.6cqh, 24px);
+      --ab-btn-h: 36px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 17)
+        ),
+        calc(var(--ab-fs) * 2.2)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(26px, 7cqw, 38px) !important;
+      font-size: clamp(9px, calc(var(--ab-fs) * 0.66), 11px) !important;
+      letter-spacing: 0.14em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+@supports (width: 1cqw) {
+  @media (min-width: 390px) and (max-width: 399px) {
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --sp-n-left: 16.5 !important;
+    }
+  }
+}
+/* ============================================================
+   440px PHONES (430px – 459px) — RIGHT PAGE: FIXED SMALL GAP
+   ABOVE THE BUTTON, ALL CONTENT VISIBLE
+   KEEP THIS BLOCK LAST (after every other 440px block).
+
+   Page = 2-row grid:
+     row 1 (fills all the height)  -> the 3 paragraphs
+     row 2 (auto height)           -> gap + START A PROJECT button
+   The first line stays at the top margin, the button stays at the
+   bottom margin, and the gap above the button is always
+   --ab-btn-gap. Leftover height goes between the paragraphs.
+   Other screen sizes are not affected.
+
+   TUNING:
+     --ab-btn-gap                     gap between text and button
+     --ab-pad-top / --ab-pad-bottom   page top / bottom spacing
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 430px) and (max-width: 459px) {
+
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-btn-gap: clamp(16px, 2.6cqh, 22px);
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-page.home-right-page {
+      display: grid !important;
+      grid-template-rows: minmax(0, 1fr) auto !important;
+      grid-template-columns: minmax(0, 1fr) !important;
+      align-content: stretch !important;
+      justify-content: stretch !important;
+    }
+
+    /* row 1: text block fills the height above the button */
+    .book-wrapper.is-portrait .about-responsive.about-right .about-copy-container {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: none !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      overflow: visible !important;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 1 1 auto !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      justify-content: space-between !important;
+      gap: var(--ab-para-gap) !important;
+    }
+
+    /* row 2: small fixed gap + button, at the bottom margin */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: 0 !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+  }
+}
+
+/* ============================================================
+   412px PHONES (400px – 429px) — ABOUT PAGE, SINGLE-PAGE MODE
+   (Pixel 9 Pro 412x922, Galaxy S-series, Pixel 7/8, etc.)
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   - LEFT page: text fills the full page height with proper top and
+     bottom spacing, and never overlaps or gets cut off.
+   - RIGHT page: all 3 paragraphs visible, text runs down to a small
+     fixed gap above the START A PROJECT button, and the button is
+     fully visible, pinned a little higher above the bottom edge.
+   - Line height is calculated from the page height and the real
+     number of text lines (--sp-n-left / --sp-n-right, already
+     written by Home.jsx), so it adapts to any screen height.
+   Other screen sizes are not affected.
+
+   TUNING:
+     --ab-pad-top / --ab-pad-bottom   page top / bottom spacing
+     --ab-fs                          text size
+     --ab-btn-gap                     gap between text and button
+     last value inside each clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 400px) and (max-width: 429px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left,
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-fs: clamp(12px, min(3.6cqw, 2.7cqh), 16px);
+      --ab-pad-top: clamp(36px, 7cqh, 54px);
+      --ab-pad-bottom: clamp(40px, 7.6cqh, 60px);
+      --ab-fs-scale: 1 !important; /* no enlarged text on the right page */
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-para-gap: clamp(12px, 2.2cqh, 20px);
+      /* slightly smaller bottom value: the last line's own leading
+         adds the rest, so top and bottom look equal */
+      --ab-pad-bottom: clamp(30px, 5.8cqh, 48px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 17)
+        ),
+        calc(var(--ab-fs) * 2.5)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: text reaches the button, button visible ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      /* a little more bottom spacing = button sits a bit higher */
+      --ab-pad-bottom: clamp(46px, 8.6cqh, 66px);
+      --ab-para-gap: clamp(8px, 1.6cqh, 14px);
+      --ab-btn-gap: clamp(12px, 2.2cqh, 20px);
+      --ab-btn-h: 36px;
+      /* line height = (page height - margins - button - gaps) / lines
+         (max raised to 3x so the text fills the height down to the
+         button and no big empty gap is left above it) */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 15)
+        ),
+        calc(var(--ab-fs) * 3)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(26px, 7cqw, 38px) !important;
+      font-size: clamp(9px, calc(var(--ab-fs) * 0.66), 11px) !important;
+      letter-spacing: 0.14em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+/* ============================================================
+   768px – 1242px — RIGHT PAGE ONLY (iPad Mini, iPad Air, etc.)
+   ABOUT PAGE, SINGLE-PAGE MODE
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   - All 3 paragraphs AND the START A PROJECT button are always
+     fully visible inside the page.
+   - Line height is calculated from the page height and the real
+     number of text lines (--sp-n-right, already written by
+     Home.jsx), so the text runs down to a small fixed gap above
+     the button and nothing can be cut off.
+   - Top and bottom margins stay equal (--ab-pad-y).
+   Left page and all other screen sizes are not affected.
+
+   TUNING:
+     --ab-pad-y      top / bottom spacing
+     --ab-btn-gap    gap between text and button
+     --ab-btn-h      button height
+     last value inside the clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 768px) and (max-width: 1242px) {
+
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-fs-scale: 1 !important; /* no enlarged text: it pushed the button out */
+      --ab-btn-gap: clamp(16px, 2.4cqh, 28px);
+      --ab-btn-h: 40px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 15)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(28px, 6cqw, 44px) !important;
+      font-size: clamp(9.5px, calc(var(--ab-fs) * 0.58), 12px) !important;
+      letter-spacing: 0.16em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+/* ============================================================
+   360px PHONES (341px – 360px) — ABOUT PAGE, SINGLE-PAGE MODE
+   (Samsung Galaxy 360x800, Galaxy S-series small, etc.)
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   - LEFT page: text fills the full page height with proper top
+     and bottom spacing.
+   - RIGHT page: all 3 paragraphs visible and the START A PROJECT
+     button fully visible, pinned to the bottom margin with a small
+     fixed gap above it.
+   - Line height is calculated from the page height and the real
+     number of text lines (--sp-n-left / --sp-n-right, already
+     written by Home.jsx), so nothing can be cut off.
+   Other screen sizes are not affected.
+
+   TUNING:
+     --ab-pad-top / --ab-pad-bottom   page top / bottom spacing
+     --ab-fs                          text size
+     --ab-btn-gap                     gap between text and button
+     last value inside each clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 341px) and (max-width: 360px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left,
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-fs: clamp(11.5px, min(3.4cqw, 2.6cqh), 14px);
+      --ab-pad-top: clamp(32px, 6.4cqh, 48px);
+      --ab-pad-bottom: clamp(36px, 7cqh, 54px);
+      --ab-fs-scale: 1 !important; /* no enlarged text on the right page */
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-para-gap: clamp(12px, 2.2cqh, 18px);
+      /* slightly smaller bottom value: the last line's own leading
+         adds the rest, so top and bottom look equal */
+      --ab-pad-bottom: clamp(28px, 5.6cqh, 44px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 16.5)
+        ),
+        calc(var(--ab-fs) * 2.5)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: all content + button visible ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-para-gap: clamp(8px, 1.6cqh, 14px);
+      --ab-btn-gap: clamp(12px, 2.2cqh, 18px);
+      --ab-btn-h: 34px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 17)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(24px, 7cqw, 34px) !important;
+      font-size: clamp(9px, calc(var(--ab-fs) * 0.66), 10.5px) !important;
+      letter-spacing: 0.14em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+/* ============================================================
+   412px TALL PHONES (400px – 429px wide, 940px+ high)
+   Galaxy Z Fold/Flip 412x968 and similar — ABOUT PAGE, SINGLE-PAGE MODE
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   Problem fixed: on tall screens the LEFT page text stopped growing
+   (line height hit its cap) and left a big empty gap at the bottom.
+
+   - LEFT page: text size grows with the page, line height is
+     calculated from the page height and the real line count
+     (--sp-n-left, written by Home.jsx), cap raised so it never
+     stops early. The text now fills the full page height with
+     equal top and bottom spacing.
+   - RIGHT page: not changed (already equal top / bottom spacing,
+     all content + button visible).
+   Phones under 940px high (e.g. Pixel 9 Pro 412x922) and all other
+   screen sizes are not affected.
+
+   TUNING:
+     --ab-fs          left page text size (last value = max size)
+     --ab-pad-top     left page top spacing
+     --ab-pad-bottom  left page bottom spacing
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 400px) and (max-width: 429px) and (min-height: 940px) {
+
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-fs: clamp(12px, min(4.1cqw, 2.9cqh), 16px);
+      --ab-pad-top: clamp(36px, 7cqh, 54px);
+      /* smaller than the top value: the last line's own leading
+         adds the rest, so top and bottom look equal */
+      --ab-pad-bottom: clamp(30px, 5.8cqh, 48px);
+      --ab-para-gap: clamp(12px, 2.2cqh, 20px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 17)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+  }
+}
+
+/* ============================================================
+   TALL TABLETS (768px – 1242px wide, 1300px+ high)
+   iPad Pro 1032x1376 and similar — ABOUT PAGE, SINGLE-PAGE MODE
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   Problem fixed: on very tall screens the text stopped growing
+   (line height hit its cap), leaving a big empty area under the
+   LEFT text and above the START A PROJECT button on the RIGHT page.
+
+   - Text size grows with the page width (max 26px) so the copy
+     uses the full page height.
+   - Line height is calculated from the page height and the real
+     line count (--sp-n-left / --sp-n-right, written by Home.jsx),
+     with a raised cap, so the content always fills the page.
+   - EQUAL top and bottom spacing on both pages (--ab-pad-y).
+     The LEFT page bottom value and the RIGHT page top value are
+     reduced by half a line, because the text's own leading adds
+     that space visually.
+   - RIGHT page: all 3 paragraphs + START A PROJECT button fully
+     visible, button pinned to the bottom margin.
+   Tablets / screens under 1300px high and all other sizes are not
+   affected.
+
+   TUNING:
+     --ab-pad-y       top / bottom spacing (both pages)
+     --ab-fs          text size (last value = max size)
+     --ab-btn-gap     gap between text and button
+     last value inside each clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 768px) and (max-width: 1242px) and (min-height: 1300px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left,
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-y: clamp(40px, 5.4cqh, 64px);
+      --ab-fs: clamp(14px, min(3.9cqw, 2.6cqh), 26px);
+      --ab-fs-scale: 1 !important;
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: calc(var(--ab-pad-y) - var(--ab-fs) * 0.45);
+      --ab-para-gap: clamp(14px, 2.4cqh, 28px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 18)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: text reaches the button, button visible ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(10px, 1.7cqh, 20px);
+      --ab-btn-gap: clamp(16px, 2.4cqh, 28px);
+      --ab-btn-h: 40px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 18)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      font-size: clamp(10px, calc(var(--ab-fs) * 0.52), 13px) !important;
+    }
+  }
+}
+
+/* ============================================================
+   TALL 350px PHONES (341px – 360px wide, 940px+ high)
+   350x1018 and similar — ABOUT PAGE, SINGLE-PAGE MODE
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   Problem fixed: on tall narrow phones the text stopped growing
+   (line height hit its cap), leaving an empty area under the LEFT
+   text and above the START A PROJECT button on the RIGHT page.
+
+   - Text size grows with the page width (max 15px) so the copy
+     fills more of the height.
+   - Line height is calculated from the page height and the real
+     line count (--sp-n-left / --sp-n-right, written by Home.jsx),
+     with a raised cap, so the content fills the page.
+   - EQUAL top and bottom spacing on both pages (--ab-pad-y).
+     The LEFT page bottom value and the RIGHT page top value are
+     reduced by half a line, because the text's own leading adds
+     that space visually.
+   - RIGHT page: all 3 paragraphs + START A PROJECT button fully
+     visible, button pinned to the bottom margin.
+   Phones under 940px high (e.g. Samsung Galaxy 360x800) and all
+   other sizes are not affected.
+
+   TUNING:
+     --ab-pad-y       top / bottom spacing (both pages)
+     --ab-fs          text size (last value = max size)
+     --ab-btn-gap     gap between text and button
+     last value inside each clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 341px) and (max-width: 360px) and (min-height: 940px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left,
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-y: clamp(34px, 6.4cqh, 50px);
+      --ab-fs: clamp(11.5px, min(4.5cqw, 2.9cqh), 15px);
+      --ab-fs-scale: 1 !important;
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: calc(var(--ab-pad-y) - var(--ab-fs) * 0.45);
+      --ab-para-gap: clamp(12px, 2.2cqh, 20px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 18)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: text reaches the button, button visible ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(8px, 1.6cqh, 14px);
+      --ab-btn-gap: clamp(12px, 2.2cqh, 18px);
+      --ab-btn-h: 34px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 19)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      font-size: clamp(9px, calc(var(--ab-fs) * 0.62), 10.5px) !important;
+    }
+  }
+}
+
+/* ============================================================
+   484px PHONES (460px – 594px wide) — ABOUT PAGE, SINGLE-PAGE MODE
+   (484x1018 and similar large phones / small tablets in portrait)
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   Problem fixed: in this width range no dedicated rules existed, so
+   the RIGHT page pushed the START A PROJECT button out of the page
+   and the LEFT page left an empty area at the bottom.
+
+   - Text size grows with the page width (max 20px).
+   - Line height is calculated from the page height and the real
+     line count (--sp-n-left / --sp-n-right, written by Home.jsx),
+     so the text always fills the page height and nothing is cut
+     off.
+   - LEFT page: text fills the full height, equal top and bottom
+     spacing.
+   - RIGHT page: all 3 paragraphs + START A PROJECT button fully
+     visible, button pinned to the bottom margin, equal top and
+     bottom spacing.
+   - EQUAL top and bottom spacing (--ab-pad-y). The LEFT page bottom
+     value and the RIGHT page top value are reduced by half a line,
+     because the text's own leading adds that space visually.
+   Other screen sizes are not affected.
+
+   TUNING:
+     --ab-pad-y       top / bottom spacing (both pages)
+     --ab-fs          text size (last value = max size)
+     --ab-btn-gap     gap between text and button
+     last value inside each clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 460px) and (max-width: 594px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left,
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-y: clamp(36px, 5.6cqh, 56px);
+      --ab-fs: clamp(12.5px, min(4.3cqw, 2.9cqh), 20px);
+      --ab-fs-scale: 1 !important; /* no enlarged text on the right page */
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: calc(var(--ab-pad-y) - var(--ab-fs) * 0.45);
+      --ab-para-gap: clamp(14px, 2.6cqh, 28px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 16)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: all content + button visible ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(8px, 1.6cqh, 16px);
+      --ab-btn-gap: clamp(14px, 2.2cqh, 22px);
+      --ab-btn-h: 36px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 20)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(26px, 7cqw, 40px) !important;
+      font-size: clamp(9.5px, calc(var(--ab-fs) * 0.6), 12px) !important;
+      letter-spacing: 0.14em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+/* ============================================================
+   615px TALL SCREENS (595px – 667px wide, 900px+ high)
+   615x1018 and similar — ABOUT PAGE, RIGHT PAGE ONLY
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   Problem fixed: on tall screens in this width range the right page
+   text was tightened (line height 1.75) and the button followed the
+   text, leaving a big empty area under the button.
+
+   - Text size grows with the page width (max 21px).
+   - Line height is calculated from the page height and the real
+     line count (--sp-n-right, written by Home.jsx), so the text
+     fills the full page height and nothing is cut off.
+   - START A PROJECT button fully visible, pinned to the bottom
+     margin, with a small fixed gap above it.
+   - EQUAL top and bottom spacing (--ab-pad-y). The top value is
+     reduced by half a line, because the first line's own leading
+     adds that space visually.
+   Left page, screens under 900px high and all other sizes are not
+   affected.
+
+   TUNING:
+     --ab-pad-y       top / bottom spacing
+     --ab-fs          text size (last value = max size)
+     --ab-btn-gap     gap between text and button
+     last value inside the clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 595px) and (max-width: 667px) and (min-height: 900px) {
+
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-y: clamp(36px, 5.2cqh, 60px);
+      --ab-fs: clamp(14px, min(3.4cqw, 2.3cqh), 21px);
+      --ab-fs-scale: 1 !important;
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(8px, 1.5cqh, 18px);
+      --ab-btn-gap: clamp(16px, 2.4cqh, 28px);
+      --ab-btn-h: 38px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 18)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(28px, 6cqw, 42px) !important;
+      font-size: clamp(9.5px, calc(var(--ab-fs) * 0.56), 12px) !important;
+      letter-spacing: 0.15em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+/* ============================================================
+   692px TALL SCREENS (668px – 767px wide, 900px+ high)
+   692x1018 and similar — ABOUT PAGE, RIGHT PAGE ONLY
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   Problem fixed: on tall screens in this width range the right page
+   text was enlarged and ran past the bottom of the page, so the last
+   paragraph and the START A PROJECT button were cut off.
+
+   - Text size is calculated from the page size (max 21px), no
+     enlarged text.
+   - Line height is calculated from the page height and the real
+     line count (--sp-n-right, written by Home.jsx), so all 3
+     paragraphs + the button always fit and the text fills the full
+     page height.
+   - START A PROJECT button fully visible, pinned to the bottom
+     margin, with a small fixed gap above it.
+   - EQUAL top and bottom spacing (--ab-pad-y). The top value is
+     reduced by half a line, because the first line's own leading
+     adds that space visually.
+   Left page, screens under 900px high and all other sizes are not
+   affected.
+
+   TUNING:
+     --ab-pad-y       top / bottom spacing
+     --ab-fs          text size (last value = max size)
+     --ab-btn-gap     gap between text and button
+     last value inside the clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 668px) and (max-width: 767px) and (min-height: 900px) {
+
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-y: clamp(38px, 5.2cqh, 62px);
+      --ab-fs: clamp(14px, min(3.2cqw, 2.3cqh), 21px);
+      --ab-fs-scale: 1 !important; /* no enlarged text: it pushed the button out */
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(8px, 1.5cqh, 18px);
+      --ab-btn-gap: clamp(16px, 2.4cqh, 28px);
+      --ab-btn-h: 40px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 17)
+        ),
+        calc(var(--ab-fs) * 2.6)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(28px, 6cqw, 44px) !important;
+      font-size: clamp(9.5px, calc(var(--ab-fs) * 0.56), 12px) !important;
+      letter-spacing: 0.15em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+/* ============================================================
+   DESKTOP TWO-PAGE SPREAD — PAGE CONTAINER (801px and up)
+   Makes each About page a size container so the heading below can
+   be sized from the PAGE width (container units), exactly like the
+   Portfolio / Testimonials / Pricing pages.
+   This sits BEFORE the special 1056 / 1092 blocks so those blocks
+   (which set container-type: size) still win where they apply.
+   ============================================================ */
+
+@media (min-width: 801px) {
+  .book-wrapper:not(.is-portrait) .about-responsive {
+    container-type: inline-size;
+  }
+}
+
+
+/* ============================================================
+   1056 x 848 — TWO-PAGE SPREAD (About left + right page)
+   Applies ONLY to screens 1040px - 1072px wide AND 830px - 866px
+   high, in two-page spread mode (NOT .is-portrait).
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   - Text fills the full page height on both pages and is fully
+     visible (nothing cut off).
+   - Manual desktop line breaks are hidden so the text flows across
+     the full column width.
+   - Line height is calculated from the page height and the number
+     of text lines (--ab-ln-left / --ab-ln-right below).
+   - EQUAL top and bottom spacing (--ab-pad-y). The LEFT page bottom
+     value and the RIGHT page top value are reduced by half a line,
+     because the text's own leading adds that space visually.
+   - RIGHT page: START A PROJECT button fully visible, pinned to the
+     bottom margin with a small fixed gap above it.
+   Other screen sizes and single-page portrait mode are not affected.
+
+   TUNING:
+     --ab-pad-y                 top / bottom spacing (both pages)
+     --ab-pad-outer / -inner    side spacing (outer edge / spine side)
+     --ab-fs                    text size (last value = max size)
+     --ab-ln-left / --ab-ln-right  number of text lines (raise it if
+                                text is cut off, lower it if there is
+                                still empty space at the bottom)
+     --ab-btn-gap               gap between text and button
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 1040px) and (max-width: 1072px) and (min-height: 830px) and (max-height: 866px) {
+
+    /* ----- structure + tokens (both pages) ----- */
+    .book-wrapper:not(.is-portrait) .about-responsive {
+      container-type: size;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+
+      --ab-pad-y: clamp(34px, 5.4cqh, 50px);
+      --ab-pad-outer: clamp(52px, 12.5cqw, 60px);
+      --ab-pad-inner: clamp(36px, 9cqw, 44px);
+      --ab-fs: clamp(13px, min(3.4cqw, 2.3cqh), 15px);
+      --ab-ln-left: 19;
+      --ab-ln-right: 18;
+    }
+
+    /* Page = full height, proper padding */
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-page,
+    .book-wrapper:not(.is-portrait) .about-responsive .home-right-page {
+      container-type: normal !important;
+      flex: 1 1 auto;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      overflow: hidden !important;
+    }
+
+    /* Text block: full column width */
+    .book-wrapper:not(.is-portrait) .about-responsive .about-copy-container {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 0 0 auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 0 !important;
+      padding: 0;
+      margin: 0;
+      overflow: visible !important;
+    }
+
+    /* Paragraph wrappers */
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-content,
+    .book-wrapper:not(.is-portrait) .about-responsive .home-right-content {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      gap: var(--ab-para-gap) !important;
+      width: 100%;
+      flex: 0 0 auto !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      overflow: visible !important;
+      transform: none !important;
+    }
+
+    /* Paragraphs */
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-content p,
+    .book-wrapper:not(.is-portrait) .about-responsive .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      letter-spacing: 0.1px !important;
+      margin: 0 !important;
+      max-width: 100%;
+      text-align: left;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
+    /* Manual desktop line breaks are hidden: text flows full width */
+    .book-wrapper:not(.is-portrait) .about-responsive .about-copy-break {
+      display: none !important;
+    }
+
+    /* Heading ("About" + gold line) */
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-header {
+      height: auto !important;
+      min-height: 0 !important;
+      margin-bottom: calc(var(--ab-fs) * 1.5) !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-header h2 {
+      font-size: calc(var(--ab-fs) * 1.7) !important;
+      line-height: 1.15 !important;
+      padding-right: 14px !important;
+      letter-spacing: 0.2px !important;
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper:not(.is-portrait) .about-responsive.about-left {
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: calc(var(--ab-pad-y) - var(--ab-fs) * 0.45);
+      --ab-para-gap: clamp(14px, 2.4cqh, 22px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--ab-ln-left)
+        ),
+        calc(var(--ab-fs) * 2.5)
+      );
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-left .home-left-page {
+      padding-top: var(--ab-pad-top) !important;
+      padding-bottom: var(--ab-pad-bottom) !important;
+      padding-left: var(--ab-pad-outer) !important;
+      padding-right: var(--ab-pad-inner) !important;
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-left .home-left-content p {
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: text fills the height, button visible ----- */
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right {
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(10px, 1.7cqh, 18px);
+      --ab-btn-gap: clamp(16px, 2.4cqh, 26px);
+      --ab-btn-h: 38px;
+      /* line height = (page height - margins - button - gaps) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--ab-ln-right)
+        ),
+        calc(var(--ab-fs) * 2.5)
+      );
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-page {
+      padding-top: var(--ab-pad-top) !important;
+      padding-bottom: var(--ab-pad-bottom) !important;
+      padding-left: var(--ab-pad-inner) !important;
+      padding-right: var(--ab-pad-outer) !important;
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-content p {
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-button {
+      flex-shrink: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(28px, 6cqw, 44px) !important;
+      font-size: clamp(9.5px, calc(var(--ab-fs) * 0.6), 12px) !important;
+      letter-spacing: 0.16em !important;
+      line-height: 1 !important;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+/* ################################################################
+   ADDED BLOCKS — each one is scoped to a single screen-size range
+   and sits at the END of the file so it wins over every rule above.
+   ################################################################ */
+
+
+/* ============================================================
+   440px PHONES (430px – 459px) — LEFT PAGE ONLY
+   iPhone 16 Pro Max 440x956 and similar — ABOUT PAGE, SINGLE-PAGE MODE
+
+   Problem fixed: in this width range only the RIGHT page had its own
+   rules. The LEFT page used the generic phone tokens, whose line height
+   stops growing, leaving an empty area under the text.
+
+   - Line height is calculated from the page height and the real line
+     count (--sp-n-left, written by Home.jsx), so the text fills the
+     full page height.
+   - EQUAL top and bottom spacing (--ab-pad-y). The bottom value is
+     reduced by half a line, because the last line's own leading adds
+     that space visually.
+   Right page and all other screen sizes are not affected.
+
+   TUNING:
+     --ab-pad-y      top / bottom spacing
+     --ab-fs         text size (last value = max size)
+     --ab-para-gap   gap between the two paragraphs
+     last value inside the clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 430px) and (max-width: 459px) {
+
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-pad-y: clamp(36px, 5.6cqh, 56px);
+      --ab-fs: clamp(12.5px, min(4.1cqw, 2.9cqh), 16px);
+      --ab-fs-scale: 1 !important;
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: calc(var(--ab-pad-y) - var(--ab-fs) * 0.45);
+      --ab-para-gap: clamp(12px, 2.2cqh, 20px);
+      /* line height = (page height - margins - heading - gap) / lines */
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 17)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+  }
+}
+
+
+/* ============================================================
+   384px PHONES (361px – 389px) — FULL-HEIGHT TEXT, BOTH PAGES
+   (384x848, iPhone SE/mini-class, small Android phones, etc.)
+   ABOUT PAGE, SINGLE-PAGE MODE
+
+   Problem fixed: the earlier 361–389px block capped the line height
+   at 1.9 and kept the text small, so the LEFT page left an empty area
+   under the text and the RIGHT page left an empty area above the
+   START A PROJECT button.
+
+   - Text size grows with the page width AND height (max 15.5px).
+   - Line height is calculated from the page height and the real line
+     count (--sp-n-left / --sp-n-right, written by Home.jsx), with a
+     raised cap, so the text fills the full height at any phone height.
+   - EQUAL top and bottom spacing (--ab-pad-y). The LEFT page bottom
+     value and the RIGHT page top value are reduced by half a line.
+   - RIGHT page: all 3 paragraphs + START A PROJECT button fully
+     visible, button pinned to the bottom margin.
+   Screens outside 361px – 389px are not affected.
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 361px) and (max-width: 389px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left,
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-y: clamp(32px, 5.8cqh, 52px);
+      --ab-fs: clamp(11.5px, min(4.2cqw, 2.9cqh), 15.5px);
+      --ab-fs-scale: 1 !important; /* no enlarged text on the right page */
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: calc(var(--ab-pad-y) - var(--ab-fs) * 0.45);
+      --ab-para-gap: clamp(12px, 2.2cqh, 20px);
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 17)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: text reaches the button, button visible ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(8px, 1.6cqh, 16px);
+      --ab-btn-gap: clamp(14px, 2.4cqh, 24px);
+      --ab-btn-h: 34px;
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 16)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(24px, 7cqw, 34px) !important;
+      font-size: clamp(9px, calc(var(--ab-fs) * 0.66), 10.5px) !important;
+      letter-spacing: 0.14em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+/* ============================================================
+   598px SCREENS (595px – 667px wide, 481px – 899px high)
+   598x848 and similar — ABOUT PAGE, SINGLE-PAGE MODE
+
+   Problem fixed:
+   - LEFT page: the text was too large with a fixed line height, so
+     the last line ran past the bottom of the page and the top and
+     bottom spacing were not equal.
+   - RIGHT page: the button followed the text (595–667px rule), so
+     the content stopped early and left a big empty area under the
+     button.
+
+   - Text size is calculated from the page size.
+   - Line height is calculated from the page height and the real line
+     count (--sp-n-left / --sp-n-right, written by Home.jsx).
+   - EQUAL top and bottom spacing (--ab-pad-y).
+   - RIGHT page: button pinned to the bottom margin.
+   Screens outside 595px – 667px wide / 481px – 899px high are not
+   affected (the 900px+ tall rules stay as they are).
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 595px) and (max-width: 667px) and (min-height: 481px) and (max-height: 899px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left,
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-y: clamp(34px, 5.4cqh, 56px);
+      --ab-pad-x: clamp(38px, 8.5cqw, 52px);
+      --ab-fs-scale: 1 !important; /* no enlarged text on the right page */
+    }
+
+    /* ----- LEFT PAGE: equal top / bottom gap, nothing cut off ----- */
+    .book-wrapper.is-portrait .about-responsive.about-left {
+      --ab-fs: clamp(13px, min(3.3cqw, 2.3cqh), 19px);
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: calc(var(--ab-pad-y) - var(--ab-fs) * 0.45);
+      --ab-para-gap: clamp(14px, 2.4cqh, 26px);
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 15)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-left .home-left-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: text fills the height, button at the bottom ----- */
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-fs: clamp(14px, min(3.5cqw, 2.5cqh), 20px);
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(8px, 1.6cqh, 16px);
+      --ab-btn-gap: clamp(16px, 2.4cqh, 26px);
+      --ab-btn-h: 36px;
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 13)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(28px, 6cqw, 40px) !important;
+      font-size: clamp(9.5px, calc(var(--ab-fs) * 0.58), 11.5px) !important;
+      letter-spacing: 0.15em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+/* ============================================================
+   692px SCREENS (668px – 767px wide, 481px – 899px high)
+   692x848 and similar — ABOUT PAGE, RIGHT PAGE ONLY
+   SINGLE-PAGE MODE
+
+   Problem fixed: at these heights the right page text used a fixed
+   line height (2.1) with a large font, so it ran past the bottom of
+   the page and the last paragraph and the START A PROJECT button
+   were cut off.
+
+   - Text size is calculated from the page size (max 21px).
+   - Line height is calculated from the page height and the real
+     line count (--sp-n-right, written by Home.jsx).
+   - START A PROJECT button fully visible, pinned to the bottom
+     margin, with a small fixed gap above it.
+   - EQUAL top and bottom spacing (--ab-pad-y).
+   Left page, screens 900px+ high and all other sizes are not
+   affected.
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 668px) and (max-width: 767px) and (min-height: 481px) and (max-height: 899px) {
+
+    .book-wrapper.is-portrait .about-responsive.about-right {
+      --ab-pad-y: clamp(34px, 5.2cqh, 60px);
+      --ab-fs: clamp(13px, min(3.4cqw, 2.6cqh), 21px);
+      --ab-fs-scale: 1 !important; /* no enlarged text: it pushed the button out */
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(8px, 1.5cqh, 18px);
+      --ab-btn-gap: clamp(14px, 2.4cqh, 28px);
+      --ab-btn-h: 38px;
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 13)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button {
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper.is-portrait .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(28px, 6cqw, 44px) !important;
+      font-size: clamp(9.5px, calc(var(--ab-fs) * 0.58), 12px) !important;
+      letter-spacing: 0.15em !important;
+      line-height: 1 !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+/* ============================================================
+   1065 x 848 — TWO-PAGE SPREAD (About left + right page)
+   REFINEMENT of the 1056 x 848 block above.
+   Applies ONLY to screens 1040px - 1072px wide AND 830px - 866px
+   high, in two-page spread mode (NOT .is-portrait).
+
+   - Line height is calculated from the page height and the REAL
+     number of text lines (--sp-n-left / --sp-n-right, measured by
+     Home.jsx), so the text fills the full page height on both pages
+     and nothing is cut off.
+   - Text size grows a little with the page (max 16px).
+   - EQUAL top and bottom spacing (--ab-pad-y), with a little extra
+     margin. LEFT bottom and RIGHT top are reduced by half a line.
+   - RIGHT page: START A PROJECT button fully visible, pinned to the
+     bottom margin with a small fixed gap above it.
+   Other screen sizes and single-page portrait mode are not affected.
+
+   TUNING:
+     --ab-pad-y                 top / bottom margin (both pages)
+     --ab-fs                    text size (last value = max size)
+     --ab-para-gap / --ab-btn-gap   paragraph gap / text-to-button gap
+     last value inside each clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 1040px) and (max-width: 1072px) and (min-height: 830px) and (max-height: 866px) {
+
+    /* ----- shared tokens (both pages) ----- */
+    .book-wrapper:not(.is-portrait) .about-responsive.about-left,
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right {
+      --ab-pad-y: clamp(44px, 7cqh, 66px);   /* top / bottom margin */
+      --ab-fs: clamp(13px, min(3.5cqw, 2.4cqh), 16px);
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper:not(.is-portrait) .about-responsive.about-left {
+      --ab-para-gap: clamp(14px, 2.4cqh, 24px);
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 16)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-left .home-left-content p {
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: text fills the height, button visible ----- */
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right {
+      --ab-para-gap: clamp(10px, 1.7cqh, 18px);
+      --ab-btn-gap: clamp(16px, 2.4cqh, 26px);
+      --ab-btn-h: 38px;
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 16)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-content p {
+      line-height: var(--ab-lh-fit) !important;
+    }
+  }
+}
+
+
+/* ============================================================
+   1092 x 848 — TWO-PAGE SPREAD (About left + right page)
+   Applies ONLY to screens 1073px - 1241px wide AND 830px - 866px
+   high, in two-page spread mode (NOT .is-portrait).
+
+   Problem fixed: at this size the generic laptop rules kept the manual
+   desktop line breaks (ragged short lines on the LEFT page), used a
+   small font with a fixed line height, and left a big empty area at
+   the bottom of both pages / above the START A PROJECT button.
+
+   - Manual desktop line breaks are hidden so the text flows across
+     the full column width.
+   - Line height is calculated from the page height and the REAL
+     number of text lines (--sp-n-left / --sp-n-right, measured by
+     Home.jsx), so the text fills the full page height on both pages.
+   - EQUAL top and bottom spacing (--ab-pad-y). The LEFT page bottom
+     value and the RIGHT page top value are reduced by half a line.
+   - RIGHT page: START A PROJECT button fully visible, pinned to the
+     bottom margin with a small fixed gap above it.
+   Other screen sizes and single-page portrait mode are not affected.
+
+   TUNING:
+     --ab-pad-y                 top / bottom margin (both pages)
+     --ab-pad-outer / -inner    side spacing (outer edge / spine side)
+     --ab-fs                    text size (last value = max size)
+     --ab-para-gap / --ab-btn-gap   paragraph gap / text-to-button gap
+     last value inside each clamp()   maximum line height
+   ============================================================ */
+
+@supports (width: 1cqw) {
+  @media (min-width: 1073px) and (max-width: 1241px) and (min-height: 830px) and (max-height: 866px) {
+
+    /* ----- structure + tokens (both pages) ----- */
+    .book-wrapper:not(.is-portrait) .about-responsive {
+      container-type: size;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+
+      --ab-pad-y: clamp(44px, 7cqh, 66px);
+      --ab-pad-outer: clamp(52px, 12.5cqw, 64px);
+      --ab-pad-inner: clamp(36px, 9cqw, 46px);
+      --ab-fs: clamp(13px, min(3.3cqw, 2.4cqh), 16px);
+    }
+
+    /* Page = full height, proper padding */
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-page,
+    .book-wrapper:not(.is-portrait) .about-responsive .home-right-page {
+      container-type: normal !important;
+      flex: 1 1 auto;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      overflow: hidden !important;
+    }
+
+    /* Text block: full column width */
+    .book-wrapper:not(.is-portrait) .about-responsive .about-copy-container {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 0 0 auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 0 !important;
+      padding: 0;
+      margin: 0;
+      overflow: visible !important;
+    }
+
+    /* Paragraph wrappers */
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-content,
+    .book-wrapper:not(.is-portrait) .about-responsive .home-right-content {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      gap: var(--ab-para-gap) !important;
+      width: 100%;
+      flex: 0 0 auto !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      overflow: visible !important;
+      transform: none !important;
+    }
+
+    /* Paragraphs */
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-content p,
+    .book-wrapper:not(.is-portrait) .about-responsive .home-right-content p {
+      font-size: var(--ab-fs) !important;
+      letter-spacing: 0.1px !important;
+      margin: 0 !important;
+      max-width: 100%;
+      text-align: left;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
+    /* Manual desktop line breaks are hidden: text flows full width */
+    .book-wrapper:not(.is-portrait) .about-responsive .about-copy-break {
+      display: none !important;
+    }
+
+    /* Heading ("About" + gold line) */
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-header {
+      height: auto !important;
+      min-height: 0 !important;
+      margin-bottom: calc(var(--ab-fs) * 1.5) !important;
+      flex-shrink: 0;
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive .home-left-header h2 {
+      font-size: calc(var(--ab-fs) * 1.7) !important;
+      line-height: 1.15 !important;
+      padding-right: 14px !important;
+      letter-spacing: 0.2px !important;
+    }
+
+    /* ----- LEFT PAGE: text fills the full height ----- */
+    .book-wrapper:not(.is-portrait) .about-responsive.about-left {
+      --ab-pad-top: var(--ab-pad-y);
+      --ab-pad-bottom: calc(var(--ab-pad-y) - var(--ab-fs) * 0.45);
+      --ab-para-gap: clamp(14px, 2.4cqh, 24px);
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-fs) * 3.455 - var(--ab-para-gap))
+          / var(--sp-n-left, 16)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-left .home-left-page {
+      padding-top: var(--ab-pad-top) !important;
+      padding-bottom: var(--ab-pad-bottom) !important;
+      padding-left: var(--ab-pad-outer) !important;
+      padding-right: var(--ab-pad-inner) !important;
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-left .home-left-content p {
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* ----- RIGHT PAGE: text fills the height, button visible ----- */
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right {
+      --ab-pad-top: calc(var(--ab-pad-y) - var(--ab-fs) * 0.5);
+      --ab-pad-bottom: var(--ab-pad-y);
+      --ab-para-gap: clamp(10px, 1.7cqh, 18px);
+      --ab-btn-gap: clamp(16px, 2.4cqh, 26px);
+      --ab-btn-h: 38px;
+      --ab-lh-fit: clamp(
+        calc(var(--ab-fs) * 1.3),
+        calc(
+          (100cqh - var(--ab-pad-top) - var(--ab-pad-bottom)
+            - var(--ab-btn-h) - var(--ab-btn-gap) - var(--ab-para-gap) * 2)
+          / var(--sp-n-right, 16)
+        ),
+        calc(var(--ab-fs) * 2.8)
+      );
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-page {
+      padding-top: var(--ab-pad-top) !important;
+      padding-bottom: var(--ab-pad-bottom) !important;
+      padding-left: var(--ab-pad-inner) !important;
+      padding-right: var(--ab-pad-outer) !important;
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-content p {
+      line-height: var(--ab-lh-fit) !important;
+    }
+
+    /* START A PROJECT: pinned to the bottom margin, always visible */
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-button {
+      flex-shrink: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: auto !important;
+      padding-top: var(--ab-btn-gap) !important;
+      padding-bottom: 0 !important;
+    }
+
+    .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-button button {
+      box-sizing: border-box;
+      height: var(--ab-btn-h) !important;
+      min-height: 0 !important;
+      padding: 0 clamp(28px, 6cqw, 44px) !important;
+      font-size: clamp(9.5px, calc(var(--ab-fs) * 0.6), 12px) !important;
+      letter-spacing: 0.16em !important;
+      line-height: 1 !important;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+/* ============================================================
+   <<< NEW >>> ABOUT HEADING MATCHES PORTFOLIO / TESTIMONIALS /
+   PRICING (desktop two-page spread, 801px and up)
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   The other pages are authored at 370 x 480 and scale with the
+   page. One "design px" on those pages = --ab-u here:
+       --ab-u = page width / 370
+   (the book page keeps the same 370 : 480 shape, so this equals
+   min(width / 370, height / 480) used by the other pages).
+
+   Exact same header values as the other pages:
+       "About" title ......... 21px
+       gold line thickness ... 1.5px
+       gold line offset ...... 11px (line sits slightly below centre)
+       header height ......... 22px
+       gap title -> line ..... 10px
+       gold line colour ...... #b8a47e (full strength)
+
+   Single-page portrait mode (phones / tablets) is NOT affected.
+
+   TUNING: change the numbers inside calc(NN * var(--ab-u, ...)).
+   ============================================================ */
+
+/* Registering the variable as a <length> makes the container units
+   resolve against the About PAGE (not an inner box). */
+@property --ab-u {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1.4px;
+}
+
+@media (min-width: 801px) {
+  /* 1 design px of the other pages (declared on the page's first
+     child so cqw is measured against the .about-responsive page) */
+  .book-wrapper:not(.is-portrait) .about-responsive > * {
+    --ab-u: calc(100cqw / 370);
+  }
+
+  /* "html body" in front = always wins over Home.css / earlier blocks */
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-header {
+    display: flex !important;
+    align-items: center !important;
+    height: calc(22 * var(--ab-u, 1.4px)) !important;
+    min-height: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-header h2 {
+    margin: 0 !important;
+    padding-right: calc(10 * var(--ab-u, 1.4px)) !important;
+    font-size: calc(21 * var(--ab-u, 1.4px)) !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+    letter-spacing: calc(0.2 * var(--ab-u, 1.4px)) !important;
+  }
+
+  /* the gold line */
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-header > :not(h2) {
+    flex: 1 1 auto !important;
+    width: auto !important;
+    height: calc(1.5 * var(--ab-u, 1.4px)) !important;
+    min-height: 0 !important;
+    margin-top: calc(11 * var(--ab-u, 1.4px)) !important;
+    border: 0 !important;
+    background: #b8a47e !important;
+    opacity: 1 !important;
+  }
+}
+
+
+/* ============================================================
+   <<< NEW >>> ABOUT — DESKTOP TWO-PAGE SPREAD, REFERENCE LOOK
+   (801px and up, NOT single-page portrait mode)
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   Matches the reference image:
+     - "About" heading with NO gold line
+     - narrower text columns, comfortable side margins
+     - tighter line height (about 1.5, was about 2.2)
+     - one empty line between paragraphs
+     - "AAFI Designs" in normal (non-italic) type
+     - START A PROJECT button follows the text (not pinned to the
+       bottom), wider, light gold, wide letter-spacing
+
+   Everything is sized from the page width (--ab-u = page width / 370,
+   defined in the block above), so it scales with the book.
+   Phones / tablets (.is-portrait) are NOT affected.
+
+   TUNING (numbers are "design px", multiplied by --ab-u):
+     --ab2-fs        text size
+     --ab2-lh        line height
+     --ab2-pad-top   space above the heading / first line
+     --ab2-pad-outer / --ab2-pad-inner   side margins
+     --ab2-btn-gap   gap between text and button
+   ============================================================ */
+
+@media (min-width: 801px) {
+
+  /* tokens, declared on the page element (child of .about-responsive)
+     so --ab-u resolves against the page width */
+  html body .book-wrapper:not(.is-portrait) .about-responsive > * {
+    --ab2-fs: calc(11.6 * var(--ab-u, 1.4px));
+    --ab2-lh: 1.5;
+    --ab2-gap: calc(var(--ab2-fs) * 1.5);          /* one empty line */
+    --ab2-pad-top: calc(36 * var(--ab-u, 1.4px));
+    --ab2-pad-outer: calc(60 * var(--ab-u, 1.4px));
+    --ab2-pad-inner: calc(54 * var(--ab-u, 1.4px));
+    --ab2-pad-bottom: calc(30 * var(--ab-u, 1.4px));
+    --ab2-btn-gap: calc(28 * var(--ab-u, 1.4px));
+  }
+
+  /* ----- page padding (left page: outer = left, right page: outer = right) ----- */
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-left .home-left-page {
+    padding-top: var(--ab2-pad-top) !important;
+    padding-bottom: var(--ab2-pad-bottom) !important;
+    padding-left: var(--ab2-pad-outer) !important;
+    padding-right: var(--ab2-pad-inner) !important;
+    justify-content: flex-start !important;
+  }
+
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-page {
+    padding-top: var(--ab2-pad-top) !important;
+    padding-bottom: var(--ab2-pad-bottom) !important;
+    padding-left: var(--ab2-pad-outer) !important;
+    padding-right: var(--ab2-pad-inner) !important;
+    justify-content: flex-start !important;
+  }
+
+  /* text block: only as tall as its text, natural line wrapping */
+  html body .book-wrapper:not(.is-portrait) .about-responsive .about-copy-container {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  html body .book-wrapper:not(.is-portrait) .about-responsive .about-copy-break {
+    display: none !important;
+  }
+
+  /* ----- heading: "About", no gold line ----- */
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-header {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin-bottom: calc(26 * var(--ab-u, 1.4px)) !important;
+    flex-shrink: 0 !important;
+  }
+
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-header > :not(h2) {
+    display: none !important;           /* gold line removed */
+  }
+
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-header h2 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: calc(19 * var(--ab-u, 1.4px)) !important;
+    font-weight: 300 !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.2px !important;
+    color: #1c1916 !important;
+  }
+
+  /* ----- paragraphs ----- */
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-content,
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-right-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    flex: 0 0 auto !important;
+    gap: var(--ab2-gap) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-content p,
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-right-content p {
+    font-size: var(--ab2-fs) !important;
+    line-height: var(--ab2-lh) !important;
+    letter-spacing: 0.1px !important;
+    color: #2e2c2a !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  /* "AAFI Designs" in normal type; the closing italic line stays italic */
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-content p:not(:last-of-type) em,
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-left-content p:not(:last-of-type) i,
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-right-content p:not(:last-of-type) em,
+  html body .book-wrapper:not(.is-portrait) .about-responsive .home-right-content p:not(:last-of-type) i {
+    font-style: normal !important;
+  }
+
+  /* ----- START A PROJECT: follows the text, wider, light gold ----- */
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-button {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    margin-top: var(--ab2-btn-gap) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-button button {
+    box-sizing: border-box !important;
+    width: calc(159 * var(--ab-u, 1.4px)) !important;
+    height: calc(28 * var(--ab-u, 1.4px)) !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: calc(9.6 * var(--ab-u, 1.4px)) !important;
+    letter-spacing: 0.14em !important;
+    line-height: 1 !important;
+    color: #b8a47e !important;
+    border: 1px solid #c4a96a !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* ============================================================
+   ABOUT — DESKTOP SPREAD: EQUAL TOP / BOTTOM ALIGNMENT
+   (801px and up, NOT single-page portrait mode)
+   KEEP THIS BLOCK LAST so it wins over every rule above.
+
+   - Left text bottom = right button bottom = same margin as the top.
+   - Line height is calculated from the page height (page is
+     370 x 480 design px) and the real number of text lines
+     (--sp-n-left / --sp-n-right from Home.jsx, with fallbacks).
+   - Left page bottom value and right page top value are reduced by
+     half a line, because the text's own leading adds that space.
+   - Button pinned to the bottom margin.
+
+   TUNING:
+     --ab3-pad     top / bottom margin (design px)
+     fallback line counts (17 / 18): raise if text is cut off,
+                   lower if empty space remains at the bottom
+   ============================================================ */
+
+@media (min-width: 801px) {
+
+  html body .book-wrapper:not(.is-portrait) .about-responsive > * {
+    --ab3-pad: calc(36 * var(--ab-u, 1.4px));          /* top = bottom margin */
+    --ab3-fs: calc(11.6 * var(--ab-u, 1.4px));
+    --ab3-page-h: calc(480 * var(--ab-u, 1.4px));      /* page is 370 x 480 */
+    --ab3-gap: calc(var(--ab3-fs) * 1.5);              /* gap between paragraphs */
+    --ab3-head: calc(48 * var(--ab-u, 1.4px));         /* heading + its margin */
+    --ab3-btn-h: calc(28 * var(--ab-u, 1.4px));
+    --ab3-btn-gap: calc(24 * var(--ab-u, 1.4px));
+
+    /* LEFT: line height so the text fills the page exactly */
+    --ab3-lh-left: calc(
+      (var(--ab3-page-h) - var(--ab3-pad) * 2 - var(--ab3-head) - var(--ab3-gap))
+      / var(--sp-n-left, 17)
+    );
+    /* RIGHT: same, minus button + gaps */
+    --ab3-lh-right: calc(
+      (var(--ab3-page-h) - var(--ab3-pad) * 2 - var(--ab3-btn-h)
+        - var(--ab3-btn-gap) - var(--ab3-gap) * 2)
+      / var(--sp-n-right, 18)
+    );
+  }
+
+  /* LEFT PAGE */
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-left .home-left-page {
+    padding-top: var(--ab3-pad) !important;
+    /* last line's own leading adds half a line, so subtract it */
+    padding-bottom: calc(var(--ab3-pad) - (var(--ab3-lh-left) - var(--ab3-fs)) / 2) !important;
+  }
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-left .home-left-content p {
+    line-height: var(--ab3-lh-left) !important;
+  }
+
+  /* RIGHT PAGE */
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-page {
+    padding-top: calc(var(--ab3-pad) - (var(--ab3-lh-right) - var(--ab3-fs)) / 2) !important;
+    padding-bottom: var(--ab3-pad) !important;
+  }
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-content p {
+    line-height: var(--ab3-lh-right) !important;
+  }
+
+  /* Button pinned to the bottom margin */
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-button {
+    margin-top: auto !important;
+    padding-top: var(--ab3-btn-gap) !important;
+    padding-bottom: 0 !important;
+  }
+  html body .book-wrapper:not(.is-portrait) .about-responsive.about-right .home-right-button button {
+    height: var(--ab3-btn-h) !important;
+  }
+}

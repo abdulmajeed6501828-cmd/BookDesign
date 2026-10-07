@@ -1,0 +1,252 @@
+/* ============================================================
+   PRICING SECTION CSS  (fills the full page on every device)
+   --b = heading scale set by Pricing.jsx
+         (1 on normal pages, up to 1.25 on tall narrow phone pages)
+   --hm = header-match scale set by Pricing.jsx (desktop only)
+   ============================================================ */
+
+.pricing-page-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.pricing-page-container,
+.pricing-page-container * {
+    box-sizing: border-box !important;
+    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+/* ---------- artboard (width/height/--pad-y/--b are set inline by JS) ---------- */
+
+.pricing-artboard {
+    --gold: #d7c3a2;
+    --gold-strong: #d9c7a8;
+    --title: #1c1c1c;
+    --body: #8e8b87;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    transform: scale(var(--s, 1));
+
+    display: flex;
+    flex-direction: column;
+    padding: var(--pad-y, 40px) 0;    /* equal top and bottom space */
+}
+
+/* ---------- header ---------- */
+
+.pricing-header-left,
+.pricing-header-right {
+    display: flex !important;
+    align-items: center !important;
+    height: calc(22px * var(--b, 1)) !important;
+    flex-shrink: 0 !important;
+}
+
+.pricing-header-left  { padding-left: 16.8% !important; padding-right: 0 !important; }
+.pricing-header-right { padding-left: 0 !important;     padding-right: 14.9% !important; }
+
+.pricing-title {
+    margin: 0 !important;
+    padding-right: calc(9px * var(--b, 1)) !important;
+    font-size: calc(19px * var(--b, 1)) !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.2px !important;
+    color: var(--title) !important;
+    text-transform: capitalize !important;
+}
+
+.pricing-gold-line {
+    flex: 1 !important;
+    height: calc(1.5px * var(--b, 1)) !important;
+    margin-top: calc(12px * var(--b, 1)) !important;
+    background-color: var(--gold) !important;
+}
+
+.pricing-header-right .pricing-gold-line {
+    margin-right: calc(7px * var(--b, 1)) !important;
+}
+
+.pricing-page-number {
+    flex-shrink: 0 !important;
+    font-size: calc(19px * var(--b, 1)) !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+    color: var(--title) !important;
+}
+
+/* ============================================================
+   DESKTOP: HEADER MATCHES THE PORTFOLIO + TESTIMONIALS PAGES
+   (.pricing-match is added by Pricing.jsx on screens 801px+)
+   Same title / number size (21px), same line thickness (1.5px),
+   same line offset (11px), same header height (22px) and the
+   same gap above the header (30px) - all scaled by --hm so the
+   result is identical on screen.
+   ============================================================ */
+
+.pricing-artboard.pricing-match {
+    padding-top: calc(30px * var(--hm, 1));
+}
+
+.pricing-artboard.pricing-match .pricing-header-left,
+.pricing-artboard.pricing-match .pricing-header-right {
+    height: calc(22px * var(--hm, 1)) !important;
+}
+
+.pricing-artboard.pricing-match .pricing-title {
+    padding-right: calc(10px * var(--hm, 1)) !important;
+    font-size: calc(21px * var(--hm, 1)) !important;
+    letter-spacing: calc(0.2px * var(--hm, 1)) !important;
+}
+
+.pricing-artboard.pricing-match .pricing-page-number {
+    font-size: calc(21px * var(--hm, 1)) !important;
+    letter-spacing: calc(0.2px * var(--hm, 1)) !important;
+}
+
+.pricing-artboard.pricing-match .pricing-gold-line {
+    height: calc(1.5px * var(--hm, 1)) !important;
+    margin-top: calc(11px * var(--hm, 1)) !important;
+}
+
+.pricing-artboard.pricing-match .pricing-header-right .pricing-gold-line {
+    margin-right: calc(10px * var(--hm, 1)) !important;
+}
+
+/* ---------- card ---------- */
+
+.pricing-plan-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex: 1 !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 0 12.7% 0 16.8% !important;
+}
+
+.pricing-page-right .pricing-plan-card {
+    padding: 0 14.9% 0 13% !important;
+}
+
+.pricing-plan-heading {
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    margin-top: calc(15px * var(--b, 1)) !important;
+    text-align: center !important;
+}
+
+.pricing-plan-name {
+    margin: 0 0 calc(7px * var(--b, 1)) !important;
+    font-size: calc(27px * var(--b, 1)) !important;
+    font-weight: 300 !important;
+    line-height: calc(27px * var(--b, 1)) !important;
+    letter-spacing: 0.3px !important;
+    color: var(--gold) !important;
+    text-align: center !important;
+    text-transform: capitalize !important;
+}
+
+.pricing-plan-subtitle {
+    margin: 0 !important;
+    height: calc(28px * var(--b, 1)) !important;     /* always two lines */
+    font-size: calc(11px * var(--b, 1)) !important;
+    font-weight: 300 !important;
+    line-height: calc(14px * var(--b, 1)) !important;
+    color: var(--gold) !important;
+    text-align: center !important;
+    white-space: pre-line !important;
+}
+
+/* ---------- details: fills remaining height, small even gaps ---------- */
+
+.pricing-details-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 3px !important;
+    flex: 1 !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: calc(12.5px * var(--b, 1)) 0 calc(10px * var(--b, 1)) !important;
+}
+
+.pricing-detail-text {
+    margin: 0 !important;
+    max-width: 100% !important;
+    font-size: var(--d-font, 11.5px) !important;
+    font-weight: 300 !important;
+    line-height: var(--d-lh, 16px) !important;
+    color: var(--body) !important;
+    text-align: center !important;
+    /* "pre" = explicit breaks only (reference); "normal" = wraps on tall/narrow pages */
+    white-space: var(--d-ws, pre) !important;
+    overflow-wrap: break-word !important;
+    text-wrap: balance !important;    /* evens out wrapped lines */
+}
+
+.pricing-price-container {
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    text-align: center !important;
+}
+
+.pricing-price-text {
+    margin: 0 !important;
+    font-size: calc(42px * var(--b, 1)) !important;
+    font-weight: 300 !important;
+    line-height: calc(42px * var(--b, 1)) !important;
+    letter-spacing: 0.3px !important;
+    color: var(--gold-strong) !important;
+    text-align: center !important;
+}
+
+/* ---------- button ---------- */
+
+.pricing-button-container {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    margin-top: calc(10px * var(--b, 1)) !important;
+}
+
+.pricing-start-button {
+    width: calc(139px * var(--b, 1)) !important;
+    height: calc(24px * var(--b, 1)) !important;
+    padding: 0 !important;
+    border: 1px solid var(--gold) !important;
+    background: transparent !important;
+    color: var(--gold) !important;
+    font-size: calc(9.5px * var(--b, 1)) !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+    letter-spacing: calc(1.3px * var(--b, 1)) !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease !important;
+}
+
+.pricing-start-button:hover {
+    background-color: var(--gold) !important;
+    color: #fff !important;
+}
+
+.pricing-start-button:active {
+    transform: scale(0.98) !important;
+}
+
+.pricing-start-button:focus-visible {
+    outline: 2px solid var(--gold) !important;
+    outline-offset: 2px !important;
+}
