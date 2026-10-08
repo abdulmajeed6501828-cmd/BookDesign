@@ -3,6 +3,12 @@
    --b = heading scale set by Pricing.jsx
          (1 on normal pages, up to 1.25 on tall narrow phone pages)
    --hm = header-match scale set by Pricing.jsx (desktop only)
+
+   CHANGES
+   - Font: Helvetica Light everywhere on this page (weight 300).
+   - Prices ($150, $200 ...) are smaller: same size as the plan
+     name ("Starter", "Basic" ...). Change --price-fs to tune it.
+     The price keeps its old line box, so nothing else moves.
    ============================================================ */
 
 .pricing-page-container {
@@ -17,7 +23,8 @@
 .pricing-page-container,
 .pricing-page-container * {
     box-sizing: border-box !important;
-    font-family: 'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-family: 'Helvetica Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-weight: 300 !important;
 }
 
 /* ---------- artboard (width/height/--pad-y/--b are set inline by JS) ---------- */
@@ -28,6 +35,9 @@
     --title: #1c1c1c;
     --body: #8e8b87;
 
+    /* price font size: same as the plan name (Starter / Basic ...) */
+    --price-fs: 27px;
+
     position: absolute;
     top: 0;
     left: 0;
@@ -36,7 +46,8 @@
 
     display: flex;
     flex-direction: column;
-    padding: var(--pad-y, 40px) 0;    /* equal top and bottom space */
+    padding: var(--pad-y, 40px) 0;
+    /* equal top and bottom space */
 }
 
 /* ---------- header ---------- */
@@ -49,8 +60,15 @@
     flex-shrink: 0 !important;
 }
 
-.pricing-header-left  { padding-left: 16.8% !important; padding-right: 0 !important; }
-.pricing-header-right { padding-left: 0 !important;     padding-right: 14.9% !important; }
+.pricing-header-left {
+    padding-left: 16.8% !important;
+    padding-right: 0 !important;
+}
+
+.pricing-header-right {
+    padding-left: 0 !important;
+    padding-right: 14.9% !important;
+}
 
 .pricing-title {
     margin: 0 !important;
@@ -156,7 +174,8 @@
 
 .pricing-plan-subtitle {
     margin: 0 !important;
-    height: calc(28px * var(--b, 1)) !important;     /* always two lines */
+    height: calc(28px * var(--b, 1)) !important;
+    /* always two lines */
     font-size: calc(11px * var(--b, 1)) !important;
     font-weight: 300 !important;
     line-height: calc(14px * var(--b, 1)) !important;
@@ -190,7 +209,8 @@
     /* "pre" = explicit breaks only (reference); "normal" = wraps on tall/narrow pages */
     white-space: var(--d-ws, pre) !important;
     overflow-wrap: break-word !important;
-    text-wrap: balance !important;    /* evens out wrapped lines */
+    text-wrap: balance !important;
+    /* evens out wrapped lines */
 }
 
 .pricing-price-container {
@@ -199,9 +219,11 @@
     text-align: center !important;
 }
 
+/* price: smaller font, SAME line box as before (42px) so the layout
+   of the page does not change */
 .pricing-price-text {
     margin: 0 !important;
-    font-size: calc(42px * var(--b, 1)) !important;
+    font-size: calc(var(--price-fs, 27px) * var(--b, 1)) !important;
     font-weight: 300 !important;
     line-height: calc(42px * var(--b, 1)) !important;
     letter-spacing: 0.3px !important;

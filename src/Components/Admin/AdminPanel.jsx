@@ -14,9 +14,7 @@ import {
   LayoutDashboard,
   Mail,
   LogOut,
-  Menu,
   Package,
-  PanelLeftClose,
   Search,
   Truck,
   UserRound,
@@ -143,9 +141,9 @@ function AdminPanel() {
   };
 
   return <div className="admin-shell">
-    <aside className={`admin-sidebar ${sidebarOpen ? "open" : ""}`}><div className="sidebar-brand"><img className="sidebar-logo" src={logoImg} alt="AAFI Designs" /><div className="sidebar-brand-copy"><b>AAFI DESIGNS</b><small>ADMIN CONSOLE</small></div><button className="icon-button sidebar-close" onClick={() => setSidebarOpen(false)}><PanelLeftClose size={18} /></button></div><nav><button className={view === "dashboard" ? "active" : ""} onClick={() => { setView("dashboard"); setSidebarOpen(false); }}><LayoutDashboard size={18} /> Dashboard</button><button className={view === "orders" ? "active" : ""} onClick={() => { setView("orders"); setSidebarOpen(false); }}><Package size={18} /> Orders <span className="nav-count">{counts.pending || 0}</span></button><button className={view === "customers" ? "active" : ""} onClick={() => { setView("customers"); setSidebarOpen(false); }}><Users size={18} /> Customers <span className="nav-count">{customers.length}</span></button></nav><button className="logout-button" onClick={async () => { await logout(); navigate("/login", { replace: true }); }}><LogOut size={18} /> Log out</button></aside>
+    <aside className={`admin-sidebar ${sidebarOpen ? "open" : ""}`}><div className="sidebar-brand"><img className="sidebar-logo" src={logoImg} alt="AAFI Designs" /><div className="sidebar-brand-copy"><b>AAFI DESIGNS</b><small>ADMIN CONSOLE</small></div></div><nav><button className={view === "dashboard" ? "active" : ""} onClick={() => { setView("dashboard"); setSidebarOpen(false); }}><LayoutDashboard size={18} /> Dashboard</button><button className={view === "orders" ? "active" : ""} onClick={() => { setView("orders"); setSidebarOpen(false); }}><Package size={18} /> Orders <span className="nav-count">{counts.pending || 0}</span></button><button className={view === "customers" ? "active" : ""} onClick={() => { setView("customers"); setSidebarOpen(false); }}><Users size={18} /> Customers <span className="nav-count">{customers.length}</span></button></nav><button className="logout-button" onClick={async () => { await logout(); navigate("/login", { replace: true }); }}><LogOut size={18} /> Log out</button></aside>
     {sidebarOpen && <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />}
-    <main className="admin-main"><header className="admin-topbar"><button className="mobile-menu icon-button" onClick={() => setSidebarOpen(true)}><Menu size={21} /></button><div><p className="eyebrow">Operations / {view}</p><h1>{view === "dashboard" ? "Good morning, admin" : view === "customers" ? "Customer directory" : "Orders management"}</h1></div><div className="topbar-meta"><span className="live-dot" /> Live data <button className="avatar">A</button></div></header>
+    <main className="admin-main"><header className="admin-topbar"><div><p className="eyebrow">Operations / {view}</p><h1>{view === "dashboard" ? "Good morning, admin" : view === "customers" ? "Customer directory" : "Orders management"}</h1></div><div className="topbar-meta"><span className="live-dot" /> Live data <button className="avatar">A</button></div></header>
       {error && <div className="alert error"><AlertCircle size={17} />{error}<button onClick={() => setError("")}><X size={15} /></button></div>}{notice && <div className="alert success"><CheckCircle2 size={17} />{notice}</div>}
       {view === "dashboard" ? <Dashboard counts={counts} orders={orders} onViewOrders={() => setView("orders")} onSelect={setSelected} /> : view === "customers" ? <CustomersView customers={customers} /> : <OrdersView orders={filteredOrders} loading={loading} search={search} setSearch={setSearch} status={status} setStatus={setStatus} dateFilter={dateFilter} setDateFilter={setDateFilter} sort={sort} setSort={setSort} onSelect={setSelected} onStatus={changeStatus} />}
     </main><DetailModal order={selected} onClose={() => setSelected(null)} onStatus={(nextStatus) => changeStatus(selected, nextStatus)} />

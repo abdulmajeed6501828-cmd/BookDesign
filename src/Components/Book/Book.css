@@ -1912,3 +1912,85 @@
     font-size: 12px;
   }
 }
+
+
+/* ============================================================
+   BACK COVER ("Behind the Cover") — LARGER PHOTO
+   KEEP THIS BLOCK AT THE VERY END of the file.
+
+   The photo is about 16% bigger on every screen size. The extra
+   ".book-wrapper" in front makes these rules win over the styles
+   injected by Book.jsx. Nothing else on the cover changes (title,
+   text, ISBN box and the thin gold ring stay as they are).
+
+   TUNING: raise / lower the cqh / vw numbers
+     (e.g. desktop 20.4cqh -> 22cqh for a bigger photo).
+   ============================================================ */
+
+/* phones <= 767px */
+@media (max-width: 767px) {
+  .book-wrapper .book-cover.back-cover .bc-photo {
+    width: clamp(88px, 19.5vw, 106px) !important;
+    height: clamp(88px, 19.5vw, 106px) !important;
+  }
+}
+
+/* tablets 768 – 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .book-wrapper .book-cover.back-cover .bc-photo {
+    width: clamp(98px, 14vw, 120px) !important;
+    height: clamp(98px, 14vw, 120px) !important;
+  }
+}
+
+/* small phones <= 480px */
+@media (max-width: 480px) {
+  .book-wrapper .book-cover.back-cover .bc-photo {
+    width: clamp(74px, 21vw, 90px) !important;
+    height: clamp(74px, 21vw, 90px) !important;
+  }
+}
+
+/* tall phones */
+@media (max-width: 500px) and (min-height: 760px) {
+  .book-wrapper .book-cover.back-cover .bc-photo {
+    width: clamp(90px, 19.2cqh, 175px) !important;
+    height: clamp(90px, 19.2cqh, 175px) !important;
+  }
+}
+
+/* tall tablets */
+@media (min-width: 768px) and (max-width: 1023px) and (min-height: 760px) {
+  .book-wrapper .book-cover.back-cover .bc-photo {
+    width: clamp(104px, 19.2cqh, 195px) !important;
+    height: clamp(104px, 19.2cqh, 195px) !important;
+  }
+}
+
+/* DESKTOP >= 1024px (two-page book) */
+@media (min-width: 1024px) {
+  .book-wrapper .book-cover.back-cover .bc-photo {
+    width: clamp(74px, 20.4cqh, 195px) !important;
+    height: clamp(74px, 20.4cqh, 195px) !important;
+  }
+}
+
+/* tall single pages on wide screens (cover aspect below 0.68) */
+@media (min-width: 768px) {
+  @container (max-aspect-ratio: 68/100) {
+    .book-wrapper .book-cover.back-cover .bc-photo {
+      width: clamp(102px, 21cqh, 275px) !important;
+      height: clamp(102px, 21cqh, 275px) !important;
+    }
+  }
+}
+
+/* medium-tall desktop pages (aspect 0.68 – 0.74) */
+@media (min-width: 1024px) {
+  @container (min-aspect-ratio: 68/100) and (max-aspect-ratio: 74/100) {
+    .book-wrapper .book-cover.back-cover .bc-photo {
+      width: clamp(74px, 20.4cqh, 205px) !important;
+      height: clamp(74px, 20.4cqh, 205px) !important;
+    }
+  }
+}

@@ -9,6 +9,10 @@
      - tall pages: text grows instead of leaving big empty gaps
      - equal top / bottom padding
    (!important is used so global book/page styles can't override.)
+
+   CHANGE: the gap between the quote paragraph and the author name is
+   now the SAME in every card (--author-gap). The author block follows
+   the paragraph instead of being pinned to the bottom of the card.
    ============================================================ */
 
 .testimonials-page-container {
@@ -36,6 +40,9 @@
     --role: #555048;
     --tf: 1;
 
+    /* gap between the quote paragraph and the author name (same in every card) */
+    --author-gap: 12px;
+
     position: absolute;
     top: 0;
     left: 0;
@@ -44,7 +51,8 @@
 
     display: flex;
     flex-direction: column;
-    padding: 40px 0;                    /* equal top and bottom */
+    padding: 40px 0;
+    /* equal top and bottom */
 }
 
 /* ---------- DESKTOP ONLY (801px and above) ----------
@@ -52,7 +60,8 @@
    Phones and small tablets keep the original 40px. */
 @media (min-width: 801px) {
     .testimonials-artboard {
-        padding: 30px 0;                /* equal top and bottom */
+        padding: 30px 0;
+        /* equal top and bottom */
     }
 }
 
@@ -67,8 +76,15 @@
     flex-shrink: 0 !important;
 }
 
-.testimonials-header-left  { padding-left: 15.1% !important; padding-right: 0 !important; }
-.testimonials-header-right { padding-left: 0 !important;     padding-right: 15.1% !important; }
+.testimonials-header-left {
+    padding-left: 15.1% !important;
+    padding-right: 0 !important;
+}
+
+.testimonials-header-right {
+    padding-left: 0 !important;
+    padding-right: 15.1% !important;
+}
 
 .testimonials-title {
     margin: 0 !important;
@@ -95,11 +111,13 @@
     flex: 1 !important;
     min-height: 0 !important;
     width: 100% !important;
-    padding: 0 14.6% !important;        /* left page  */
+    padding: 0 14.6% !important;
+    /* left page  */
 }
 
 .testimonials-page-right .testimonials-grid {
-    padding: 0 15.1% 0 12.4% !important; /* right page */
+    padding: 0 15.1% 0 12.4% !important;
+    /* right page */
 }
 
 .testimonials-grid-row {
@@ -111,9 +129,11 @@
 }
 
 /* first row holds longer quotes -> a bit more height, like the reference */
-.testimonials-grid-row:first-child { flex-grow: 1.24 !important; }
+.testimonials-grid-row:first-child {
+    flex-grow: 1.24 !important;
+}
 
-.testimonials-grid-row + .testimonials-grid-row {
+.testimonials-grid-row+.testimonials-grid-row {
     border-top: 1px solid rgba(200, 185, 155, 0.35) !important;
     margin-top: 8px !important;
     padding-top: 10px !important;
@@ -175,7 +195,8 @@
 
 .testimonial-quote-text {
     display: block !important;
-    margin: 0 0 6px !important;
+    margin: 0 !important;
+    /* gap to the author = --author-gap */
     font-size: calc(9.6px * var(--tf)) !important;
     font-weight: 300 !important;
     line-height: 1.12 !important;
@@ -187,11 +208,12 @@
     line-height: 1.3 !important;
 }
 
-/* ---------- author (pinned to the bottom of every card) ---------- */
+/* ---------- author: sits a fixed gap under the paragraph (same in every card) ---------- */
 
 .testimonial-author-block {
-    margin-top: auto !important;
-    padding-top: 6px !important;
+    margin-top: var(--author-gap) !important;
+    /* was: auto (pinned to the bottom) */
+    padding-top: 0 !important;
     flex-shrink: 0 !important;
 }
 

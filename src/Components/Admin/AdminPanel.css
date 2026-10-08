@@ -253,7 +253,9 @@
   place-items: center;
   border: 0;
   border-radius: 50%;
-  color: #fff;
+  color: #ffffff !important;
+  line-height: 1;
+  text-align: center;
 }
 
 .avatar {
@@ -263,6 +265,7 @@
   background: #d97855;
   box-shadow: 0 5px 12px rgba(217, 120, 85, 0.25);
   font-weight: 700;
+  color: #ffffff !important;
 }
 
 .mobile-menu {
@@ -440,7 +443,7 @@
 }
 
 .order-id span,
-.customer-cell span,
+.customer-cell div span,
 .package-cell span,
 .amount-cell span {
   display: block;
@@ -469,12 +472,19 @@
 }
 
 .customer-avatar {
+  display: grid;
+  place-items: center;
   flex: 0 0 32px;
   width: 32px;
   height: 32px;
   background: #2d6b70;
-  font-size: 12px;
+  color: #ffffff !important;
+  font-size: 13px;
   font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  user-select: none;
 }
 
 .amount-cell b {
@@ -781,7 +791,7 @@
   white-space: nowrap;
 }
 
-.customer-card-header span,
+.customer-card-header div span,
 .customer-card-footer span,
 .customer-card p,
 .customer-card a {

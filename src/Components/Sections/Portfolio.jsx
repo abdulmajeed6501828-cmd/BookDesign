@@ -131,10 +131,16 @@ const COVER_RATIO = "2 / 3";
 
 // ============================================================
 // BOOK MODAL - SIMPLIFIED COVER-ONLY VERSION
+//
+// <<< NEW >>> The modal now receives currentIndex + allImages and
+// shows a counter ("1/36") at the top left, on the same line as
+// the X button at the top right.
 // ============================================================
 
 const BookModal = ({
   selectedImage,
+  currentIndex,
+  allImages,
   onClose,
   onPrev,
   onNext,
@@ -212,8 +218,38 @@ const BookModal = ({
             width: 24px !important;
             height: 24px !important;
           }
+          .portfolio-modal-counter {
+            top: 10px !important;
+            left: 10px !important;
+            font-size: 15px !important;
+            line-height: 24px !important;
+          }
         }
       `}</style>
+
+      {/* IMAGE COUNTER - TOP LEFT (same height as the X) */}
+      <div
+        className="portfolio-modal-counter"
+        style={{
+          position: "fixed",
+          top: "20px",
+          left: "24px",
+          zIndex: 100010,
+          padding: "12px",
+          color: "#ffffff",
+          fontFamily:
+            "'Helvetica Light', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+          fontSize: "20px",
+          fontWeight: 300,
+          letterSpacing: "1px",
+          lineHeight: "32px",
+          opacity: 0.9,
+          userSelect: "none",
+          pointerEvents: "none",
+        }}
+      >
+        {currentIndex + 1}/{allImages.length}
+      </div>
 
       {/* CLOSE BUTTON - TOP RIGHT OF THE ENTIRE SCREEN */}
       <button
